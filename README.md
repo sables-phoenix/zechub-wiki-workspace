@@ -2,7 +2,9 @@
 
 A desktop workspace front end for [zechub.wiki](https://zechub.wiki), built as a separate project from the ZEC Bounties redesign.
 
-Live preview: **TBD after deployment**
+Live preview: **https://zechub-wiki-workspace.vercel.app**
+
+Repository: **https://github.com/sables-phoenix/zechub-wiki-workspace**
 
 ## What it is
 

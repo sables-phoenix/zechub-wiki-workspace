@@ -10,10 +10,11 @@ export default function NotFound() {
         <ZcashMark className="h-12 w-12 text-gold" />
         <p className="eyebrow mt-6">404</p>
         <h1 className="mt-3 max-w-2xl text-5xl leading-[0.94] tracking-[-0.05em]">
-          This page is not on the shelf.
+          Page not found
         </h1>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-          The link may be old, or the page may have moved. The library is still open.
+          We could not find the page you were looking for. It may have been moved, renamed, or never
+          existed.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Button asChild>

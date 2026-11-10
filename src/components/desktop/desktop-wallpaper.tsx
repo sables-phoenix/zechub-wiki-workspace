@@ -36,13 +36,8 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
       >
         <DesktopClock />
         <h1 className="mt-5 max-w-[350px] font-display text-[clamp(2.2rem,3.2vw,3.4rem)] leading-[0.96] tracking-[-0.06em] text-vault-text">
-          Read Zcash.
-          <br />
-          <span className="text-gold">Build on it.</span>
+          ZecHub Wiki
         </h1>
-        <p className="mt-4 max-w-[320px] text-sm leading-relaxed text-vault-muted">
-          232 pages, 38 wallets, one calm library for the Zcash ecosystem.
-        </p>
 
         <div className="mt-6 grid grid-cols-3 gap-2">
           {[
@@ -58,12 +53,6 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
         </div>
 
         <PriceTicker variant="card" className="mt-3" />
-        <div className="mt-4 rounded-card border border-vault-line bg-vault-2/80 p-3">
-          <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-vault-muted">Try this</p>
-          <p className="mt-1 text-xs leading-relaxed text-vault-text">
-            Press <span className="font-mono text-gold">⌘K</span> to search every page.
-          </p>
-        </div>
 
         <div className="mt-4 flex items-center gap-3">
           <Button variant="primary" onClick={onOpen}>

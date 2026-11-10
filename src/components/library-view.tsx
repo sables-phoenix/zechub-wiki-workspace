@@ -134,7 +134,7 @@ export function LibraryView() {
 
         {results.length === 0 ? (
           <div className="mt-3 rounded-card border border-dashed border-line p-10 text-center">
-            <p className="font-display text-2xl tracking-[-0.03em]">Nothing on that shelf.</p>
+            <p className="font-display text-2xl tracking-[-0.03em]">No pages match that search.</p>
             <p className="mt-2 text-sm text-muted">Try a broader search or a different section.</p>
           </div>
         ) : (

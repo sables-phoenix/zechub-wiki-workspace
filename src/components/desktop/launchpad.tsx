@@ -56,9 +56,8 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-vault-muted">Launchpad</p>
-                <h2 className="mt-1 font-display text-4xl leading-none tracking-[-0.05em] text-vault-text">
-                  Every page. One desk.
+                <h2 className="font-display text-4xl leading-none tracking-[-0.05em] text-vault-text">
+                  Launchpad
                 </h2>
               </div>
               <div className="flex items-center gap-2">

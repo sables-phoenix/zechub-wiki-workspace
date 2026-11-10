@@ -1,0 +1,111 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { pagesForSection, searchPages } from "@/lib/pages";
+
+type SpotlightProps = {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onNavigate: (href: string) => void;
+};
+
+const quickLinks = [
+  { label: "Start Here", href: "/start-here" },
+  { label: "Wallets", href: "/wallets" },
+  { label: "Library", href: "/library" },
+  { label: "Network", href: "/network" },
+] as const;
+
+export function Spotlight({ open, onOpenChange, onNavigate }: SpotlightProps) {
+  const [query, setQuery] = useState("");
+
+  const results = useMemo(() => {
+    const value = query.trim();
+    if (!value) return pagesForSection("Start Here").slice(0, 6);
+    return searchPages(value, 24);
+  }, [query]);
+
+  const navigate = (href: string) => {
+    onOpenChange(false);
+    onNavigate(href);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="top-[12%] max-w-2xl translate-y-0 p-0">
+        <DialogHeader className="border-b border-line p-5">
+          <DialogTitle className="text-2xl">Search the wiki</DialogTitle>
+          <DialogDescription>232 pages across Zcash, wallets, privacy, and the ecosystem.</DialogDescription>
+        </DialogHeader>
+        <div className="border-b border-line p-4">
+          <div className="relative">
+            <MagnifierIcon
+              size={16}
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
+            />
+            <Input
+              autoFocus
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search pages, wallets, proofs, privacy..."
+              className="h-11 pl-9"
+              aria-label="Search the wiki"
+            />
+          </div>
+        </div>
+        <div className="max-h-[58vh] overflow-y-auto p-2 window-scroll">
+          {!query.trim() ? (
+            <div className="mb-2 flex flex-wrap gap-2 px-2 py-2">
+              {quickLinks.map((link) => (
+                <button
+                  key={link.href}
+                  type="button"
+                  onClick={() => navigate(link.href)}
+                  className="rounded-pill border border-line px-3 py-1.5 text-xs text-muted transition-colors hover:border-ink hover:text-ink"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          {results.length === 0 ? (
+            <p className="px-3 py-10 text-center text-sm text-muted">No pages match that search.</p>
+          ) : (
+            results.map((page) => (
+              <button
+                key={page.path}
+                type="button"
+                onClick={() => navigate(`/${page.path}`)}
+                className="flex w-full items-start gap-3 rounded-lg px-3 py-3 text-left transition-colors hover:bg-paper-2"
+              >
+                <span className="mt-0.5 flex w-14 shrink-0 items-center justify-center rounded-md border border-line bg-paper-2 px-1 py-1 font-mono text-[6px] uppercase tracking-[0.06em] text-muted">
+                  {page.section.split(" ")[0]}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate font-display text-lg leading-tight tracking-[-0.03em]">
+                    {page.title}
+                  </span>
+                  <span className="mt-0.5 block truncate text-xs text-muted">{page.description}</span>
+                </span>
+                <span className="flex shrink-0 items-center gap-2 pt-1 font-mono text-[8px] text-muted">
+                  {page.readingMinutes} min
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </button>
+            ))
+          )}
+        </div>
+        <div className="flex items-center justify-between border-t border-line px-4 py-2.5">
+          <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">
+            {query.trim() ? `${results.length} results` : "Start here"}
+          </span>
+          <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">Esc to close</span>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}

@@ -27,7 +27,7 @@ export function HomeView() {
             </div>
 
             <h1 className="mt-4 font-display text-3xl leading-[0.96] tracking-[-0.06em] md:text-5xl">
-              Welcome to ZecHub
+              Welcome to <span className="text-gold">ZecHub</span>
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-vault-muted md:text-base">
               ZecHub is the community-driven education hub for Zcash (ZEC), a decentralized digital currency

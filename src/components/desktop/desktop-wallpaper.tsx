@@ -23,7 +23,7 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
           alt=""
           width={560}
           height={560}
-          className="h-auto w-full"
+          className="h-auto w-full invert dark:invert-0"
         />
       </div>
 

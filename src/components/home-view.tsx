@@ -19,7 +19,7 @@ export function HomeView() {
                 alt="ZecHub"
                 width={38}
                 height={38}
-                className="h-[38px] w-[38px]"
+                className="h-[38px] w-[38px] invert dark:invert-0"
               />
               <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-vault-muted">
                 An open source education hub for Zcash
@@ -27,7 +27,7 @@ export function HomeView() {
             </div>
 
             <h1 className="mt-4 font-display text-3xl leading-[0.96] tracking-[-0.06em] md:text-5xl">
-              Welcome to <span className="text-gold">ZecHub</span>
+              Welcome to <span className="text-gold-deep">ZecHub</span>
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-vault-muted md:text-base">
               ZecHub is the community-driven education hub for Zcash (ZEC), a decentralized digital currency

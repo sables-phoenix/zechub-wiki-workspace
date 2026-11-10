@@ -112,7 +112,7 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
           alt=""
           width={18}
           height={18}
-          className="h-[18px] w-[18px] rounded-full"
+          className="h-[18px] w-[18px] rounded-full invert dark:invert-0"
         />
         ZecHub
       </button>
@@ -132,7 +132,7 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
         <button
           type="button"
           onClick={onSpotlight}
-          className="flex h-6 items-center gap-1.5 rounded-md px-2 text-vault-muted transition-colors hover:bg-white/10 hover:text-vault-text"
+          className="flex h-6 items-center gap-1.5 rounded-md px-2 text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text"
         >
           <MagnifierIcon size={12} />
           <span className="hidden sm:inline">Search</span>
@@ -206,7 +206,7 @@ function MenuButton({
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="rounded px-1.5 py-1 text-vault-muted transition-colors hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-white/10 data-[state=open]:text-vault-text"
+          className="rounded px-1.5 py-1 text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-black/5 dark:data-[state=open]:bg-white/10 data-[state=open]:text-vault-text"
         >
           {label}
         </button>
@@ -237,7 +237,7 @@ function LanguageMenu() {
         <button
           type="button"
           aria-label="Language"
-          className="hidden h-6 items-center gap-1.5 rounded-md px-1.5 text-vault-muted transition-colors hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-white/10 data-[state=open]:text-vault-text sm:flex"
+          className="hidden h-6 items-center gap-1.5 rounded-md px-1.5 text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-black/5 dark:data-[state=open]:bg-white/10 data-[state=open]:text-vault-text sm:flex"
         >
           <Globe2 className="h-3.5 w-3.5" />
           <span className="font-mono text-[8px] uppercase tracking-[0.08em]">EN</span>
@@ -285,7 +285,7 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
         <button
           type="button"
           aria-label="Control Center"
-          className="flex h-6 w-6 items-center justify-center rounded-md text-vault-muted transition-colors hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-white/10 data-[state=open]:text-vault-text"
+          className="flex h-6 w-6 items-center justify-center rounded-md text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-black/5 dark:data-[state=open]:bg-white/10 data-[state=open]:text-vault-text"
         >
           <PaintIcon size={14} className="h-3.5 w-3.5" />
         </button>

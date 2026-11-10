@@ -16,7 +16,7 @@ ZecHub Wiki is a large, community-maintained Zcash education site. This project 
 - 232 English wiki pages mirrored from the site's public markdown endpoints.
 - 38 wallets from the ZecHub wallet matrix, with device, pool, NU7, rating, beta, and deprecated state.
 - Live ZEC price and chain metrics from the ZecHub APIs.
-- Day, Night, and System themes.
+- Paper, Vault, and System themes, using the same palette and fonts as the ZEC Bounties workspace.
 
 ## Run
 

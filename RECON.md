@@ -80,15 +80,17 @@ Four top-level pages are custom apps, not markdown: `/wallets`, `/dashboard`, `/
 
 Working name: **ZecHub Field Guide**.
 
-A Mac-style desktop workspace for the wiki. The desktop is a dark navy library. The windows are cool paper reading surfaces. The brand accent is Zcash yellow. Cyan and blue are secondary, used for links and live data.
+A Mac-style desktop workspace for the wiki, using the Paper Ledger design system from the ZEC Bounties workspace. The desktop is the warm vault. The windows are warm paper reading surfaces. The accents are gold, rust, green, and slate. The type is Fraunces, Geist, and Geist Mono.
+
+The home page is a single welcome card. The dock, Launchpad, and Spotlight carry discovery so the home does not repeat the whole directory.
 
 - Menu bar: wiki menus, search, live ZEC price, language, control center, local clock.
 - Dock: Home, Start Here, Wallets, Use Zcash, Learn, Build, Ecosystem, Library, Launchpad.
 - Windows: each route becomes a window. Traffic lights minimize, close, and maximize.
 - Launchpad: every app and a page directory.
 - Spotlight: command search across all 232 pages.
-- Control Center: Day, Night, System, language, data source, source link.
-- Desktop wallpaper: 3D ZecHub wordmark, live clock, ZEC price, shielded share, Resume reading.
+- Control Center: Paper, Vault, System, language, data source, source link.
+- Desktop wallpaper: ZecHub mark, live clock, ZEC price, shielded share, Resume reading.
 - Article reader: section sidebar, readable body, table of contents, source link, previous and next.
 - Wallets: real 38-wallet matrix with device, pool, NU7, search, and sort.
 - Network: live price, market cap, circulation, shielded value, blocks, 24h transactions.

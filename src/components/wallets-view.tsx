@@ -103,7 +103,7 @@ export function WalletsView() {
       />
 
       <div className="container-page py-8 md:py-10">
-        <div className="rounded-card border border-line bg-paper p-4 md:p-5">
+        <div className="rounded-card border border-line bg-paper p-4 shadow-stamp md:p-5">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-3 md:flex-row md:items-center">
               <div className="relative flex-1">
@@ -182,7 +182,7 @@ export function WalletsView() {
           </div>
         )}
 
-        <section className="mt-10 rounded-card border border-rust/40 bg-rust/5 p-5">
+        <section className="mt-10 rounded-card border border-rust/40 bg-rust/5 p-5 shadow-stamp">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-rust">Do not use</p>
@@ -208,7 +208,7 @@ export function WalletsView() {
             href={walletSourceUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-blue underline underline-offset-4"
+            className="text-gold-deep underline underline-offset-4"
           >
             zechub.wiki/wallets
           </a>
@@ -259,11 +259,11 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
   return (
     <article
       className={cn(
-        "flex h-full flex-col overflow-hidden rounded-card border border-line bg-paper",
+        "flex h-full flex-col overflow-hidden rounded-card border border-line bg-paper shadow-stamp",
         deprecated && "opacity-80",
       )}
     >
-      <div className="flex h-32 items-center justify-center bg-[#f7f9fc] p-5">
+      <div className="flex h-32 items-center justify-center bg-[#fffdf7] p-5">
         {wallet.image ? (
           <img
             src={wallet.image}
@@ -274,7 +274,7 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
             className="max-h-20 w-full object-contain"
           />
         ) : (
-          <span className="font-display text-3xl text-[#0a1220]">{wallet.name.slice(0, 1)}</span>
+          <span className="font-display text-3xl text-[#14130f]">{wallet.name.slice(0, 1)}</span>
         )}
       </div>
       <div className="flex flex-1 flex-col p-4">

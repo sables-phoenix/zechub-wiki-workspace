@@ -96,7 +96,7 @@ export default function EcosystemPage() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="rounded-card border border-vault-line bg-vault p-5 text-vault-text">
+            <div className="rounded-card border border-vault-line bg-vault p-5 text-vault-text shadow-stamp">
               <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Community hubs</p>
               <div className="mt-3 space-y-2">
                 {[
@@ -118,7 +118,7 @@ export default function EcosystemPage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-card border border-line bg-paper-2 p-5">
+            <div className="rounded-card border border-line bg-paper-2 p-5 shadow-stamp">
               <p className="eyebrow">ZFAV Club</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 Guides for creators, broadcasters, and archivists who tell the Zcash story.
@@ -128,7 +128,7 @@ export default function EcosystemPage() {
                   <Link
                     key={page.path}
                     href={`/${page.path}`}
-                    className="text-xs text-blue underline decoration-line underline-offset-4 hover:decoration-blue"
+                    className="text-xs text-gold-deep underline decoration-line underline-offset-4 hover:decoration-gold-deep"
                   >
                     {page.title}
                   </Link>

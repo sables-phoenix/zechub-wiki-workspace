@@ -69,7 +69,7 @@ export default function StartHerePage() {
             <Link
               key={step.number}
               href={step.href}
-              className="group rounded-card border border-line bg-paper p-5 transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
+              className="group rounded-card border border-line bg-paper p-5 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
             >
               <div className="flex items-start justify-between gap-2">
                 <span className="font-mono text-[10px] tracking-[0.12em] text-gold-deep">{step.number}</span>

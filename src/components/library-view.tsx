@@ -78,7 +78,7 @@ export function LibraryView() {
       />
 
       <div className="container-page py-8 md:py-10">
-        <div className="rounded-card border border-line bg-paper p-4 md:p-5">
+        <div className="rounded-card border border-line bg-paper p-4 shadow-stamp md:p-5">
           <div className="relative">
             <MagnifierIcon
               size={16}

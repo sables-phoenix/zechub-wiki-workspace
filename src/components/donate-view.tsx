@@ -47,7 +47,7 @@ export function DonateView() {
       />
 
       <div className="container-page grid gap-6 py-8 md:py-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
-        <section className="rounded-card border border-line bg-paper p-5 md:p-6">
+        <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
           <p className="eyebrow">Choose a chain</p>
           <div className="mt-3 flex flex-wrap gap-1.5">
             {donationAddresses.map((item) => (
@@ -95,7 +95,7 @@ export function DonateView() {
         </section>
 
         <aside className="space-y-4">
-          <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text">
+          <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
             <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Where it goes</p>
             <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">
               Education has a cost.
@@ -110,7 +110,7 @@ export function DonateView() {
               Every donation is public on-chain.
             </p>
           </div>
-          <div className="rounded-card border border-line bg-paper p-5">
+          <div className="rounded-card border border-line bg-paper p-5 shadow-stamp">
             <p className="eyebrow">Prefer to contribute?</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Write a guide, fix a typo, translate a page, or review a pull request.

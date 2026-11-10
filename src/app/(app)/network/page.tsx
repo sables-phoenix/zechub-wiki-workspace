@@ -52,7 +52,7 @@ export default async function NetworkPage() {
             { label: "Block height", value: formatNumber(network.blocks), detail: "mainnet" },
             { label: "Transactions (24h)", value: formatNumber(network.transactions24h), detail: "all pools" },
           ].map((item) => (
-            <div key={item.label} className="rounded-card border border-line bg-paper p-5">
+            <div key={item.label} className="rounded-card border border-line bg-paper p-5 shadow-stamp">
               <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">{item.label}</p>
               <p className="mt-3 font-display text-4xl leading-none tracking-[-0.05em]">{item.value}</p>
               <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.08em] text-muted">{item.detail}</p>
@@ -60,7 +60,7 @@ export default async function NetworkPage() {
           ))}
         </div>
 
-        <section className="rounded-card border border-line bg-paper p-6 md:p-8">
+        <section className="rounded-card border border-line bg-paper p-6 shadow-stamp md:p-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow">Shielded share</p>
@@ -90,7 +90,7 @@ export default async function NetworkPage() {
         </section>
 
         <section className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text">
+          <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
             <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Read the source</p>
             <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">
               The dashboard has the charts.
@@ -110,7 +110,7 @@ export default async function NetworkPage() {
               </Button>
             </div>
           </div>
-          <div className="rounded-card border border-line bg-paper-2 p-6">
+          <div className="rounded-card border border-line bg-paper-2 p-6 shadow-stamp">
             <p className="eyebrow">Data notes</p>
             <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
               <li>Price and market cap come from the ZecHub price API.</li>

@@ -13,7 +13,7 @@ export function PageCard({ page, className }: PageCardProps) {
     <Link
       href={`/${page.path}`}
       className={cn(
-        "group flex h-full min-w-0 flex-col rounded-card border border-line bg-paper p-4 transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2",
+        "group flex h-full min-w-0 flex-col rounded-card border border-line bg-paper p-4 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2",
         className,
       )}
     >

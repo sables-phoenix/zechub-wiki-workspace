@@ -11,7 +11,7 @@ type SectionHeroProps = {
 export function SectionHero({ eyebrow, title, description, actions, meta }: SectionHeroProps) {
   return (
     <div className="container-page pt-7">
-      <section className="rounded-card border border-line bg-paper p-6 md:p-8">
+      <section className="rounded-card border border-line bg-paper p-6 shadow-stamp md:p-8">
         <p className="eyebrow">{eyebrow}</p>
         <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">

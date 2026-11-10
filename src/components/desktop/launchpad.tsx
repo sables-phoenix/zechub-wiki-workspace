@@ -90,7 +90,7 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
                   onClick={() => navigate(app.href)}
                   className="group flex flex-col items-center gap-2"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-[15px] border border-black/15 bg-[#f7f9fc] text-[#0a1220] shadow-[0_10px_24px_rgba(0,0,0,.35)] transition-transform duration-150 group-hover:-translate-y-1 md:h-16 md:w-16">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-[15px] border border-black/15 bg-[#fffdf7] text-[#14130f] shadow-[0_10px_24px_rgba(0,0,0,.35)] transition-transform duration-150 group-hover:-translate-y-1 md:h-16 md:w-16">
                     <AppIcon kind={app.id} className="h-6 w-6 md:h-7 md:w-7" />
                   </span>
                   <span className="text-center text-[10px] text-vault-muted transition-colors group-hover:text-vault-text">

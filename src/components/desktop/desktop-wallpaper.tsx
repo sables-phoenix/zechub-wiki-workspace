@@ -15,16 +15,15 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden bg-vault">
       <div className="desktop-grid absolute inset-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(86,214,255,0.08),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_18%,rgba(244,183,40,0.08),transparent_55%)]" />
       <ZcashMark className="absolute -right-[5%] top-[6%] h-[50vw] max-h-[640px] max-w-[640px] text-gold opacity-[0.1]" />
-      <div className="absolute bottom-[-4%] right-[-8%] w-[72%] max-w-[1180px] opacity-25 mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,black_28%,transparent_76%)]">
+      <div className="absolute -right-[10%] bottom-[-12%] w-[44%] max-w-[560px] opacity-[0.06]">
         <Image
-          src="/brand/hero-dark.png"
+          src="/brand/zechub-logo-white.png"
           alt=""
-          width={2000}
-          height={500}
+          width={560}
+          height={560}
           className="h-auto w-full"
-          priority={false}
         />
       </div>
 
@@ -59,6 +58,12 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
         </div>
 
         <PriceTicker variant="card" className="mt-3" />
+        <div className="mt-4 rounded-card border border-vault-line bg-vault-2/80 p-3">
+          <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-vault-muted">Try this</p>
+          <p className="mt-1 text-xs leading-relaxed text-vault-text">
+            Press <span className="font-mono text-gold">⌘K</span> to search every page.
+          </p>
+        </div>
 
         <div className="mt-4 flex items-center gap-3">
           <Button variant="primary" onClick={onOpen}>

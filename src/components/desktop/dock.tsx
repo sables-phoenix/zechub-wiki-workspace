@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AppIcon } from "@/components/desktop/app-icon";
 import { cn } from "@/lib/utils";
@@ -39,18 +38,8 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
               className="group flex w-12 flex-col items-center gap-1"
               aria-label={`Open ${app.label}`}
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/15 bg-[#f7f9fc] text-[#0a1220] transition-transform duration-150 group-hover:-translate-y-1 group-hover:shadow-[0_8px_18px_rgba(0,0,0,.35)]">
-                {app.id === "home" ? (
-                  <Image
-                    src="/brand/zechub-blue.png"
-                    alt=""
-                    width={22}
-                    height={22}
-                    className="h-[22px] w-[22px] rounded-full"
-                  />
-                ) : (
-                  <AppIcon kind={app.id} className="h-4 w-4" />
-                )}
+              <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/15 bg-[#fffdf7] text-[#14130f] transition-transform duration-150 group-hover:-translate-y-1 group-hover:shadow-[0_8px_18px_rgba(0,0,0,.35)]">
+                <AppIcon kind={app.id} className="h-4 w-4" />
               </span>
               <span className="text-[7px] text-vault-muted transition-colors group-hover:text-vault-text">
                 {app.dockLabel}
@@ -70,7 +59,7 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             className="group flex w-12 flex-col items-center gap-1"
             aria-label="Open Launchpad"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/15 bg-[#f7f9fc] text-[#0a1220] transition-transform duration-150 group-hover:-translate-y-1 group-hover:shadow-[0_8px_18px_rgba(0,0,0,.35)]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/15 bg-[#fffdf7] text-[#14130f] transition-transform duration-150 group-hover:-translate-y-1 group-hover:shadow-[0_8px_18px_rgba(0,0,0,.35)]">
               <AppIcon kind="launchpad" className="h-4 w-4" />
             </span>
             <span className="text-[7px] text-vault-muted transition-colors group-hover:text-vault-text">
@@ -93,18 +82,8 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             className="flex w-14 flex-col items-center gap-1"
             aria-label={`Open ${app.label}`}
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 bg-[#f7f9fc] text-[#0a1220]">
-              {app.id === "home" ? (
-                <Image
-                  src="/brand/zechub-blue.png"
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="h-5 w-5 rounded-full"
-                />
-              ) : (
-                <AppIcon kind={app.id} className="h-4 w-4" />
-              )}
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 bg-[#fffdf7] text-[#14130f]">
+              <AppIcon kind={app.id} className="h-4 w-4" />
             </span>
             <span className={cn("text-[9px]", activeId === app.id ? "text-vault-text" : "text-vault-muted")}>
               {app.dockLabel}
@@ -118,7 +97,7 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
           className="flex w-14 flex-col items-center gap-1"
           aria-label="Open Launchpad"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 bg-[#f7f9fc] text-[#0a1220]">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 bg-[#fffdf7] text-[#14130f]">
             <AppIcon kind="launchpad" className="h-4 w-4" />
           </span>
           <span className="text-[9px] text-vault-muted">More</span>

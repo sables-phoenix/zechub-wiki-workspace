@@ -86,7 +86,7 @@ export default function LearnPage() {
             <Link
               key={track.title}
               href={track.href}
-              className="group rounded-card border border-line bg-paper p-5 transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
+              className="group rounded-card border border-line bg-paper p-5 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold-deep">Track</span>
@@ -136,13 +136,13 @@ export default function LearnPage() {
                 <PageCard key={page.path} page={page} />
               ))}
             </div>
-            <div className="mt-3 rounded-card border border-line bg-paper-2 p-4">
+            <div className="mt-3 rounded-card border border-line bg-paper-2 p-4 shadow-stamp">
               <p className="text-sm text-muted">
                 The full glossary, FAQs, and every tech page live in the library.
               </p>
               <Link
                 href="/library"
-                className="mt-2 inline-flex text-xs text-blue underline underline-offset-4"
+                className="mt-2 inline-flex text-xs text-gold-deep underline underline-offset-4"
               >
                 Browse all pages
               </Link>

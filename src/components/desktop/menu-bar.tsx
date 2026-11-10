@@ -274,8 +274,8 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
   }, []);
 
   const options = [
-    { value: "light", label: "Day", icon: SunIcon },
-    { value: "dark", label: "Night", icon: MoonIcon },
+    { value: "light", label: "Paper", icon: SunIcon },
+    { value: "dark", label: "Vault", icon: MoonIcon },
     { value: "system", label: "System", icon: Monitor },
   ] as const;
 

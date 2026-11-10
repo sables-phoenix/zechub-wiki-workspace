@@ -4,24 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill border font-medium transition-[background-color,color,border-color,transform] duration-150 ease-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill border text-sm font-medium transition-[transform,box-shadow,background-color,color] duration-150 ease-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         primary:
-          "border-gold bg-gold text-gold-ink hover:border-[#ffc947] hover:bg-[#ffc947] active:translate-y-px",
+          "border-ink bg-gold text-gold-ink shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
         secondary:
-          "border-line bg-paper text-ink hover:border-ink/30 hover:bg-paper-2 active:translate-y-px",
+          "border-ink bg-paper text-ink shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
         dark:
-          "border-vault-line bg-vault-2 text-vault-text hover:border-vault-muted/40 hover:bg-vault-line active:translate-y-px",
+          "border-vault bg-vault text-vault-text shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
         ghost: "border-transparent bg-transparent text-ink hover:bg-paper-2",
-        danger: "border-rust bg-rust text-white hover:opacity-90 active:translate-y-px",
-        link: "h-auto border-transparent bg-transparent p-0 text-blue underline-offset-4 hover:underline",
+        danger:
+          "border-rust bg-rust text-white shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
+        link: "h-auto border-transparent bg-transparent p-0 text-ink underline-offset-4 hover:underline",
       },
       size: {
         sm: "h-9 px-4 text-xs",
-        md: "h-11 px-5 text-sm",
-        lg: "h-12 px-6 text-base",
+        md: "h-12 px-5",
+        lg: "h-14 px-7 text-base",
         icon: "h-10 w-10 p-0",
       },
     },

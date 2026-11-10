@@ -76,7 +76,7 @@ export default function ContributePage() {
                 href={path.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group rounded-card border border-line bg-paper p-5 transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
+                className="group rounded-card border border-line bg-paper p-5 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
               >
                 <div className="flex items-start justify-between gap-2">
                   <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold-deep">Path</span>
@@ -89,7 +89,7 @@ export default function ContributePage() {
               <Link
                 key={path.title}
                 href={path.href}
-                className="group rounded-card border border-line bg-paper p-5 transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
+                className="group rounded-card border border-line bg-paper p-5 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
               >
                 <div className="flex items-start justify-between gap-2">
                   <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold-deep">Path</span>
@@ -125,7 +125,7 @@ export default function ContributePage() {
           </div>
         </section>
 
-        <section className="rounded-card border border-vault-line bg-vault p-6 text-vault-text md:p-8">
+        <section className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp md:p-8">
           <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-vault-muted">The loop</p>
           <h2 className="mt-2 font-display text-3xl leading-none tracking-[-0.04em]">
             Fork. Write. Review. Ship.

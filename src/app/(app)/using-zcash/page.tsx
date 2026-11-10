@@ -122,7 +122,7 @@ export default function UsingZcashPage() {
           </section>
         ))}
 
-        <section className="flex flex-col gap-5 rounded-card border border-line bg-paper-2 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <section className="flex flex-col gap-5 rounded-card border border-line bg-paper-2 p-6 shadow-stamp sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="eyebrow">Need the whole shelf?</p>
             <h2 className="mt-1 text-2xl leading-tight tracking-[-0.04em]">

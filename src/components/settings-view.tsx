@@ -39,8 +39,8 @@ export function SettingsView() {
   const mounted = useMounted();
 
   const options = [
-    { value: "light", label: "Day", icon: SunIcon },
-    { value: "dark", label: "Night", icon: MoonIcon },
+    { value: "light", label: "Paper", icon: SunIcon },
+    { value: "dark", label: "Vault", icon: MoonIcon },
     { value: "system", label: "System", icon: Monitor },
   ] as const;
 
@@ -68,7 +68,7 @@ export function SettingsView() {
       />
 
       <div className="container-page grid gap-6 py-8 md:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
-        <section className="rounded-card border border-line bg-paper p-5 md:p-6">
+        <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
           <p className="eyebrow">Appearance</p>
           <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">Theme</h2>
           <div className="mt-4 grid gap-2">
@@ -97,11 +97,11 @@ export function SettingsView() {
             })}
           </div>
           <p className="mt-4 text-xs leading-relaxed text-muted">
-            Day gives you paper windows. Night keeps the whole desk dark. System follows your device.
+            Paper gives you paper windows. Vault keeps the whole desk dark. System follows your device.
           </p>
         </section>
 
-        <section className="rounded-card border border-line bg-paper p-5 md:p-6">
+        <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
           <div className="flex items-end justify-between gap-3">
             <div>
               <p className="eyebrow">Languages</p>
@@ -130,7 +130,7 @@ export function SettingsView() {
           </div>
         </section>
 
-        <section className="rounded-card border border-line bg-paper p-5 md:p-6 lg:col-span-2">
+        <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6 lg:col-span-2">
           <p className="eyebrow">Data & source</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             <div className="rounded-card border border-line bg-paper-2 p-4">

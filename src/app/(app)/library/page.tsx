@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { LibraryView } from "@/components/library-view";
 
 export const metadata: Metadata = {
-  title: "Library",
-  description: "Every ZecHub Wiki page in one searchable library.",
+  title: "Site Navigation",
+  description: "Browse the complete hierarchy of guides, tutorials, research, developer documentation, and ecosystem resources on ZecHub.",
 };
 
 export default function LibraryPage() {

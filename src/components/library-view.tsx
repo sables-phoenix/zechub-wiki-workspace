@@ -49,9 +49,9 @@ export function LibraryView() {
   return (
     <>
       <SectionHero
-        eyebrow="Library"
-        title="The whole wiki, one shelf."
-        description="232 English pages, about 237,000 words. Search by title, filter by section, or read every page in place."
+        eyebrow="Site Navigation"
+        title="Site Navigation"
+        description="Browse the complete hierarchy of guides, tutorials, research, developer documentation, and ecosystem resources on ZecHub."
         actions={
           <>
             <Link
@@ -64,7 +64,7 @@ export function LibraryView() {
               href="/network"
               className="inline-flex h-11 items-center rounded-pill border border-line bg-paper px-5 text-sm text-ink transition-colors hover:bg-paper-2"
             >
-              Network
+              Dashboard
             </Link>
           </>
         }

@@ -48,8 +48,8 @@ export function SettingsView() {
     <>
       <SectionHero
         eyebrow="Settings"
-        title="Make it yours."
-        description="Choose a theme, jump to another language edition, or read where the data comes from."
+        title="Settings"
+        description="Theme, language, and data settings for the workspace."
         actions={
           <Button asChild variant="secondary">
             <a href="https://github.com/ZecHub/zechub" target="_blank" rel="noreferrer">
@@ -105,7 +105,7 @@ export function SettingsView() {
           <div className="flex items-end justify-between gap-3">
             <div>
               <p className="eyebrow">Languages</p>
-              <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">Read in your language.</h2>
+              <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">Languages</h2>
             </div>
             <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">zechub.wiki</span>
           </div>

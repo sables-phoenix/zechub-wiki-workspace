@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { getPage, pagesForSection, type PageMeta } from "@/lib/pages";
 
 export const metadata: Metadata = {
-  title: "Learn",
-  description: "Zcash technology, zero-knowledge proofs, and the ideas behind private cash.",
+  title: "Zcash Tech",
+  description:
+    "Technical specifications, cryptography, zero-knowledge proofs (zk-SNARKs), and protocol architecture of Zcash.",
 };
 
 const pick = (paths: readonly string[]): readonly PageMeta[] =>
@@ -36,7 +37,7 @@ const referencePages = pick(["glossary-and-faqs/faq", "glossary-and-faqs/zcash-l
 const tracks = [
   {
     title: "Zcash Tech",
-    copy: "Proofs, pools, upgrades, nodes, and the protocol.",
+    copy: "Inside the Technology Powering Zcash",
     count: pagesForSection("Zcash Tech").length,
     href: "/learn",
   },
@@ -48,7 +49,7 @@ const tracks = [
   },
   {
     title: "Glossary & FAQs",
-    copy: "Definitions, common questions, and straight answers.",
+    copy: "Definitions, answers, clarity.",
     count: pagesForSection("Glossary & FAQs").length,
     href: "/glossary-and-faqs/faq",
   },
@@ -58,9 +59,9 @@ export default function LearnPage() {
   return (
     <>
       <SectionHero
-        eyebrow="Learn"
-        title="Understand the machine behind private cash."
-        description="Start with a proof, a pool, or a plain-language definition. The tech track goes deep without leaving the reader behind."
+        eyebrow="Inside the Technology Powering Zcash"
+        title="Zcash Tech"
+        description="Technical specifications, cryptography, zero-knowledge proofs (zk-SNARKs), and protocol architecture of Zcash."
         actions={
           <>
             <Button asChild>
@@ -89,7 +90,7 @@ export default function LearnPage() {
               className="group rounded-card border border-line bg-paper p-5 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold-deep">Track</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold-deep">Section</span>
                 <span className="font-mono text-[9px] text-muted">{track.count} pages</span>
               </div>
               <h2 className="mt-7 font-display text-2xl leading-none tracking-[-0.04em]">{track.title}</h2>
@@ -101,8 +102,11 @@ export default function LearnPage() {
         <section>
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="eyebrow">Zcash Tech</p>
-              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Inside the protocol.</h2>
+              <p className="eyebrow">Section</p>
+              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Zcash Tech</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+                Inside the Technology Powering Zcash
+              </p>
             </div>
             <Link
               href="/library"
@@ -120,8 +124,11 @@ export default function LearnPage() {
 
         <section className="grid gap-8 lg:grid-cols-2">
           <div>
-            <p className="eyebrow">Zero to Zero Knowledge</p>
-            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Start from zero.</h2>
+            <p className="eyebrow">Section</p>
+            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Zero to Zero Knowledge</h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+              A short series on the ideas behind private digital cash.
+            </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {zeroPages.map((page) => (
                 <PageCard key={page.path} page={page} />
@@ -129,23 +136,13 @@ export default function LearnPage() {
             </div>
           </div>
           <div>
-            <p className="eyebrow">Reference</p>
-            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Look it up.</h2>
+            <p className="eyebrow">Section</p>
+            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Glossary & FAQs</h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">Definitions, answers, clarity.</p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {referencePages.map((page) => (
                 <PageCard key={page.path} page={page} />
               ))}
-            </div>
-            <div className="mt-3 rounded-card border border-line bg-paper-2 p-4 shadow-stamp">
-              <p className="text-sm text-muted">
-                The full glossary, FAQs, and every tech page live in the library.
-              </p>
-              <Link
-                href="/library"
-                className="mt-2 inline-flex text-xs text-gold-deep underline underline-offset-4"
-              >
-                Browse all pages
-              </Link>
             </div>
           </div>
         </section>

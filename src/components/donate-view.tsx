@@ -27,9 +27,9 @@ export function DonateView() {
   return (
     <>
       <SectionHero
-        eyebrow="Donate"
-        title="Keep the wiki open."
-        description="ZecHub is community-funded education. Donations pay for guides, translations, bounties, and the infrastructure that keeps the library online."
+        eyebrow="Donate to ZecHub"
+        title="Donate to ZecHub"
+        description="Support ZecHub's open-source mission to provide unbiased, global educational materials and tutorials for the Zcash ecosystem."
         actions={
           <Button asChild variant="secondary">
             <a href={donationSourceUrl} target="_blank" rel="noreferrer">
@@ -96,25 +96,9 @@ export function DonateView() {
 
         <aside className="space-y-4">
           <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
-            <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Where it goes</p>
-            <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">
-              Education has a cost.
-            </h2>
-            <ul className="mt-4 space-y-2 text-sm leading-relaxed text-vault-muted">
-              <li>Writer and reviewer bounties</li>
-              <li>Translation into 19 languages</li>
-              <li>Visualizers and open tooling</li>
-              <li>Hosting and infrastructure</li>
-            </ul>
-            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.1em] text-vault-muted">
-              Every donation is public on-chain.
-            </p>
-          </div>
-          <div className="rounded-card border border-line bg-paper p-5 shadow-stamp">
-            <p className="eyebrow">Prefer to contribute?</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              Write a guide, fix a typo, translate a page, or review a pull request.
-            </p>
+            <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Contribute</p>
+            <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">Help Build ZecHub</h2>
+            <p className="mt-3 text-sm leading-relaxed text-vault-muted">Write · Translate · Design · Develop</p>
             <Button asChild variant="secondary" className="mt-4 w-full">
               <Link href="/contribute">Contribute to ZecHub</Link>
             </Button>

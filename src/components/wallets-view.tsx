@@ -82,8 +82,8 @@ export function WalletsView() {
     <>
       <SectionHero
         eyebrow="Wallets"
-        title="Pick a wallet that matches your privacy."
-        description="Thirty-eight wallets, compared by device, shielded pool, and NU7 readiness. The matrix is compiled from the ZecHub wallet page."
+        title="Wallets"
+        description="Find and compare secure Zcash wallets supporting shielded addresses, unified addresses, and privacy features on mobile, desktop, and hardware devices."
         actions={
           <Button asChild variant="secondary">
             <a href={walletSourceUrl} target="_blank" rel="noreferrer">

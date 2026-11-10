@@ -7,7 +7,7 @@ import { getPage, pagesForSection, type PageMeta } from "@/lib/pages";
 
 export const metadata: Metadata = {
   title: "Using Zcash",
-  description: "Buy, send, shield, and spend ZEC with the ZecHub wiki.",
+  description: "Learn how to use Zcash for private digital payments, explore wallets, exchanges, and shielded transactions.",
 };
 
 const pick = (paths: readonly string[]): readonly PageMeta[] =>
@@ -15,48 +15,22 @@ const pick = (paths: readonly string[]): readonly PageMeta[] =>
 
 const groups = [
   {
-    id: "get",
-    title: "Get ZEC",
-    copy: "Exchanges, swaps, faucets, and mining.",
+    id: "using-zcash",
+    title: "Using Zcash",
+    copy: "Learn how to use Zcash for private digital payments, explore wallets, exchanges, and shielded transactions.",
     pages: pick([
       "using-zcash/buying-zec",
       "using-zcash/custodial-exchanges",
       "using-zcash/non-custodial-exchanges",
-      "using-zcash/decentralized-exchanges",
+      "using-zcash/dex",
       "using-zcash/faucets",
       "using-zcash/zcash-mining-guide",
     ]),
   },
   {
-    id: "transact",
-    title: "Transact",
-    copy: "Addresses, memos, transactions, and recovery.",
-    pages: pick([
-      "using-zcash/transactions",
-      "using-zcash/memos",
-      "using-zcash/unified-addresses",
-      "using-zcash/payment-request-uris",
-      "using-zcash/recovering-funds",
-      "using-zcash/shielded-pools",
-    ]),
-  },
-  {
-    id: "protect",
-    title: "Protect",
-    copy: "The privacy tools around the payment.",
-    pages: pick([
-      "privacy-tools/why-privacy-matters",
-      "privacy-tools/web-browsers",
-      "privacy-tools/secure-messengers",
-      "privacy-tools/vpn-and-dvpn",
-      "privacy-tools/pgp-encryption",
-      "privacy-tools/2fa-hardware-devices",
-    ]),
-  },
-  {
-    id: "real-world",
-    title: "Real-world setups",
-    copy: "Merchants, journalists, freelancers, and communities.",
+    id: "use-cases",
+    title: "Use Cases",
+    copy: "Explore zcash use cases educational resources, guides, and documentation on ZecHub.",
     pages: pick([
       "zcash-use-cases/accept-payments-as-a-merchant",
       "zcash-use-cases/freelance-privacy-setup",
@@ -64,6 +38,19 @@ const groups = [
       "zcash-use-cases/receive-donations-privately",
       "zcash-use-cases/send-money-without-linking-identity",
       "zcash-use-cases/sign-in-with-zcash",
+    ]),
+  },
+  {
+    id: "privacy-tools",
+    title: "Privacy Tools",
+    copy: "Curated privacy-preserving tools, secure operating systems, VPNs, and communications software.",
+    pages: pick([
+      "privacy-tools/tor-and-i2p",
+      "privacy-tools/web-browsers",
+      "privacy-tools/secure-messengers",
+      "privacy-tools/vpn-and-dvpn",
+      "privacy-tools/pgp-encryption",
+      "privacy-tools/2fa-hardware-devices",
     ]),
   },
 ] as const;
@@ -77,8 +64,8 @@ export default function UsingZcashPage() {
     <>
       <SectionHero
         eyebrow="Using Zcash"
-        title="Use Zcash without giving up your privacy."
-        description="From your first purchase to a private payment, a shielded pool, and the tools around it. Start with the task in front of you."
+        title="Using Zcash"
+        description="Learn how to use Zcash for private digital payments, explore wallets, exchanges, and shielded transactions."
         actions={
           <>
             <Button asChild>
@@ -104,8 +91,9 @@ export default function UsingZcashPage() {
           <section key={group.id}>
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="eyebrow">{group.copy}</p>
+                <p className="eyebrow">Section</p>
                 <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{group.title}</h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{group.copy}</p>
               </div>
               <Link
                 href="/library"
@@ -121,21 +109,6 @@ export default function UsingZcashPage() {
             </div>
           </section>
         ))}
-
-        <section className="flex flex-col gap-5 rounded-card border border-line bg-paper-2 p-6 shadow-stamp sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="eyebrow">Need the whole shelf?</p>
-            <h2 className="mt-1 text-2xl leading-tight tracking-[-0.04em]">
-              Every Zcash page in one library.
-            </h2>
-            <p className="mt-2 max-w-xl text-sm text-muted">
-              Filter by section, search by title, or open the original page.
-            </p>
-          </div>
-          <Button asChild variant="secondary">
-            <Link href="/library">Open the library</Link>
-          </Button>
-        </section>
       </div>
     </>
   );

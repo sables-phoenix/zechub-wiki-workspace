@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { getPage, pagesForSection, type PageMeta } from "@/lib/pages";
 
 export const metadata: Metadata = {
-  title: "Ecosystem",
-  description: "The organizations, communities, and projects around Zcash.",
+  title: "Zcash Community",
+  description:
+    "Community initiatives, grants, global ambassadors, and grassroots projects supporting Zcash.",
 };
 
 const pick = (paths: readonly string[]): readonly PageMeta[] =>
@@ -38,13 +39,15 @@ const creatorPages = pick([
   "zfav-club/guides-for-creators/video-subtitle-generation-with-translation",
 ]);
 
+const creatorsGuide = getPage("zfav-club/guides-for-creators");
+
 export default function EcosystemPage() {
   return (
     <>
       <SectionHero
-        eyebrow="Ecosystem"
-        title="The people, projects, and places around Zcash."
-        description="Who builds the protocol, who funds the work, where the community gathers, and how the stories get told."
+        eyebrow="Structure · Governance · Contributors"
+        title="Zcash Community"
+        description="Community initiatives, grants, global ambassadors, and grassroots projects supporting Zcash."
         actions={
           <>
             <Button asChild>
@@ -68,8 +71,12 @@ export default function EcosystemPage() {
         <section>
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="eyebrow">Organizations</p>
-              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Who builds Zcash.</h2>
+              <p className="eyebrow">Section</p>
+              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Zcash Organizations</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+                Key organizations advancing the Zcash ecosystem including Electric Coin Company, Zcash Foundation,
+                and Zcash Community Grants.
+              </p>
             </div>
             <Link
               href="/library"
@@ -87,8 +94,11 @@ export default function EcosystemPage() {
 
         <section className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
           <div>
-            <p className="eyebrow">Community</p>
-            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Find your people.</h2>
+            <p className="eyebrow">Section</p>
+            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Zcash Community</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+              Community initiatives, grants, global ambassadors, and grassroots projects supporting Zcash.
+            </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {communityPages.map((page) => (
                 <PageCard key={page.path} page={page} />
@@ -120,8 +130,12 @@ export default function EcosystemPage() {
             </div>
             <div className="rounded-card border border-line bg-paper-2 p-5 shadow-stamp">
               <p className="eyebrow">ZFAV Club</p>
+              <h3 className="mt-1 text-2xl leading-tight tracking-[-0.04em]">
+                {creatorsGuide?.title ?? "Guides for Creators"}
+              </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                Guides for creators, broadcasters, and archivists who tell the Zcash story.
+                {creatorsGuide?.description ??
+                  "Practical guides for creators, broadcasters, and archivists in the Zcash ecosystem."}
               </p>
               <div className="mt-3 grid gap-2">
                 {creatorPages.map((page) => (

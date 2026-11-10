@@ -7,8 +7,8 @@ import { formatCompactUsd, formatNumber, formatPercent, formatUsd, formatZec } f
 import { getNetworkSnapshot } from "@/lib/network";
 
 export const metadata: Metadata = {
-  title: "Network",
-  description: "Live Zcash network metrics from the ZecHub API.",
+  title: "Dashboard",
+  description: "Live analytics, metrics, shielded pool statistics, DAO treasury status, YouTube stats, and ZCG grants tracking for the Zcash ecosystem.",
 };
 
 export const revalidate = 300;
@@ -19,9 +19,9 @@ export default async function NetworkPage() {
   return (
     <>
       <SectionHero
-        eyebrow="Network"
-        title="The chain is moving."
-        description="Price, supply, shielded value, and block activity. A calm read on the live Zcash network, pulled from the same API behind the ZecHub dashboard."
+        eyebrow="Dashboard"
+        title="Dashboard"
+        description="Analyze Zcash network metrics and trends. Price, supply, shielded value, and block activity from the ZecHub network API."
         actions={
           <Button asChild variant="secondary">
             <a href="https://zechub.wiki/dashboard" target="_blank" rel="noreferrer">
@@ -91,12 +91,13 @@ export default async function NetworkPage() {
 
         <section className="grid gap-4 md:grid-cols-2">
           <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
-            <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Read the source</p>
+            <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Dashboard</p>
             <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">
-              The dashboard has the charts.
+              ZecHub Dashboard
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-vault-muted">
-              Supply history, shielded pools, testnet, and the other ZecHub dashboards live on the original site.
+              Live analytics, metrics, shielded pool statistics, DAO treasury status, YouTube stats, and ZCG
+              grants tracking for the Zcash ecosystem.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Button asChild>

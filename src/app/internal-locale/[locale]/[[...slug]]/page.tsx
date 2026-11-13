@@ -8,6 +8,8 @@ import SettingsPage from "@/app/(app)/settings/page";
 import { PrivacyPageContent } from "@/app/(app)/privacy/page";
 import { DevelopersPageContent } from "@/app/(app)/developers/page";
 import { VisualizerPageContent } from "@/app/(app)/visualizer/page";
+import { VisualizerToolPageContent } from "@/app/(app)/visualizer/[slug]/page";
+import { getVisualizerTool } from "@/data/visualizers";
 import { HackathonPageContent } from "@/app/(app)/hackathon/page";
 import { TutorialsPageContent } from "@/app/(app)/zechub-tutorial/page";
 import { AmbassadorsPageContent } from "@/app/(app)/zcash-global-ambassadors/page";
@@ -155,6 +157,15 @@ export async function generateMetadata({ params }: LocalizedPageProps): Promise<
       alternates: { canonical: `${siteUrl}${localePath(locale, canonicalPath)}`, languages },
     };
   }
+  const visualizerTool = path.startsWith("visualizer/") ? getVisualizerTool(path.slice("visualizer/".length)) : undefined;
+  if (visualizerTool) {
+    const t = getTranslator(locale);
+    return {
+      title: t(visualizerTool.titleKey, visualizerTool.title),
+      description: visualizerTool.description,
+      alternates: { canonical: `${siteUrl}${localePath(locale, canonicalPath)}`, languages },
+    };
+  }
   const app = appRoutes[path];
   if (app) {
     const t = getTranslator(locale);
@@ -186,6 +197,11 @@ export default async function LocalizedPage({ params }: LocalizedPageProps) {
         fallback={content.fallback}
       />
     );
+  }
+
+  if (path.startsWith("visualizer/")) {
+    const tool = getVisualizerTool(path.slice("visualizer/".length));
+    if (tool) return <VisualizerToolPageContent slug={tool.slug} />;
   }
 
   const app = renderAppRoute(path, locale);

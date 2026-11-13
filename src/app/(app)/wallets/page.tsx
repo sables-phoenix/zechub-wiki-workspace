@@ -3,7 +3,7 @@ import { WalletsView } from "@/components/wallets-view";
 
 export const metadata: Metadata = {
   title: "Wallets",
-  description: "Compare 38 Zcash wallets by device, shielded pool, and NU7 readiness.",
+  description: "Compare Zcash wallets by device, shielded pool, operating system, wallet support, features, and NU7 readiness.",
 };
 
 export default function WalletsPage() {

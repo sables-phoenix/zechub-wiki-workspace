@@ -8,6 +8,7 @@ import { SunIcon } from "@/components/animated-icons/sun-icon";
 import { SectionHero } from "@/components/section-hero";
 import { Button } from "@/components/ui/button";
 import { useMounted } from "@/hooks/use-mounted";
+import { activeWallets } from "@/lib/wallets";
 import { cn } from "@/lib/utils";
 
 const languages = [
@@ -61,7 +62,7 @@ export function SettingsView() {
         meta={
           <>
             <span>232 pages</span>
-            <span>38 wallets</span>
+            <span>{activeWallets.length} active wallets</span>
             <span>19 languages</span>
           </>
         }

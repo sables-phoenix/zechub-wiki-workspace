@@ -1,435 +1,43 @@
 [
   {
     "name": "ZODL",
-    "href": "https://zodl.com/",
+    "href": "https://zodl.com",
     "image": "https://zechub.wiki/content-images/wallets/zodl.webp",
     "nu7": "NU7: Compatible",
     "rating": 93,
-    "devices": ["Mobile"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
     "beta": false,
     "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Vizor",
-    "href": "https://vizor.cash/",
-    "image": "https://zechub.wiki/content-images/wallets/vizor.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 58,
-    "devices": ["Desktop", "Mobile"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zillions",
-    "href": "https://zillions.money/",
-    "image": "https://zechub.wiki/content-images/wallets/zillions.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 32,
-    "devices": ["Web"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Cake",
-    "href": "https://cakewallet.com/",
-    "image": "https://zechub.wiki/content-images/wallets/cake.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 25,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "LeoDex",
-    "href": "https://leodex.io/",
-    "image": "https://zechub.wiki/content-images/wallets/leodex.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 17,
-    "devices": ["Desktop", "Web"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": true,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Edge",
-    "href": "https://edge.app/",
-    "image": "https://zechub.wiki/content-images/wallets/edge.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 16,
-    "devices": ["Mobile"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zkool",
-    "href": "https://hhanh00.github.io/zkool2/",
-    "image": "https://zechub.wiki/content-images/wallets/zkool.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 12,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Nozy Wallet",
-    "href": "https://www.nozywallet.com/",
-    "image": "https://zechub.wiki/content-images/wallets/nozy-wallet.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 10,
-    "devices": ["Desktop", "Web"],
-    "pools": ["Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zingo!",
-    "href": "https://www.zingolabs.org/",
-    "image": "https://zechub.wiki/content-images/wallets/zingo.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 7,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Noir wallet",
-    "href": "https://www.zknoir.com/",
-    "image": "https://zechub.wiki/content-images/wallets/noir-wallet.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 5,
-    "devices": ["Web", "Desktop"],
-    "pools": ["Transparent", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zallet",
-    "href": "https://github.com/zcash/zallet",
-    "image": "https://zechub.wiki/content-images/wallets/zallet.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 4,
-    "devices": ["Desktop"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": true,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zucchini",
-    "href": "https://zucchinifi.xyz/",
-    "image": "https://zechub.wiki/content-images/wallets/zucchini.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 2,
-    "devices": ["Web"],
-    "pools": ["Transparent", "Sapling"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "zingo-cli",
-    "href": "https://github.com/zingolabs/zingolib",
-    "image": "https://zechub.wiki/content-images/wallets/zingo.webp",
-    "nu7": "NU7: Compatible",
-    "rating": 1,
-    "devices": ["Desktop"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "zecd",
-    "href": "https://zecd.org/",
-    "image": "https://zechub.wiki/content-images/wallets/zecd.webp",
-    "nu7": "NU7: Compatible",
-    "rating": -1,
-    "devices": ["Desktop"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Argos",
-    "href": "https://argos.sovright.com/",
-    "image": "https://zechub.wiki/content-images/wallets/argos.webp",
-    "nu7": "NU7: Compatible",
-    "rating": -1,
-    "devices": ["Desktop"],
-    "pools": ["Transparent", "Sprout", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Vultisig",
-    "href": "https://vultisig.com/",
-    "image": "https://zechub.wiki/content-images/wallets/vultisig.webp",
-    "nu7": "NU7: Compatible for Transparent ZEC",
-    "rating": -4,
-    "devices": ["Web", "Mobile", "Desktop"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zapp",
-    "href": "https://www.justzappit.xyz/",
-    "image": "https://zechub.wiki/content-images/wallets/zapp.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 17,
-    "devices": ["Mobile"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Keystone",
-    "href": "https://keyst.one/zcash",
-    "image": "https://zechub.wiki/content-images/wallets/keystone.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 11,
-    "devices": ["Hardware"],
-    "pools": ["Transparent", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zend:Zcash Wallet",
-    "href": "https://justzend.com/",
-    "image": "https://zechub.wiki/content-images/wallets/zend-zcash-wallet.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 7,
-    "devices": ["Mobile"],
-    "pools": ["Transparent", "Sapling"],
-    "beta": true,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Gem Wallet",
-    "href": "https://gemwallet.com/zcash-wallet/",
-    "image": "https://zechub.wiki/content-images/wallets/gem-wallet.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 5,
-    "devices": ["Mobile"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Unstoppable",
-    "href": "https://unstoppable.money/",
-    "image": "https://zechub.wiki/content-images/wallets/unstoppable.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 3,
-    "devices": ["Mobile"],
-    "pools": ["Transparent", "Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Brave",
-    "href": "https://brave.com/wallet/",
-    "image": "https://zechub.wiki/content-images/wallets/brave.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 3,
-    "devices": ["Web"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zenith",
-    "href": "https://vergara.tech/products/zenith.html",
-    "image": "https://zechub.wiki/content-images/wallets/zenith.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 2,
-    "devices": ["Desktop"],
-    "pools": ["Transparent", "Sapling"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Freedom Wallet",
-    "href": "https://www.freedomwallet.com/",
-    "image": "https://zechub.wiki/content-images/wallets/freedom-wallet.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 1,
-    "devices": ["Mobile"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zafu Wallet",
-    "href": "https://zafu.pro/",
-    "image": "https://zechub.wiki/content-images/wallets/zafu-wallet.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 1,
-    "devices": ["Desktop Browser (Browser Extension)"],
-    "pools": ["Transparent", "Orchard (Legacy)", "Ironwood", "Penumbra Shielded"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Zipher",
-    "href": "https://github.com/atmospherelabs-dev/zipher-app",
-    "image": "https://zechub.wiki/content-images/wallets/zipher.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": 0,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent", "Sapling"],
-    "beta": true,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Ledger",
-    "href": "https://www.ledger.com/coin/wallet/zcash",
-    "image": "https://zechub.wiki/content-images/wallets/ledger.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -2,
-    "devices": ["Hardware"],
-    "pools": ["Transparent", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Coinomi",
-    "href": "https://www.coinomi.com/",
-    "image": "https://zechub.wiki/content-images/wallets/coinomi.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -3,
-    "devices": ["Mobile"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Trezor",
-    "href": "https://trezor.io/learn/supported-assets/other-cryptocurrencies/zcash-what-it-is-and-how-it-works-with-trezor",
-    "image": "https://zechub.wiki/content-images/wallets/trezor.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -4,
-    "devices": ["Hardware"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "SSP Wallet",
-    "href": "https://sspwallet.io/",
-    "image": "https://zechub.wiki/content-images/wallets/ssp-wallet.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -5,
-    "devices": ["Mobile", "Web"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Exodus",
-    "href": "https://www.exodus.com/zcash-wallet-zec",
-    "image": "https://zechub.wiki/content-images/wallets/exodus.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -6,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Trust Wallet",
-    "href": "https://trustwallet.com/",
-    "image": "https://zechub.wiki/content-images/wallets/trust-wallet.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -7,
-    "devices": ["Mobile", "Web"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Safepal",
-    "href": "https://safepal.com/",
-    "image": "https://zechub.wiki/content-images/wallets/safepal.webp",
-    "nu7": "NU7: Not Ready",
-    "rating": -9,
-    "devices": ["Mobile", "Web"],
-    "pools": ["Transparent"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "Dizzy",
-    "href": "https://forum.zcashcommunity.com/t/dizzy-wallet-a-dedicated-zcash-wallet-for-discord/43988",
-    "image": "https://zechub.wiki/content-images/wallets/dizzy.webp",
-    "nu7": "NU7: Not Verified",
-    "rating": 1,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Sapling", "Ironwood"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "MetaMask Snap",
-    "href": "https://snaps.metamask.io/snap/npm/chainsafe/webzjs-zcash-snap/",
-    "image": "https://zechub.wiki/content-images/wallets/metamask-snap.webp",
-    "nu7": "NU7: Not Verified",
-    "rating": -1,
-    "devices": ["Web"],
-    "pools": ["Transparent", "Sapling"],
-    "beta": false,
-    "deprecated": false,
-    "note": null
-  },
-  {
-    "name": "eZcash",
-    "href": "https://play.google.com/store/apps/details?id=com.Nerdbank.eZcash.App",
-    "image": "https://zechub.wiki/content-images/wallets/ezcash.webp",
-    "nu7": "",
-    "rating": 0,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent", "Sapling"],
-    "beta": false,
-    "deprecated": true,
-    "note": "Deprecated. Use a maintained wallet."
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Hardware"
+    ],
+    "features": [
+      "Address Book",
+      "CrossPay",
+      "Flexa Payments",
+      "NEAR Intents",
+      "Payment Request",
+      "Shielded Memo",
+      "Spend before Sync",
+      "TEX Address",
+      "Tor Support",
+      "Voting"
+    ]
   },
   {
     "name": "YWallet",
@@ -437,11 +45,396 @@
     "image": "https://zechub.wiki/content-images/wallets/ywallet.webp",
     "nu7": "",
     "rating": 1,
-    "devices": ["Mobile", "Desktop"],
-    "pools": ["Transparent", "Sapling"],
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
     "beta": false,
     "deprecated": true,
-    "note": "Dropped Zcash support after the NU6.3 Ironwood upgrade (2026). The author's successor wallet is Zkool."
+    "note": "Dropped Zcash support after the NU6.3 Ironwood upgrade (2026). The author's successor wallet is Zkool.",
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "Address Book",
+      "Address Rotation",
+      "Cold Storage",
+      "Payment Request",
+      "Pool Transfer",
+      "Shielded Memo",
+      "TEX Address",
+      "WarpSync"
+    ]
+  },
+  {
+    "name": "Dizzy",
+    "href": "https://forum.zcashcommunity.com/t/dizzy-wallet-a-dedicated-zcash-wallet-for-discord/43988",
+    "image": "https://zechub.wiki/content-images/wallets/dizzy.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 1,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "Discord Bot"
+    ]
+  },
+  {
+    "name": "Zingo!",
+    "href": "https://www.zingolabs.org/",
+    "image": "https://zechub.wiki/content-images/wallets/zingo.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 7,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "Address Book",
+      "Financial Insights",
+      "Payment Request",
+      "PepperSync",
+      "Shielded Memo",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "Edge",
+    "href": "https://edge.app",
+    "image": "https://zechub.wiki/content-images/wallets/edge.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 16,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "Automatic Shielding",
+      "Multi Coin",
+      "Shielded Memo",
+      "Spend before Sync",
+      "Swaps",
+      "ZNS Names"
+    ]
+  },
+  {
+    "name": "Unstoppable",
+    "href": "https://unstoppable.money",
+    "image": "https://zechub.wiki/content-images/wallets/unstoppable.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 3,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "CrossPay",
+      "Multi Coin",
+      "Spend before Sync",
+      "Swaps"
+    ]
+  },
+  {
+    "name": "eZcash",
+    "href": "https://play.google.com/store/apps/details?id=com.Nerdbank.eZcash.App",
+    "image": "https://zechub.wiki/content-images/wallets/ezcash.webp",
+    "nu7": "",
+    "rating": 0,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
+    "beta": false,
+    "deprecated": true,
+    "note": "Deprecated. Use a maintained wallet.",
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "Address Book",
+      "Address Check",
+      "Address Rotation",
+      "Automatic Shielding",
+      "Payment Request",
+      "Shielded Memo",
+      "TEX Address",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "Zkool",
+    "href": "https://hhanh00.github.io/zkool2/",
+    "image": "https://zechub.wiki/content-images/wallets/zkool.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 12,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Hardware"
+    ],
+    "features": [
+      "Address Rotation",
+      "Encrypted Backup",
+      "FROST Multisig",
+      "Multi Account",
+      "Offline Signing",
+      "Shielded Memo",
+      "Testnet Support",
+      "Tor Support",
+      "Voting"
+    ]
+  },
+  {
+    "name": "Cake",
+    "href": "https://cakewallet.com/",
+    "image": "https://zechub.wiki/content-images/wallets/cake.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 25,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "Address Book",
+      "Address Rotation",
+      "Automatic Shielding",
+      "Multi Coin",
+      "Shielded Memo",
+      "Swaps",
+      "Tor Support"
+    ]
+  },
+  {
+    "name": "Zenith",
+    "href": "https://vergara.tech/products/zenith.html",
+    "image": "https://zechub.wiki/content-images/wallets/zenith.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 2,
+    "devices": [
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Full Node"
+    ],
+    "features": [
+      "Address Book",
+      "RPC Interface",
+      "Shielded Memo",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "zingo-cli",
+    "href": "https://github.com/zingolabs/zingolib",
+    "image": "https://zechub.wiki/content-images/wallets/zingo.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 1,
+    "devices": [
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "Command Line Interface",
+      "PepperSync",
+      "Shielded Memo",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "Zallet",
+    "href": "https://github.com/zcash/zallet",
+    "image": "https://zechub.wiki/content-images/wallets/zallet.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 4,
+    "devices": [
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": true,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address",
+      "Full Node"
+    ],
+    "features": [
+      "RPC Interface",
+      "Shielded Memo",
+      "Testnet Support"
+    ]
   },
   {
     "name": "zcashd",
@@ -449,10 +442,914 @@
     "image": "https://zechub.wiki/content-images/wallets/zcashd.webp",
     "nu7": "",
     "rating": 0,
-    "devices": ["Desktop"],
-    "pools": ["Transparent", "Sapling"],
+    "devices": [
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
     "beta": false,
     "deprecated": true,
-    "note": "End-of-life on 18 July 2026: it halts before NU6.3 and cannot follow the network. Use Zallet with a Zebra node."
+    "note": "End-of-life on 18 July 2026: it halts before NU6.3 and cannot follow the network. Use Zallet with a Zebra node.",
+    "operatingSystem": [
+      "Linux"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Full Node"
+    ],
+    "features": [
+      "Address Rotation",
+      "Command Line Interface",
+      "RPC Interface",
+      "Shielded Memo",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "Brave",
+    "href": "https://brave.com/wallet/",
+    "image": "https://zechub.wiki/content-images/wallets/brave.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 3,
+    "devices": [
+      "Web"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "Shielded Memo",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "MetaMask Snap",
+    "href": "https://snaps.metamask.io/snap/npm/zcashcommunitygrants/webzjs-zcash-snap/",
+    "image": "https://zechub.wiki/content-images/wallets/metamask-snap.webp",
+    "nu7": "NU7: Not Verified",
+    "rating": -1,
+    "devices": [
+      "Web"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Zucchini",
+    "href": "https://zucchinifi.xyz/",
+    "image": "https://zechub.wiki/content-images/wallets/zucchini.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 2,
+    "devices": [
+      "Web"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "Swaps",
+      "ZNS Names"
+    ]
+  },
+  {
+    "name": "Zillions",
+    "href": "https://zillions.money/",
+    "image": "https://zechub.wiki/content-images/wallets/zillions.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 32,
+    "devices": [
+      "Web"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address",
+      "Hardware"
+    ],
+    "features": [
+      "Multi Account",
+      "Payment Links",
+      "Pool Transfer",
+      "Shielded Memo"
+    ]
+  },
+  {
+    "name": "SSP Wallet",
+    "href": "https://sspwallet.io",
+    "image": "https://zechub.wiki/content-images/wallets/ssp-wallet.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -5,
+    "devices": [
+      "Mobile",
+      "Web"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase"
+    ],
+    "features": [
+      "Multi Coin",
+      "Multisig"
+    ]
+  },
+  {
+    "name": "Trust Wallet",
+    "href": "https://trustwallet.com/",
+    "image": "https://zechub.wiki/content-images/wallets/trust-wallet.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -7,
+    "devices": [
+      "Mobile",
+      "Web"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Exodus",
+    "href": "https://www.exodus.com/zcash-wallet-zec",
+    "image": "https://zechub.wiki/content-images/wallets/exodus.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -6,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Hardware"
+    ],
+    "features": [
+      "Multi Coin",
+      "Swaps"
+    ]
+  },
+  {
+    "name": "Coinomi",
+    "href": "https://www.coinomi.com/",
+    "image": "https://zechub.wiki/content-images/wallets/coinomi.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -3,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Keystone",
+    "href": "https://keyst.one/zcash",
+    "image": "https://zechub.wiki/content-images/wallets/keystone.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 11,
+    "devices": [
+      "Hardware"
+    ],
+    "pools": [
+      "Transparent",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [],
+    "walletSupport": [
+      "Hardware",
+      "Unified Address"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Ledger",
+    "href": "https://www.ledger.com/coin/wallet/zcash",
+    "image": "https://zechub.wiki/content-images/wallets/ledger.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -2,
+    "devices": [
+      "Hardware"
+    ],
+    "pools": [
+      "Transparent",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Hardware"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Safepal",
+    "href": "https://safepal.com",
+    "image": "https://zechub.wiki/content-images/wallets/safepal.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -9,
+    "devices": [
+      "Mobile",
+      "Web"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Hardware"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Trezor",
+    "href": "https://trezor.io/learn/supported-assets/other-cryptocurrencies/zcash-what-it-is-and-how-it-works-with-trezor",
+    "image": "https://zechub.wiki/content-images/wallets/trezor.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": -4,
+    "devices": [
+      "Hardware"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [],
+    "walletSupport": [
+      "Hardware"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Vultisig",
+    "href": "https://vultisig.com",
+    "image": "https://zechub.wiki/content-images/wallets/vultisig.webp",
+    "nu7": "NU7: Compatible",
+    "rating": -4,
+    "devices": [
+      "Web",
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Windows",
+      "Linux",
+      "macOS",
+      "Browser"
+    ],
+    "walletSupport": [
+      "MPC Vault"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Vizor",
+    "href": "https://vizor.cash/",
+    "image": "https://zechub.wiki/content-images/wallets/vizor.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 58,
+    "devices": [
+      "Desktop",
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address",
+      "Hardware"
+    ],
+    "features": [
+      "Gift Cards",
+      "NEAR Intents",
+      "Shielded Memo",
+      "Testnet Support",
+      "Voting"
+    ]
+  },
+  {
+    "name": "Noir wallet",
+    "href": "https://www.zknoir.com/",
+    "image": "https://zechub.wiki/content-images/wallets/noir-wallet.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 5,
+    "devices": [
+      "Web",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address",
+      "Hardware"
+    ],
+    "features": [
+      "DApp Connections",
+      "Lending & Borrowing",
+      "Swaps",
+      "ZNS Names"
+    ]
+  },
+  {
+    "name": "LeoDex",
+    "href": "https://leodex.io/",
+    "image": "https://zechub.wiki/content-images/wallets/leodex.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 17,
+    "devices": [
+      "Desktop",
+      "Web"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "Multi Coin",
+      "NEAR Intents",
+      "No KYC",
+      "Swaps"
+    ]
+  },
+  {
+    "name": "Zapp",
+    "href": "https://www.justzappit.xyz/",
+    "image": "https://zechub.wiki/content-images/wallets/zapp.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 17,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Hardware"
+    ],
+    "features": [
+      "Fiat Off-ramp",
+      "Messenger",
+      "NEAR Intents",
+      "P2P Payments",
+      "P2P Trading",
+      "Shielded Memo",
+      "Tor Support",
+      "Voting"
+    ]
+  },
+  {
+    "name": "zecd",
+    "href": "https://zecd.org/",
+    "image": "https://zechub.wiki/content-images/wallets/zecd.webp",
+    "nu7": "NU7: Compatible",
+    "rating": -1,
+    "devices": [
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Linux"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Spending Key",
+      "Full Node"
+    ],
+    "features": [
+      "Encrypted Backup",
+      "RPC Interface",
+      "Shielded Memo"
+    ]
+  },
+  {
+    "name": "Zend:Zcash Wallet",
+    "href": "https://justzend.com/",
+    "image": "https://zechub.wiki/content-images/wallets/zend-zcash-wallet.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 7,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "iOS"
+    ],
+    "walletSupport": [
+      "Passkey",
+      "Unified Address"
+    ],
+    "features": [
+      "No KYC",
+      "Shielded Memo"
+    ]
+  },
+  {
+    "name": "Nozy Wallet",
+    "href": "https://www.nozywallet.com/",
+    "image": "https://zechub.wiki/content-images/wallets/nozy-wallet.webp",
+    "nu7": "NU7: Compatible",
+    "rating": 10,
+    "devices": [
+      "Desktop",
+      "Web"
+    ],
+    "pools": [
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address",
+      "Spending Key",
+      "Full Node"
+    ],
+    "features": [
+      "Address Book",
+      "I2P Support",
+      "Shielded Memo",
+      "Tor Support",
+      "Transaction Export"
+    ]
+  },
+  {
+    "name": "Zipher",
+    "href": "https://github.com/atmospherelabs-dev/zipher-app",
+    "image": "https://zechub.wiki/content-images/wallets/zipher.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 0,
+    "devices": [
+      "Mobile",
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Viewing Key",
+      "Unified Address"
+    ],
+    "features": [
+      "AI Agent (MCP)",
+      "CipherPay",
+      "Command Line Interface",
+      "FROST Multisig",
+      "NEAR Intents",
+      "Payment Request",
+      "Shielded Memo",
+      "Testnet Support"
+    ]
+  },
+  {
+    "name": "Argos",
+    "href": "https://argos.sovright.com/",
+    "image": "https://zechub.wiki/content-images/wallets/argos.webp",
+    "nu7": "NU7: Compatible",
+    "rating": -1,
+    "devices": [
+      "Desktop"
+    ],
+    "pools": [
+      "Transparent",
+      "Sprout",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Spending Key",
+      "Private Key"
+    ],
+    "features": [
+      "Command Line Interface",
+      "Shielded Memo",
+      "Testnet Support",
+      "Wallet Recovery"
+    ]
+  },
+  {
+    "name": "Gem Wallet",
+    "href": "https://gemwallet.com/zcash-wallet/",
+    "image": "https://zechub.wiki/content-images/wallets/gem-wallet.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 5,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase"
+    ],
+    "features": [
+      "Multi Coin"
+    ]
+  },
+  {
+    "name": "Freedom Wallet",
+    "href": "https://www.freedomwallet.com/",
+    "image": "https://zechub.wiki/content-images/wallets/freedom-wallet.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 1,
+    "devices": [
+      "Mobile"
+    ],
+    "pools": [
+      "Transparent"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android",
+      "iOS"
+    ],
+    "walletSupport": [
+      "Seed Phrase"
+    ],
+    "features": [
+      "Multi Coin",
+      "Swaps"
+    ]
+  },
+  {
+    "name": "Zafu Wallet",
+    "href": "https://zafu.pro/",
+    "image": "https://zechub.wiki/content-images/wallets/zafu-wallet.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": 1,
+    "devices": [
+      "Desktop Browser (Browser Extension)"
+    ],
+    "pools": [
+      "Transparent",
+      "Orchard (Legacy)",
+      "Ironwood",
+      "Penumbra Shielded"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Windows",
+      "macOS",
+      "Linux (via compatible Chromium-based browsers)"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Wallet Import",
+      "Viewing Keys",
+      "Cold Signing"
+    ],
+    "features": [
+      "Multi-Chain",
+      "Shielded Transactions",
+      "Swaps",
+      "FROST Multisig",
+      "Cold Signing"
+    ]
+  },
+  {
+    "name": "Laurel",
+    "href": "https://laurel.cash/",
+    "image": "https://zechub.wiki/content-images/wallets/Laurel.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": null,
+    "devices": [
+      "Android"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Orchard",
+      "Ironwood (Pool Transfers)"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Android 9+",
+      "Windows",
+      "Linux (desktop support subject to build availability)"
+    ],
+    "walletSupport": [
+      "24-Word Seed Phrase",
+      "Wallet Creation",
+      "Wallet Restoration",
+      "Encrypted Local Storage",
+      "Offline Signing",
+      "Viewing Keys"
+    ],
+    "features": [
+      "Self-Custodial",
+      "Shielded Transactions",
+      "QR Payments",
+      "Pool Transfers",
+      "Offline Signing",
+      "Encrypted Storage"
+    ]
+  },
+  {
+    "name": "Veylor",
+    "href": "https://veylor.cash/",
+    "image": "https://zechub.wiki/content-images/wallets/Veylor.webp",
+    "nu7": "NU7: Not Ready",
+    "rating": null,
+    "devices": [
+      "iOS (TestFlight)",
+      "Android"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Orchard",
+      "RAILGUN (0zkUSDC)"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "iOS",
+      "Android"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Self-Custody",
+      "Hardware Wallet Integration (Keystone",
+      "Ledger)"
+    ],
+    "features": [
+      "Shielded Transactions",
+      "Shielded USDC",
+      "Atomic Swaps",
+      "Cross-Chain Bridge",
+      "Hardware Wallet Support",
+      "Private Voting"
+    ]
+  },
+  {
+    "name": "Celari",
+    "href": "https://app.celariwallet.com",
+    "image": "https://zechub.wiki/content-images/wallets/celari.webp",
+    "nu7": "NU7: Compatible",
+    "rating": null,
+    "devices": [
+      "Web"
+    ],
+    "pools": [
+      "Transparent",
+      "Sapling",
+      "Ironwood"
+    ],
+    "beta": false,
+    "deprecated": false,
+    "note": null,
+    "operatingSystem": [
+      "Browser"
+    ],
+    "walletSupport": [
+      "Seed Phrase",
+      "Unified Address"
+    ],
+    "features": [
+      "Address Rotation",
+      "Open Source",
+      "Pool Transfer",
+      "Reproducible Build",
+      "Shielded Memo"
+    ]
   }
 ]

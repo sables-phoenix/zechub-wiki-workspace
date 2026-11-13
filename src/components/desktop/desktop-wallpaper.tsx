@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { DesktopClock } from "@/components/desktop/clock";
 import { PriceTicker } from "@/components/price-ticker";
 import { ZcashMark } from "@/components/zcash-mark";
+import { activeWallets } from "@/lib/wallets";
 
 type DesktopWallpaperProps = {
   onOpen: () => void;
@@ -42,7 +43,7 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
         <div className="mt-6 grid grid-cols-3 gap-2">
           {[
             { value: "232", label: "Pages" },
-            { value: "38", label: "Wallets" },
+            { value: String(activeWallets.length), label: "Wallets" },
             { value: "19", label: "Languages" },
           ].map((item) => (
             <div key={item.label} className="rounded-card border border-vault-line bg-vault-2/80 p-3">

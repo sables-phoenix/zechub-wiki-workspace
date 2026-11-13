@@ -13,15 +13,18 @@ import {
   activeWallets,
   deprecatedWallets,
   deviceOptions,
+  featureOptions,
   matchesDevice,
+  matchesFeature,
   matchesNu7,
+  matchesOperatingSystem,
   matchesPool,
+  matchesSupport,
   nu7Options,
+  operatingSystemOptions,
   poolOptions,
+  supportOptions,
   walletSourceUrl,
-  type DeviceFilter,
-  type Nu7Filter,
-  type PoolFilter,
   type Wallet,
 } from "@/lib/wallets";
 
@@ -33,38 +36,54 @@ const nu7Tone = (nu7: string): "green" | "gold" | "muted" => {
   return "muted";
 };
 
-const ratingLabel = (rating: number | null): string => {
-  if (rating === null) return "—";
-  return String(rating);
-};
+const ratingLabel = (rating: number | null): string => (rating === null ? "—" : String(rating));
 
 export function WalletsView() {
   const [query, setQuery] = useState("");
-  const [device, setDevice] = useState<DeviceFilter>("All");
-  const [pool, setPool] = useState<PoolFilter>("All");
-  const [nu7, setNu7] = useState<Nu7Filter>("All");
+  const [devices, setDevices] = useState<string[]>([]);
+  const [pools, setPools] = useState<string[]>([]);
+  const [systems, setSystems] = useState<string[]>([]);
+  const [supports, setSupports] = useState<string[]>([]);
+  const [features, setFeatures] = useState<string[]>([]);
+  const [nu7s, setNu7s] = useState<string[]>([]);
   const [sort, setSort] = useState<SortMode>("rating");
+
+  const toggle = (setter: (updater: (current: string[]) => string[]) => void) => (value: string) => {
+    setter((current) => {
+      if (value === "All") return [];
+      return current.includes(value) ? current.filter((item) => item !== value) : [...current, value];
+    });
+  };
 
   const results = useMemo(() => {
     const value = query.trim().toLowerCase();
     return activeWallets
       .filter((wallet) => {
-        if (!matchesDevice(wallet, device)) return false;
-        if (!matchesPool(wallet, pool)) return false;
-        if (!matchesNu7(wallet, nu7)) return false;
+        if (devices.length && !devices.every((device) => matchesDevice(wallet, device))) return false;
+        if (pools.length && !pools.every((pool) => matchesPool(wallet, pool))) return false;
+        if (systems.length && !systems.every((system) => matchesOperatingSystem(wallet, system))) return false;
+        if (supports.length && !supports.every((support) => matchesSupport(wallet, support))) return false;
+        if (features.length && !features.every((feature) => matchesFeature(wallet, feature))) return false;
+        if (nu7s.length && !nu7s.every((nu7) => matchesNu7(wallet, nu7))) return false;
         if (!value) return true;
-        return [wallet.name, wallet.devices.join(" "), wallet.pools.join(" "), wallet.nu7]
+        return [
+          wallet.name,
+          wallet.devices.join(" "),
+          wallet.pools.join(" "),
+          wallet.operatingSystem.join(" "),
+          wallet.walletSupport.join(" "),
+          wallet.features.join(" "),
+          wallet.nu7,
+        ]
           .join(" ")
           .toLowerCase()
           .includes(value);
       })
       .slice()
       .sort((a, b) =>
-        sort === "name"
-          ? a.name.localeCompare(b.name)
-          : (b.rating ?? -100) - (a.rating ?? -100),
+        sort === "name" ? a.name.localeCompare(b.name) : (b.rating ?? -100) - (a.rating ?? -100),
       );
-  }, [query, device, pool, nu7, sort]);
+  }, [query, devices, pools, systems, supports, features, nu7s, sort]);
 
   const shieldedCount = activeWallets.filter((wallet) =>
     wallet.pools.some((item) => item !== "Transparent"),
@@ -73,10 +92,16 @@ export function WalletsView() {
 
   const reset = () => {
     setQuery("");
-    setDevice("All");
-    setPool("All");
-    setNu7("All");
+    setDevices([]);
+    setPools([]);
+    setSystems([]);
+    setSupports([]);
+    setFeatures([]);
+    setNu7s([]);
   };
+
+  const activeFilterCount =
+    devices.length + pools.length + systems.length + supports.length + features.length + nu7s.length;
 
   return (
     <>
@@ -114,7 +139,7 @@ export function WalletsView() {
                 <Input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search wallets, devices, pools..."
+                  placeholder="Search wallets, platforms, features..."
                   className="h-10 pl-9"
                   aria-label="Search wallets"
                 />
@@ -130,35 +155,73 @@ export function WalletsView() {
               </select>
             </div>
 
-            <FilterRow label="Devices">
-              {deviceOptions.map((option) => (
-                <FilterChip key={option} active={device === option} onClick={() => setDevice(option)}>
-                  {option}
-                </FilterChip>
-              ))}
-            </FilterRow>
+            <FilterRow
+              label="Devices"
+              options={deviceOptions}
+              selected={devices}
+              onToggle={toggle(setDevices)}
+            />
+            <FilterRow label="Pools" options={poolOptions} selected={pools} onToggle={toggle(setPools)} />
+            <FilterRow
+              label="System"
+              options={operatingSystemOptions}
+              selected={systems}
+              onToggle={toggle(setSystems)}
+            />
+            <FilterRow label="NU7" options={nu7Options} selected={nu7s} onToggle={toggle(setNu7s)} />
 
-            <FilterRow label="Pools">
-              {poolOptions.map((option) => (
-                <FilterChip key={option} active={pool === option} onClick={() => setPool(option)}>
-                  {option}
-                </FilterChip>
-              ))}
-            </FilterRow>
+            <details className="border-t border-line pt-3">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-2">
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
+                  Wallet support
+                </span>
+                <span className="font-mono text-[9px] text-muted">
+                  {supports.length ? `${supports.length} selected` : "Any"}
+                </span>
+              </summary>
+              <div className="mt-2 max-h-44 overflow-y-auto pr-1 window-scroll">
+                <div className="flex flex-wrap gap-1.5">
+                  {supportOptions.map((option) => (
+                    <FilterChip
+                      key={option}
+                      active={option === "All" ? supports.length === 0 : supports.includes(option)}
+                      onClick={() => toggle(setSupports)(option)}
+                    >
+                      {option}
+                    </FilterChip>
+                  ))}
+                </div>
+              </div>
+            </details>
 
-            <FilterRow label="NU7">
-              {nu7Options.map((option) => (
-                <FilterChip key={option} active={nu7 === option} onClick={() => setNu7(option)}>
-                  {option}
-                </FilterChip>
-              ))}
-            </FilterRow>
+            <details className="border-t border-line pt-3">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-2">
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">Features</span>
+                <span className="font-mono text-[9px] text-muted">
+                  {features.length ? `${features.length} selected` : "Any"}
+                </span>
+              </summary>
+              <div className="mt-2 max-h-56 overflow-y-auto pr-1 window-scroll">
+                <div className="flex flex-wrap gap-1.5">
+                  {featureOptions.map((option) => (
+                    <FilterChip
+                      key={option}
+                      active={option === "All" ? features.length === 0 : features.includes(option)}
+                      onClick={() => toggle(setFeatures)(option)}
+                    >
+                      {option}
+                    </FilterChip>
+                  ))}
+                </div>
+              </div>
+            </details>
           </div>
         </div>
 
         <div className="mt-5 flex items-center justify-between gap-3">
           <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
             {results.length} {results.length === 1 ? "wallet" : "wallets"}
+            {activeFilterCount ? ` / ${activeFilterCount} filters` : ""}
           </p>
           <button
             type="button"
@@ -178,7 +241,7 @@ export function WalletsView() {
         ) : (
           <div className="mt-3 rounded-card border border-dashed border-line p-10 text-center">
             <p className="font-display text-2xl tracking-[-0.03em]">No wallets match those filters.</p>
-            <p className="mt-2 text-sm text-muted">Try a different device or pool.</p>
+            <p className="mt-2 text-sm text-muted">Try a different device, pool, or feature.</p>
           </div>
         )}
 
@@ -203,7 +266,7 @@ export function WalletsView() {
         </section>
 
         <p className="mt-6 text-xs leading-relaxed text-muted">
-          Device, pool, NU7, and rating data from{" "}
+          Device, pool, operating system, wallet support, feature, NU7, and rating data from{" "}
           <a
             href={walletSourceUrl}
             target="_blank"
@@ -212,18 +275,41 @@ export function WalletsView() {
           >
             zechub.wiki/wallets
           </a>
-          . Feature-level details live in the source matrix. Always verify a wallet before sending funds.
+          . Ratings are a snapshot. Feature chips open the wallet details in each card. Always verify a wallet
+          before sending funds.
         </p>
       </div>
     </>
   );
 }
 
-function FilterRow({ label, children }: { label: string; children: ReactNode }) {
+function FilterRow({
+  label,
+  options,
+  selected,
+  onToggle,
+}: {
+  label: string;
+  options: readonly string[];
+  selected: readonly string[];
+  onToggle: (value: string) => void;
+}) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="w-16 shrink-0 font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{label}</span>
-      <div className="flex flex-wrap gap-1.5">{children}</div>
+    <div className="flex flex-wrap items-start gap-2">
+      <span className="w-20 shrink-0 pt-1 font-mono text-[8px] uppercase tracking-[0.1em] text-muted">
+        {label}
+      </span>
+      <div className="flex flex-1 flex-wrap gap-1.5">
+        {options.map((option) => (
+          <FilterChip
+            key={option}
+            active={option === "All" ? selected.length === 0 : selected.includes(option)}
+            onClick={() => onToggle(option)}
+          >
+            {option}
+          </FilterChip>
+        ))}
+      </div>
     </div>
   );
 }
@@ -254,7 +340,9 @@ function FilterChip({
 }
 
 function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated?: boolean }) {
+  const [expanded, setExpanded] = useState(false);
   const nu7 = wallet.nu7.replace("NU7: ", "");
+  const detailCount = wallet.features.length + wallet.walletSupport.length + wallet.operatingSystem.length;
 
   return (
     <article
@@ -320,6 +408,26 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
 
         {wallet.note ? <p className="mt-3 text-[11px] leading-relaxed text-muted">{wallet.note}</p> : null}
 
+        <button
+          type="button"
+          onClick={() => setExpanded((current) => !current)}
+          aria-expanded={expanded}
+          className="mt-3 flex items-center justify-between border-t border-line pt-3 text-left text-[10px] text-muted transition-colors hover:text-ink"
+        >
+          <span className="font-mono uppercase tracking-[0.08em]">
+            {expanded ? "Hide details" : "Feature details"}
+          </span>
+          <span className="font-mono">{detailCount}</span>
+        </button>
+
+        {expanded ? (
+          <div className="mt-3 space-y-3 border-t border-line pt-3">
+            <DetailGroup label="Wallet support" values={wallet.walletSupport} />
+            <DetailGroup label="Operating system" values={wallet.operatingSystem} />
+            <DetailGroup label="Features" values={wallet.features} />
+          </div>
+        ) : null}
+
         <div className="mt-auto flex items-center justify-between gap-2 pt-4">
           <a
             href={walletSourceUrl}
@@ -327,7 +435,7 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
             rel="noreferrer"
             className="text-[10px] text-muted underline underline-offset-4 transition-colors hover:text-ink"
           >
-            Details
+            Source
           </a>
           {wallet.href ? (
             <a
@@ -343,5 +451,21 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
         </div>
       </div>
     </article>
+  );
+}
+
+function DetailGroup({ label, values }: { label: string; values: readonly string[] }) {
+  if (values.length === 0) return null;
+  return (
+    <div>
+      <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{label}</p>
+      <div className="mt-1.5 flex flex-wrap gap-1">
+        {values.map((value) => (
+          <span key={value} className="rounded-pill border border-line bg-paper-2 px-2 py-0.5 text-[9px] text-muted">
+            {value}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }

@@ -23,9 +23,12 @@ const nextConfig: NextConfig = {
       { source: "/zfav-club", destination: "/ecosystem", permanent: false },
       { source: "/privacy-tools", destination: "/using-zcash", permanent: false },
       { source: "/zcash-use-cases", destination: "/using-zcash", permanent: false },
-      { source: "/developers", destination: "https://zechub.wiki/developers", permanent: false },
-      { source: "/dex", destination: "https://zechub.wiki/dex", permanent: false },
-      { source: "/payment-processors", destination: "https://zechub.wiki/payment-processors", permanent: false },
+      { source: "/dashboard", destination: "/network", permanent: false },
+      { source: "/donation", destination: "/donate", permanent: false },
+      { source: "/sitemap", destination: "/library", permanent: false },
+      { source: "/using-zcash/blockchain-explorers", destination: "/guides/blockchain-explorers", permanent: false },
+      { source: "/dex", destination: "/using-zcash/dex", permanent: false },
+      { source: "/payment-processors", destination: "/using-zcash/payment-processors", permanent: false },
     ];
   },
 };

@@ -187,6 +187,14 @@ export const appRoutes = new Set([
   "/zfav-club",
   "/privacy-tools",
   "/zcash-use-cases",
+  "/privacy",
+  "/developers",
+  "/visualizer",
+  "/hackathon",
+  "/zechub-tutorial",
+  "/zcash-global-ambassadors",
+  "/map",
+  "/zcash-organizations/brand",
 ]);
 
 export const knownPaths = new Set<string>([...appRoutes, ...pages.map((page) => `/${page.path}`)]);

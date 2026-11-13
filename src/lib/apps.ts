@@ -58,7 +58,8 @@ export const desktopApps: readonly DesktopApp[] = [
     matches: (pathname) =>
       within(pathname, "/using-zcash") ||
       within(pathname, "/zcash-use-cases") ||
-      within(pathname, "/privacy-tools"),
+      within(pathname, "/privacy-tools") ||
+      within(pathname, "/map"),
   },
   {
     id: "learn",
@@ -70,7 +71,8 @@ export const desktopApps: readonly DesktopApp[] = [
       within(pathname, "/learn") ||
       within(pathname, "/zcash-tech") ||
       within(pathname, "/zero-to-zero-knowledge") ||
-      within(pathname, "/glossary-and-faqs"),
+      within(pathname, "/glossary-and-faqs") ||
+      within(pathname, "/visualizer"),
   },
   {
     id: "build",
@@ -82,7 +84,10 @@ export const desktopApps: readonly DesktopApp[] = [
       within(pathname, "/build") ||
       within(pathname, "/guides") ||
       within(pathname, "/research") ||
-      within(pathname, "/tutorials"),
+      within(pathname, "/tutorials") ||
+      within(pathname, "/developers") ||
+      within(pathname, "/hackathon") ||
+      within(pathname, "/zechub-tutorial"),
   },
   {
     id: "ecosystem",
@@ -94,7 +99,8 @@ export const desktopApps: readonly DesktopApp[] = [
       within(pathname, "/ecosystem") ||
       within(pathname, "/zcash-community") ||
       within(pathname, "/zcash-organizations") ||
-      within(pathname, "/zfav-club"),
+      within(pathname, "/zfav-club") ||
+      within(pathname, "/zcash-global-ambassadors"),
   },
   {
     id: "library",
@@ -134,7 +140,7 @@ export const desktopApps: readonly DesktopApp[] = [
     dockLabel: "Settings",
     href: "/settings",
     dock: false,
-    matches: (pathname) => within(pathname, "/settings"),
+    matches: (pathname) => within(pathname, "/settings") || within(pathname, "/privacy"),
   },
 ];
 
@@ -150,6 +156,14 @@ export type WindowMeta = {
 
 const subtitleFor = (pathname: string): string => {
   if (pathname === "/") return "Welcome";
+  if (pathname === "/privacy") return "Privacy";
+  if (pathname === "/developers") return "Developers";
+  if (pathname === "/visualizer") return "Visualizers";
+  if (pathname === "/hackathon") return "Hackathon";
+  if (pathname === "/zechub-tutorial") return "Tutorials";
+  if (pathname === "/zcash-global-ambassadors") return "Ambassadors";
+  if (pathname === "/map") return "Pay with ZEC";
+  if (pathname === "/zcash-organizations/brand") return "Brand";
   if (pathname === "/start-here") return "Overview";
   if (within(pathname, "/start-here")) return "Article";
   if (pathname === "/wallets") return "Overview";

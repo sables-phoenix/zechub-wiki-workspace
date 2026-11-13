@@ -453,7 +453,8 @@
   }
 }
 
-html[data-locale="ar"] body {
+html[data-locale="ar"] body,
+html[data-locale="fa"] body {
   font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", "Geeza Pro", sans-serif;
 }
 html[data-locale="ar"] .font-display,
@@ -501,4 +502,15 @@ html[data-locale="el"] body {
 html[data-locale="ru"] body,
 html[data-locale="uk"] body {
   font-family: "Noto Sans", "Segoe UI", Arial, sans-serif;
+}
+
+html[data-locale="fa"] body {
+  font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Geeza Pro", sans-serif;
+}
+html[data-locale="fa"] .font-display,
+html[data-locale="fa"] h1,
+html[data-locale="fa"] h2,
+html[data-locale="fa"] h3,
+html[data-locale="fa"] h4 {
+  font-family: "Noto Naskh Arabic", "Vazirmatn", "Geeza Pro", serif;
 }

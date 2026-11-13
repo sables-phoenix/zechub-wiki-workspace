@@ -255,7 +255,9 @@
     "watch": "Lelee na YouTube",
     "clear": "Kpochapụ",
     "noMatches": "Ọ nweghị nkuzi dabara na ọchụchọ ahụ.",
-    "noMatchesCopy": "Gbalịa ọchụchọ sara mbara ma ọ bụ ụdị dị iche."
+    "noMatchesCopy": "Gbalịa ọchụchọ sara mbara ma ọ bụ ụdị dị iche.",
+    "sortRecent": "agbakwunyere nso nso a",
+    "sortTitle": "Aha A ruo Z"
   },
   "settings": {
     "description": "Isiokwu, asụsụ, na ntọala data maka oghere ọrụ.",
@@ -265,11 +267,11 @@
     "languageCopy": "Họrọ asụsụ na ebe ọrụ ga-anọ ebe a. Ọdịnaya na mgbanwe igodo n'ime saịtị a.",
     "data": "Data & isi mmalite",
     "content": "Ọdịnaya",
-    "contentCopy": "Ibe Bekee 232 gosipụtara site na zechub.wiki",
+    "contentCopy": "Ibe Bekee 237 gosipụtara site na zechub.wiki",
     "walletCopy": "obere akpa sitere na matriks obere akpa ZecHub",
     "networkCopy": "Ọnụ ahịa ZEC dị ndụ na data yinye sitere na ZecHub API",
     "previewCopy": "Nke a bụ nlebanya nrụgharị. Ọ na-agụ ọdịnaya ZecHub ọha yana API. Ọ naghị agbanwe wiki dị ndụ.",
-    "pages": "ibe 232",
+    "pages": "ibe 237",
     "languageCount": "asụsụ 21"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Mkpesa Hackathon",
     "projects": "oru ngo",
     "github": "Lelee na GitHub",
-    "note": "Ihe ndekọ mbụ ahụ depụtara ọrụ iri atọ na isii. Ibe a na-ejide njikọ GitHub ọha. Ibe izizi nwere ndepụta zuru oke.",
+    "note": "Ebe nchekwa 2026 dị ugbu a depụtara ọrụ ọha 34. Ibe izizi nwere ndepụta zuru oke.",
     "t1": "Akụrụngwa",
     "t1c": "Nodes, indexers, RPC tooling, na ntụkwasị obi maka ndị na-ewu ụlọ na ndị na-arụ ọrụ.",
     "t2": "Egwuregwu",
@@ -458,6 +460,9 @@
     "r2": "Ndị otu nwere ike ịnye naanị otu ọrụ ikpeazụ n'otu otu.",
     "r3": "Ntinye niile ga-agụnye ntọhapụ doro anya yana akwụkwọ ojiji.",
     "r4": "Jiri ikikere isi mmalite mgbe ọ bụla enwere ike ịkwado mmekorita.",
-    "r5": "Kwanyere nzuzo, nchekwa, na ntuziaka obodo na koodu na ọdịnaya."
+    "r5": "Kwanyere nzuzo, nchekwa, na ntuziaka obodo na koodu na ọdịnaya.",
+    "archive2025": "2025 ihe ndekọ akụkọ ego",
+    "archive2024": "2024 ihe ndekọ akụkọ ego",
+    "yearProjects": "oru ngo"
   }
 }

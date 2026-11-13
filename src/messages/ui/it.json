@@ -255,7 +255,9 @@
     "watch": "Guarda su YouTube",
     "clear": "Chiaro",
     "noMatches": "Nessun tutorial corrisponde a quella ricerca.",
-    "noMatchesCopy": "Prova una ricerca più ampia o una categoria diversa."
+    "noMatchesCopy": "Prova una ricerca più ampia o una categoria diversa.",
+    "sortRecent": "Aggiunto di recente",
+    "sortTitle": "Titolo dalla A alla Z"
   },
   "settings": {
     "description": "Impostazioni di tema, lingua e dati per l'area di lavoro.",
@@ -265,11 +267,11 @@
     "languageCopy": "Scegli una lingua e l'area di lavoro rimarrà qui. Il contenuto e la navigazione cambiano all'interno di questo sito.",
     "data": "Dati e fonte",
     "content": "Contenuto",
-    "contentCopy": "232 pagine inglesi rispecchiate da zechub.wiki",
+    "contentCopy": "237 pagine inglesi rispecchiate da zechub.wiki",
     "walletCopy": "portafogli dalla matrice del portafoglio ZecHub",
     "networkCopy": "Prezzi ZEC in tempo reale e dati sulla catena dall'API ZecHub",
     "previewCopy": "Questa è un'anteprima della riprogettazione. Legge il contenuto e le API ZecHub pubblici. Non cambia la wiki live.",
-    "pages": "232 pagine",
+    "pages": "237 pagine",
     "languageCount": "21 lingue"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Presentazioni all'hackathon",
     "projects": "progetti",
     "github": "Visualizza su GitHub",
-    "note": "L'archivio originale elenca 36 progetti. Questa pagina cattura i collegamenti GitHub pubblici. La pagina originale contiene l'elenco completo.",
+    "note": "L'attuale archivio del 2026 elenca 34 progetti pubblici. La pagina originale contiene l'elenco completo.",
     "t1": "Infrastruttura",
     "t1c": "Nodi, indicizzatori, strumenti RPC e affidabilità per costruttori e operatori.",
     "t2": "Giochi",
@@ -458,6 +460,9 @@
     "r2": "I team possono presentare un solo progetto finale per team.",
     "r3": "Tutti gli invii devono includere una chiara documentazione di configurazione e utilizzo.",
     "r4": "Utilizza le licenze open source quando possibile per incoraggiare la collaborazione.",
-    "r5": "Rispetta la privacy, la sicurezza e le linee guida della community sia nel codice che nei contenuti."
+    "r5": "Rispetta la privacy, la sicurezza e le linee guida della community sia nel codice che nei contenuti.",
+    "archive2025": "Archivio 2025",
+    "archive2024": "Archivio 2024",
+    "yearProjects": "progetti"
   }
 }

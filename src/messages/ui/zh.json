@@ -255,7 +255,9 @@
     "watch": "在 YouTube 上观看",
     "clear": "清除",
     "noMatches": "没有与该搜索匹配的教程。",
-    "noMatchesCopy": "尝试更广泛的搜索或不同的类别。"
+    "noMatchesCopy": "尝试更广泛的搜索或不同的类别。",
+    "sortRecent": "最近添加",
+    "sortTitle": "标题 A 到 Z"
   },
   "settings": {
     "description": "工作区的主题、语言和数据设置。",
@@ -265,11 +267,11 @@
     "languageCopy": "选择一种语言，工作区就留在这里。本网站内的内容和导航切换。",
     "data": "数据及来源",
     "content": "内容",
-    "contentCopy": "232 英文页面 镜像自 zechub.wiki",
+    "contentCopy": "237 个英文页面镜像自 zechub.wiki",
     "walletCopy": "ZecHub 钱包矩阵中的钱包",
     "networkCopy": "来自 ZecHub API 的实时 ZEC 价格和链数据",
     "previewCopy": "这是重新设计的预览。它读取公共 ZecHub 内容和 API。它不会改变实时维基。",
-    "pages": "232页",
+    "pages": "237页",
     "languageCount": "21种语言"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "黑客马拉松提交作品",
     "projects": "项目",
     "github": "在 GitHub 上查看",
-    "note": "原始档案列出了 36 个项目。此页面捕获公共 GitHub 链接。原始页面有完整列表。",
+    "note": "目前的 2026 年档案列出了 34 个公共项目。原始页面有完整列表。",
     "t1": "基础设施",
     "t1c": "为构建者和运营者提供节点、索引器、RPC 工具和可靠性。",
     "t2": "游戏",
@@ -458,6 +460,9 @@
     "r2": "每个团队只能提交一个最终项目。",
     "r3": "所有提交的内容必须包含清晰的设置和使用文档。",
     "r4": "尽可能使用开源许可来鼓励协作。",
-    "r5": "在代码和内容中尊重隐私、安全和社区准则。"
+    "r5": "在代码和内容中尊重隐私、安全和社区准则。",
+    "archive2025": "2025年档案",
+    "archive2024": "2024 档案",
+    "yearProjects": "项目"
   }
 }

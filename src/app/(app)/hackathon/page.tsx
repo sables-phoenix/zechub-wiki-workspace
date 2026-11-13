@@ -26,6 +26,9 @@ const ruleKeys = ["hackathon.r1", "hackathon.r2", "hackathon.r3", "hackathon.r4"
 
 export function HackathonPageContent({ locale = defaultLocale }: { locale?: Locale }) {
   const t = getTranslator(locale);
+  const projects2026 = hackathonProjects.filter((project) => project.path.startsWith("Hackathon/2026/"));
+  const projects2025 = hackathonProjects.filter((project) => project.path.startsWith("Hackathon/2025/"));
+  const projects2024 = hackathonProjects.filter((project) => project.path.startsWith("Hackathon/2024/"));
   const tracks = trackKeys.map((track) => ({ name: t(track.nameKey, track.nameKey), copy: t(track.copyKey, track.copyKey) }));
   const rules = ruleKeys.map((rule) => t(rule, rule));
 
@@ -96,37 +99,68 @@ export function HackathonPageContent({ locale = defaultLocale }: { locale?: Loca
               <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{t("hackathon.submissions", "Hackathon submissions")}</h2>
             </div>
             <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-              {hackathonProjects.length} {t("hackathon.projects", "projects")}
+              {projects2026.length} {t("hackathon.projects", "projects")}
             </span>
           </div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            {hackathonProjects.map((project) => (
-              <a
-                key={project.href}
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex h-full flex-col rounded-card border border-line bg-paper p-4 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
-              >
-                <h3 className="break-words font-display text-xl leading-tight tracking-[-0.03em]">
-                  {project.title}
-                </h3>
-                <p className="mt-2 truncate font-mono text-[9px] text-muted">{project.path}</p>
-                <div className="mt-auto flex items-center justify-between pt-4">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-                    {t("hackathon.github", "View on GitHub")}
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
-                </div>
-              </a>
-            ))}
+          <ProjectGrid projects={projects2026} githubLabel={t("hackathon.github", "View on GitHub")} />
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <div>
+              <div className="flex items-end justify-between gap-3">
+                <h3 className="text-2xl leading-none tracking-[-0.04em]">{t("hackathon.archive2025", "2025 archive")}</h3>
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
+                  {projects2025.length} {t("hackathon.yearProjects", "projects")}
+                </span>
+              </div>
+              <ProjectGrid projects={projects2025} githubLabel={t("hackathon.github", "View on GitHub")} compact />
+            </div>
+            <div>
+              <div className="flex items-end justify-between gap-3">
+                <h3 className="text-2xl leading-none tracking-[-0.04em]">{t("hackathon.archive2024", "2024 archive")}</h3>
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
+                  {projects2024.length} {t("hackathon.yearProjects", "projects")}
+                </span>
+              </div>
+              <ProjectGrid projects={projects2024} githubLabel={t("hackathon.github", "View on GitHub")} compact />
+            </div>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-muted">
-            {t("hackathon.note", "The original archive lists 36 projects. This page captures the public GitHub links. The original page has the full list.")}
+            {t("hackathon.note", "The current 2026 archive lists 34 public projects. The original page has the full list.")}
           </p>
         </section>
       </div>
     </>
+  );
+}
+
+function ProjectGrid({
+  projects,
+  githubLabel,
+  compact = false,
+}: {
+  projects: readonly (typeof hackathonProjects)[number][];
+  githubLabel: string;
+  compact?: boolean;
+}) {
+  return (
+    <div className={compact ? "mt-3 grid gap-3 sm:grid-cols-2" : "mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4"}>
+      {projects.map((project) => (
+        <a
+          key={project.href}
+          href={project.href}
+          target="_blank"
+          rel="noreferrer"
+          className="group flex h-full flex-col rounded-card border border-line bg-paper p-4 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
+        >
+          <h3 className="break-words font-display text-xl leading-tight tracking-[-0.03em]">{project.title}</h3>
+          <p className="mt-2 truncate font-mono text-[9px] text-muted">{project.path}</p>
+          <div className="mt-auto flex items-center justify-between pt-4">
+            <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">{githubLabel}</span>
+            <ArrowUpRight className="h-4 w-4 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
+          </div>
+        </a>
+      ))}
+    </div>
   );
 }
 

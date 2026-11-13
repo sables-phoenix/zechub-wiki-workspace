@@ -255,7 +255,9 @@
     "watch": "Ver en YouTube",
     "clear": "Borrar",
     "noMatches": "Ningún tutorial coincide con esa búsqueda.",
-    "noMatchesCopy": "Pruebe una búsqueda más amplia o una categoría diferente."
+    "noMatchesCopy": "Pruebe una búsqueda más amplia o una categoría diferente.",
+    "sortRecent": "Agregado recientemente",
+    "sortTitle": "Título de la A a la Z"
   },
   "settings": {
     "description": "Configuración de tema, idioma y datos para el espacio de trabajo.",
@@ -265,11 +267,11 @@
     "languageCopy": "Elige un idioma y el espacio de trabajo se queda aquí. Cambio de contenido y navegación dentro de este sitio.",
     "data": "Datos y fuente",
     "content": "Contenido",
-    "contentCopy": "232 páginas en inglés reflejadas de zechub.wiki",
+    "contentCopy": "237 páginas en inglés reflejadas de zechub.wiki",
     "walletCopy": "billeteras de la matriz de billeteras ZecHub",
     "networkCopy": "Precio de ZEC en vivo y datos de cadena desde la API de ZecHub",
     "previewCopy": "Esta es una vista previa del rediseño. Lee el contenido público y las API de ZecHub. No cambia la wiki en vivo.",
-    "pages": "232 páginas",
+    "pages": "237 páginas",
     "languageCount": "21 idiomas"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Presentaciones de hackathon",
     "projects": "proyectos",
     "github": "Ver en GitHub",
-    "note": "El archivo original enumera 36 proyectos. Esta página captura los enlaces públicos de GitHub. La página original tiene la lista completa.",
+    "note": "El archivo actual de 2026 enumera 34 proyectos públicos. La página original tiene la lista completa.",
     "t1": "Infraestructura",
     "t1c": "Nodos, indexadores, herramientas RPC y confiabilidad para constructores y operadores.",
     "t2": "Juegos",
@@ -458,6 +460,9 @@
     "r2": "Los equipos solo pueden presentar un proyecto final por equipo.",
     "r3": "Todos los envíos deben incluir documentación clara de configuración y uso.",
     "r4": "Utilice licencias de código abierto siempre que sea posible para fomentar la colaboración.",
-    "r5": "Respete la privacidad, la seguridad y las pautas de la comunidad tanto en el código como en el contenido."
+    "r5": "Respete la privacidad, la seguridad y las pautas de la comunidad tanto en el código como en el contenido.",
+    "archive2025": "archivo 2025",
+    "archive2024": "archivo 2024",
+    "yearProjects": "proyectos"
   }
 }

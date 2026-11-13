@@ -255,7 +255,9 @@
     "watch": "Kpɔe le YouTube dzi",
     "clear": "Eme kɔ ƒã",
     "noMatches": "Nufiame aɖeke mesɔ kple didi ma o.",
-    "noMatchesCopy": "Te didi si keke ta wu alo hatsotso bubu aɖe kpɔ."
+    "noMatchesCopy": "Te didi si keke ta wu alo hatsotso bubu aɖe kpɔ.",
+    "sortRecent": "Wotsɔe kpee nyitsɔ laa",
+    "sortTitle": "Tanya A vaseɖe Z"
   },
   "settings": {
     "description": "Tanya, gbegbɔgblɔ, kple nyatakakawo ƒe ɖoɖowo na dɔwɔƒea.",
@@ -265,11 +267,11 @@
     "languageCopy": "Tia gbe aɖe eye dɔwɔwɔ ƒe teƒea anɔ afisia. Emenyawo kple mɔfiamewo trɔna le nyatakakadzraɖoƒe sia me.",
     "data": "Data & dzɔtsoƒe",
     "content": "Emenyawo",
-    "contentCopy": "232 Eŋlisigbe me axa siwo woɖe ahuhɔ̃e tso zechub.wiki",
+    "contentCopy": "237 Eŋlisigbe me axa siwo woɖe ahuhɔ̃e tso zechub.wiki",
     "walletCopy": "gakotoku siwo tso ZecHub gakotoku ƒe matriki me",
     "networkCopy": "Live ZEC ƒe asi kple kɔsɔkɔsɔ ŋuti nyatakakawo tso ZecHub API gbɔ",
     "previewCopy": "Esia nye alesi wogbugbɔ trɔ asi le eŋu ƒe ŋgɔdonya. Exlẽa ZecHub ƒe dutoƒo nyatakakawo kple APIwo. Metrɔa wiki si le agbe o.",
-    "pages": "232 ƒe axawo",
+    "pages": "237 ƒe axawo",
     "languageCount": "21 gbegbɔgblɔwo"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Hackathon ƒe nyatakakawo ɖoɖo ɖa",
     "projects": "dɔwo wɔwɔ",
     "github": "Kpɔe le GitHub dzi",
-    "note": "Nudzraɖoƒe gbãtɔa yɔ dɔ 36 siwo wowɔ. Axa sia léa dutoƒo GitHub kadodowo. Nyatakaka bliboa le axa gbãtɔa dzi.",
+    "note": "Ƒe 2026 ƒe nudzraɖoƒe si li fifia yɔ dukɔa ƒe dɔ 34. Nyatakaka bliboa le axa gbãtɔa dzi.",
     "t1": "Dɔwɔƒewo ƒe xɔtuɖoɖowo",
     "t1c": "Nodes, indexers, RPC tooling, kple kakaɖedzi na xɔtulawo kple dɔwɔlawo.",
     "t2": "Fefewo",
@@ -458,6 +460,9 @@
     "r2": "Dɔ mamlɛtɔ ɖeka koe ƒuƒoƒowo ate ŋu aɖo ɖe ƒuƒoƒo ɖesiaɖe.",
     "r3": "Ele be ɖoɖo kple zazã ŋuti nuŋlɔɖi siwo me kɔ nanɔ agbalẽ siwo katã woɖo ɖa la me.",
     "r4": "Zã mɔɖegbalẽ si woate ŋu azã le mɔ gbadza nu ɣesiaɣi si wòanya wɔ be nàde nuwɔwɔ aduadu ƒe dzi ƒo.",
-    "r5": "De bubu ameŋunyatakakawo, dedienɔnɔ, kple nutoa me ƒe mɔfiamewo ŋu le kɔpiwo kple emenyawo siaa me."
+    "r5": "De bubu ameŋunyatakakawo, dedienɔnɔ, kple nutoa me ƒe mɔfiamewo ŋu le kɔpiwo kple emenyawo siaa me.",
+    "archive2025": "2025 ƒe nudzraɖoƒe",
+    "archive2024": "2024 ƒe nudzraɖoƒe",
+    "yearProjects": "dɔwo wɔwɔ"
   }
 }

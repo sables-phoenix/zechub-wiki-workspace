@@ -48,6 +48,7 @@ const languages = [
   { code: "de", label: "Deutsch" },
   { code: "pt", label: "Português" },
   { code: "ar", label: "العربية" },
+  { code: "fa", label: "فارسی" },
   { code: "zh", label: "中文" },
   { code: "hi", label: "हिन्दी" },
   { code: "ru", label: "Русский" },

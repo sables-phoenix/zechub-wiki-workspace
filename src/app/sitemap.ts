@@ -27,10 +27,12 @@ const appRoutes = [
   "/zcash-organizations/zodl",
 ] as const;
 
-const languagesFor = (path: string): Record<string, string> =>
-  Object.fromEntries(
+const languagesFor = (path: string): Record<string, string> => ({
+  ...Object.fromEntries(
     locales.map((locale) => [locale, `${siteUrl}${localePath(locale as Locale, path)}`]),
-  );
+  ),
+  "x-default": `${siteUrl}${path}`,
+});
 
 const entryFor = (
   locale: Locale,

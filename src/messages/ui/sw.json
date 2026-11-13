@@ -255,7 +255,9 @@
     "watch": "Tazama kwenye YouTube",
     "clear": "Wazi",
     "noMatches": "Hakuna mafunzo yanayolingana na utafutaji huo.",
-    "noMatchesCopy": "Jaribu utafutaji mpana zaidi au aina tofauti."
+    "noMatchesCopy": "Jaribu utafutaji mpana zaidi au aina tofauti.",
+    "sortRecent": "Iliyoongezwa hivi karibuni",
+    "sortTitle": "Kichwa A hadi Z"
   },
   "settings": {
     "description": "Mandhari, lugha, na mipangilio ya data ya nafasi ya kazi.",
@@ -265,11 +267,11 @@
     "languageCopy": "Chagua lugha na nafasi ya kazi itabaki hapa. Badilisha maudhui na urambazaji ndani ya tovuti hii.",
     "data": "Data na chanzo",
     "content": "Maudhui",
-    "contentCopy": "Kurasa 232 za Kiingereza zimeakisiwa kutoka zechub.wiki",
+    "contentCopy": "Kurasa 237 za Kiingereza zimeakisiwa kutoka zechub.wiki",
     "walletCopy": "pochi kutoka kwa matrix ya mkoba ya ZecHub",
     "networkCopy": "Bei ya moja kwa moja ya ZEC na data ya msururu kutoka API ya ZecHub",
     "previewCopy": "Hili ni hakikisho la uundaji upya. Inasoma maudhui ya umma ya ZecHub na API. Haibadilishi wiki moja kwa moja.",
-    "pages": "232 kurasa",
+    "pages": "kurasa 237",
     "languageCount": "Lugha 21"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Mawasilisho ya Hackathon",
     "projects": "miradi",
     "github": "Tazama kwenye GitHub",
-    "note": "Hifadhi ya asili inaorodhesha miradi 36. Ukurasa huu unanasa viungo vya GitHub vya umma. Ukurasa asili una orodha kamili.",
+    "note": "Kumbukumbu ya sasa ya 2026 inaorodhesha miradi 34 ya umma. Ukurasa asili una orodha kamili.",
     "t1": "Miundombinu",
     "t1c": "Nodi, viashiria, zana za RPC, na kutegemewa kwa wajenzi na waendeshaji.",
     "t2": "Michezo",
@@ -458,6 +460,9 @@
     "r2": "Timu zinaweza kuwasilisha mradi mmoja tu wa mwisho kwa kila timu.",
     "r3": "Mawasilisho yote lazima yajumuishe usanidi wazi na hati za matumizi.",
     "r4": "Tumia leseni ya chanzo huria kila inapowezekana ili kuhimiza ushirikiano.",
-    "r5": "Heshimu faragha, usalama na miongozo ya jumuiya katika kanuni na maudhui."
+    "r5": "Heshimu faragha, usalama na miongozo ya jumuiya katika kanuni na maudhui.",
+    "archive2025": "2025 kumbukumbu",
+    "archive2024": "2024 kumbukumbu",
+    "yearProjects": "miradi"
   }
 }

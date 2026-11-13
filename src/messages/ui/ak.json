@@ -255,7 +255,9 @@
     "watch": "Hwɛ wɔ YouTube so",
     "clear": "Ɛda adi pefee",
     "noMatches": "Nkyerɛkyerɛ biara nni hɔ a ɛne saa hwehwɛ no hyia.",
-    "noMatchesCopy": "Sɔ hwehwɛ a ɛtrɛw anaa ɔfã foforo hwɛ."
+    "noMatchesCopy": "Sɔ hwehwɛ a ɛtrɛw anaa ɔfã foforo hwɛ.",
+    "sortRecent": "Nnansa yi ara wɔde kaa ho",
+    "sortTitle": "Asɛmti A kosi Z"
   },
   "settings": {
     "description": "Asɛmti, kasa, ne data nhyehyɛe ma adwumayɛbea no.",
@@ -265,11 +267,11 @@
     "languageCopy": "Paw kasa bi na adwumayɛbea no tra ha. Nsɛm a ɛwɔ mu ne akwantuo sesa wɔ saa wɛbsaet yi mu.",
     "data": "Data & fibea",
     "content": "Nsɛm a ɛwɔ mu",
-    "contentCopy": "232 Borɔfo nkratafa a wɔayɛ no ahwehwɛ fi zechub.wiki",
+    "contentCopy": "237 Borɔfo nkratafa a wɔayɛ no ahwehwɛ fi zechub.wiki",
     "walletCopy": "sika kotoku a efi ZecHub sika kotoku matrix no mu",
     "networkCopy": "Live ZEC bo ne nkɔnsɔnkɔnsɔn data fi ZecHub API",
     "previewCopy": "Eyi yɛ redesign preview. Ɛkenkan ɔmanfoɔ ZecHub mu nsɛm ne API ahodoɔ. Ɛnsesa live wiki no.",
-    "pages": "nkratafa 232 na ɛwɔ hɔ",
+    "pages": "nkratafa 237 na ɛwɔ hɔ",
     "languageCount": "21 kasa horow"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Hackathon nsɛm a wɔde kɔma",
     "projects": "nnwuma a wɔyɛ",
     "github": "Hwɛ wɔ GitHub so",
-    "note": "Mfitiase nneɛma a wɔkora so no bobɔ nnwuma 36 din. Saa krataafa yi kyere ɔmanfoɔ GitHub nkitahodiɛ. Kratafa a edi kan no wɔ nea wɔahyehyɛ no nyinaa.",
+    "note": "Mprempren 2026 nneɛma a wɔkora so no bobɔ ɔmanfo nnwuma 34 din. Kratafa a edi kan no wɔ nea wɔahyehyɛ no nyinaa.",
     "t1": "Nneɛma a wɔde yɛ adwuma",
     "t1c": "Nodes, indexers, RPC tooling, ne ahotosoɔ ma adansifoɔ ne adwumayɛfoɔ.",
     "t2": "Agodie a wɔde di agoru",
@@ -458,6 +460,9 @@
     "r2": "Akuw ahorow betumi de adwuma a etwa to biako pɛ akɔma kuw biara.",
     "r3": "Ɛsɛ sɛ nsɛm a wɔde bɛmena nyinaa de nhyehyɛe ne dwumadie ho nkrataa a emu da hɔ ka ho.",
     "r4": "Fa tumi krataa a wɔde ma a wɔabue ano di dwuma bere biara a ɛbɛyɛ yiye de ahyɛ biakoyɛ ho nkuran.",
-    "r5": "Bu kokoam nsɛm, ahobammɔ, ne mpɔtam hɔ akwankyerɛ ahorow wɔ mmara ne emu nsɛm nyinaa mu."
+    "r5": "Bu kokoam nsɛm, ahobammɔ, ne mpɔtam hɔ akwankyerɛ ahorow wɔ mmara ne emu nsɛm nyinaa mu.",
+    "archive2025": "2025 mu nneɛma a wɔkora so",
+    "archive2024": "2024 mu nneɛma a wɔkora so",
+    "yearProjects": "nnwuma a wɔyɛ"
   }
 }

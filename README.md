@@ -13,8 +13,8 @@ ZecHub Wiki is a large, community-maintained Zcash education site. This project 
 - Menu bar, dock, windows, Launchpad, Spotlight, Control Center, and a local clock.
 - Eight primary apps: Home, Start Here, Wallets, Using Zcash, Learn, Build, Ecosystem, Library.
 - Network, Donate, Contribute, and Settings as supporting apps.
-- 232 English wiki pages mirrored from the site's public markdown endpoints.
-- 20 internal language editions (Italian through Greek) with localized routes, content indexes, UI catalogs, search, and RTL Arabic.
+- 237 English wiki pages mirrored from the site's public markdown endpoints.
+- 21 internal language editions (Italian through Persian and Greek) with localized routes, content indexes, UI catalogs, search, and RTL Arabic and Persian.
 - 41 wallet entries from the ZecHub wallet matrix, 38 active and 3 deprecated, with device, pool, operating system, wallet support, feature, NU7, rating, beta, and deprecated state.
 - Full-text search over the mirrored pages.
 - Live ZEC price and chain metrics from the ZecHub APIs, plus the dashboard tabs.
@@ -105,7 +105,7 @@ npm run translate:ui
 
 ## Validation
 
-- 232 article pages and the app and special routes build statically. The sitemap contains 253 URLs.
+- 237 English article pages and the app and special routes build statically. The sitemap contains all 22 locale variants.
 - All key routes checked at 1440 and 390.
 - No horizontal overflow in the window scroller.
 - Article markdown renders headings, lists, tables, images, YouTube embeds, and internal links.

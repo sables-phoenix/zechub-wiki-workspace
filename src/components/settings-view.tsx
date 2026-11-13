@@ -23,6 +23,7 @@ const languages = [
   { code: "de", label: "German", native: "Deutsch" },
   { code: "pt", label: "Portuguese", native: "Português" },
   { code: "ar", label: "Arabic", native: "العربية" },
+  { code: "fa", label: "Persian", native: "فارسی" },
   { code: "zh", label: "Chinese", native: "中文" },
   { code: "hi", label: "Hindi", native: "हिन्दी" },
   { code: "ru", label: "Russian", native: "Русский" },

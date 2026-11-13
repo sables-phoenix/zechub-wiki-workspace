@@ -7,6 +7,7 @@ import esSource from "@/messages/source/es.json";
 import deSource from "@/messages/source/de.json";
 import ptSource from "@/messages/source/pt.json";
 import arSource from "@/messages/source/ar.json";
+import faSource from "@/messages/source/fa.json";
 import zhSource from "@/messages/source/zh.json";
 import hiSource from "@/messages/source/hi.json";
 import ruSource from "@/messages/source/ru.json";
@@ -28,6 +29,7 @@ import esUi from "@/messages/ui/es.json";
 import deUi from "@/messages/ui/de.json";
 import ptUi from "@/messages/ui/pt.json";
 import arUi from "@/messages/ui/ar.json";
+import faUi from "@/messages/ui/fa.json";
 import zhUi from "@/messages/ui/zh.json";
 import hiUi from "@/messages/ui/hi.json";
 import ruUi from "@/messages/ui/ru.json";
@@ -51,6 +53,7 @@ const source: Record<Locale, MessageTree> = {
   de: deSource as unknown as MessageTree,
   pt: ptSource as unknown as MessageTree,
   ar: arSource as unknown as MessageTree,
+  fa: faSource as unknown as MessageTree,
   zh: zhSource as unknown as MessageTree,
   hi: hiSource as unknown as MessageTree,
   ru: ruSource as unknown as MessageTree,
@@ -75,6 +78,7 @@ const ui: Record<Locale, MessageTree> = {
   de: deUi as unknown as MessageTree,
   pt: ptUi as unknown as MessageTree,
   ar: arUi as unknown as MessageTree,
+  fa: faUi as unknown as MessageTree,
   zh: zhUi as unknown as MessageTree,
   hi: hiUi as unknown as MessageTree,
   ru: ruUi as unknown as MessageTree,

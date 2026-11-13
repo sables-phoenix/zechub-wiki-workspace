@@ -255,7 +255,9 @@
     "watch": "Wo lori YouTube",
     "clear": "Ko o",
     "noMatches": "Ko si awọn ikẹkọ ti o baamu wiwa yẹn.",
-    "noMatchesCopy": "Gbiyanju wiwa gbooro tabi ẹka ti o yatọ."
+    "noMatchesCopy": "Gbiyanju wiwa gbooro tabi ẹka ti o yatọ.",
+    "sortRecent": "Laipe fi kun",
+    "sortTitle": "Akọle A si Z"
   },
   "settings": {
     "description": "Akori, ede, ati awọn eto data fun aaye iṣẹ.",
@@ -265,11 +267,11 @@
     "languageCopy": "Yan ede kan ati aaye iṣẹ duro nibi. Akoonu ati lilọ kiri inu aaye yii.",
     "data": "Data & orisun",
     "content": "Akoonu",
-    "contentCopy": "232 English ojúewé mirrored lati zechub.wiki",
+    "contentCopy": "237 English ojúewé mirrored lati zechub.wiki",
     "walletCopy": "awọn apamọwọ lati ZecHub apamọwọ matrix",
     "networkCopy": "Iye ZEC laaye ati data pq lati ZecHub API",
     "previewCopy": "Eyi jẹ awotẹlẹ atunto. O ka akoonu ZecHub ti gbogbo eniyan ati awọn API. O ko ni yi awọn ifiwe wiki.",
-    "pages": "232 ojúewé",
+    "pages": "237 oju-iwe",
     "languageCount": "21 ede"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Hackathon awọn ifisilẹ",
     "projects": "ise agbese",
     "github": "Wo lori GitHub",
-    "note": "Iwe ipamọ atilẹba ṣe atokọ awọn iṣẹ akanṣe 36. Oju-iwe yii gba awọn ọna asopọ GitHub ti gbogbo eniyan. Oju-iwe atilẹba ni atokọ ni kikun.",
+    "note": "Ile-ipamọ 2026 lọwọlọwọ ṣe atokọ awọn iṣẹ akanṣe 34 ti gbogbo eniyan. Oju-iwe atilẹba ni atokọ ni kikun.",
     "t1": "Amayederun",
     "t1c": "Awọn apa, awọn atọka, RPC irinṣẹ, ati igbẹkẹle fun awọn akọle ati awọn oniṣẹ.",
     "t2": "Awọn ere",
@@ -458,6 +460,9 @@
     "r2": "Awọn ẹgbẹ le fi iṣẹ akanṣe kan silẹ nikan fun ẹgbẹ kan.",
     "r3": "Gbogbo awọn ifisilẹ gbọdọ pẹlu iṣeto mimọ ati iwe lilo.",
     "r4": "Lo iwe-aṣẹ orisun-ìmọ nigbakugba ti o ṣee ṣe lati ṣe iwuri fun ifowosowopo.",
-    "r5": "Ọwọ ìpamọ, aabo, ati awọn itọnisọna agbegbe ni koodu mejeeji ati akoonu."
+    "r5": "Ọwọ ìpamọ, aabo, ati awọn itọnisọna agbegbe ni koodu mejeeji ati akoonu.",
+    "archive2025": "2025 pamosi",
+    "archive2024": "2024 pamosi",
+    "yearProjects": "ise agbese"
   }
 }

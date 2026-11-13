@@ -17,7 +17,6 @@ import { HomeView } from "@/components/home-view";
 import { LocalizedCollectionPage } from "@/components/localized-collection-page";
 import { LocalizedLibraryView } from "@/components/localized-library-view";
 import { LocalizedArticleView } from "@/components/localized-article-view";
-import { LocalizedNotFoundPage } from "@/components/localized-not-found-page";
 import { isLocale, localePath, locales, type Locale } from "@/lib/i18n";
 import { siteUrl } from "@/lib/site";
 import { getPage } from "@/lib/pages";
@@ -142,9 +141,12 @@ export async function generateMetadata({ params }: LocalizedPageProps): Promise<
   if (!isLocale(locale) || locale === "en") return {};
   const path = resolvePath(slug?.join("/") ?? "");
   const canonicalPath = path === "" ? "/" : `/${path}`;
-  const languages = Object.fromEntries(
-    locales.map((item) => [item, `${siteUrl}${localePath(item, canonicalPath)}`]),
-  );
+  const languages = {
+    ...Object.fromEntries(
+      locales.map((item) => [item, `${siteUrl}${localePath(item, canonicalPath)}`]),
+    ),
+    "x-default": `${siteUrl}${canonicalPath}`,
+  };
   const localized = getLocalizedPage(locale, path);
   if (localized) {
     return {
@@ -189,5 +191,5 @@ export default async function LocalizedPage({ params }: LocalizedPageProps) {
   const app = renderAppRoute(path, locale);
   if (app) return app;
 
-  return <LocalizedNotFoundPage locale={locale} />;
+  notFound();
 }

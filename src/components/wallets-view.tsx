@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Star } from "lucide-react";
 import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
 import { useI18n } from "@/components/i18n-provider";
@@ -41,6 +41,7 @@ const ratingLabel = (rating: number | null): string => (rating === null ? "—" 
 
 export function WalletsView() {
   const { t } = useI18n();
+  const [ratings, setRatings] = useState<Record<string, number>>({});
   const [query, setQuery] = useState("");
   const [devices, setDevices] = useState<string[]>([]);
   const [pools, setPools] = useState<string[]>([]);
@@ -49,6 +50,32 @@ export function WalletsView() {
   const [features, setFeatures] = useState<string[]>([]);
   const [nu7s, setNu7s] = useState<string[]>([]);
   const [sort, setSort] = useState<SortMode>("rating");
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/wallet-ratings")
+      .then((response) => response.json())
+      .then((data: Record<string, number>) => {
+        if (!cancelled) setRatings(data);
+      })
+      .catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const ratedActive = useMemo(
+    () => activeWallets.map((wallet) => ({ ...wallet, rating: ratings[wallet.name] ?? wallet.rating })),
+    [ratings],
+  );
+  const ratedDeprecated = useMemo(
+    () =>
+      deprecatedWallets.map((wallet) => ({
+        ...wallet,
+        rating: ratings[wallet.name] ?? wallet.rating,
+      })),
+    [ratings],
+  );
 
   const toggle = (setter: (updater: (current: string[]) => string[]) => void) => (value: string) => {
     setter((current) => {
@@ -59,7 +86,7 @@ export function WalletsView() {
 
   const results = useMemo(() => {
     const value = query.trim().toLowerCase();
-    return activeWallets
+    return ratedActive
       .filter((wallet) => {
         if (devices.length && !devices.every((device) => matchesDevice(wallet, device))) return false;
         if (pools.length && !pools.every((pool) => matchesPool(wallet, pool))) return false;
@@ -85,12 +112,12 @@ export function WalletsView() {
       .sort((a, b) =>
         sort === "name" ? a.name.localeCompare(b.name) : (b.rating ?? -100) - (a.rating ?? -100),
       );
-  }, [query, devices, pools, systems, supports, features, nu7s, sort]);
+  }, [query, devices, pools, systems, supports, features, nu7s, sort, ratedActive]);
 
-  const shieldedCount = activeWallets.filter((wallet) =>
+  const shieldedCount = ratedActive.filter((wallet) =>
     wallet.pools.some((item) => item !== "Transparent"),
   ).length;
-  const hardwareCount = activeWallets.filter((wallet) => wallet.devices.includes("Hardware")).length;
+  const hardwareCount = ratedActive.filter((wallet) => wallet.devices.includes("Hardware")).length;
 
   const reset = () => {
     setQuery("");
@@ -121,7 +148,7 @@ export function WalletsView() {
         }
         meta={
           <>
-            <span>{activeWallets.length} {t("wallets.activeWallets", "active wallets")}</span>
+            <span>{ratedActive.length} {t("wallets.activeWallets", "active wallets")}</span>
             <span>{shieldedCount} {t("wallets.shieldedCapable", "shielded-capable")}</span>
             <span>{hardwareCount} {t("wallets.hardware", "hardware")}</span>
             <span>{deprecatedWallets.length} {t("wallets.deprecated", "deprecated")}</span>
@@ -261,7 +288,7 @@ export function WalletsView() {
             </span>
           </div>
           <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {deprecatedWallets.map((wallet) => (
+            {ratedDeprecated.map((wallet) => (
               <WalletCard key={wallet.name} wallet={wallet} deprecated />
             ))}
           </div>

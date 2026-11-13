@@ -255,7 +255,9 @@
     "watch": "Tonton di YouTube",
     "clear": "Jelas",
     "noMatches": "Tidak ada tutorial yang cocok dengan pencarian itu.",
-    "noMatchesCopy": "Coba penelusuran yang lebih luas atau kategori lain."
+    "noMatchesCopy": "Coba penelusuran yang lebih luas atau kategori lain.",
+    "sortRecent": "Baru-baru ini ditambahkan",
+    "sortTitle": "Judul A sampai Z"
   },
   "settings": {
     "description": "Pengaturan tema, bahasa, dan data untuk ruang kerja.",
@@ -265,11 +267,11 @@
     "languageCopy": "Pilih bahasa dan ruang kerja tetap di sini. Konten dan navigasi beralih di dalam situs ini.",
     "data": "Data & sumber",
     "content": "Konten",
-    "contentCopy": "232 halaman berbahasa Inggris dicerminkan dari zechub.wiki",
+    "contentCopy": "237 halaman berbahasa Inggris dicerminkan dari zechub.wiki",
     "walletCopy": "dompet dari matriks dompet ZecHub",
     "networkCopy": "Harga ZEC langsung dan data rantai dari ZecHub API",
     "previewCopy": "Ini adalah pratinjau desain ulang. Ia membaca konten dan API ZecHub publik. Itu tidak mengubah wiki yang aktif.",
-    "pages": "232 halaman",
+    "pages": "237 halaman",
     "languageCount": "21 bahasa"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Pengiriman hackathon",
     "projects": "proyek",
     "github": "Lihat di GitHub",
-    "note": "Arsip asli mencantumkan 36 proyek. Halaman ini menangkap tautan GitHub publik. Halaman asli memiliki daftar lengkap.",
+    "note": "Arsip tahun 2026 saat ini mencantumkan 34 proyek publik. Halaman asli memiliki daftar lengkap.",
     "t1": "Infrastruktur",
     "t1c": "Node, pengindeks, perkakas RPC, dan keandalan untuk pembangun dan operator.",
     "t2": "Permainan",
@@ -458,6 +460,9 @@
     "r2": "Tim hanya dapat mengirimkan satu tugas akhir per tim.",
     "r3": "Semua pengiriman harus menyertakan dokumentasi pengaturan dan penggunaan yang jelas.",
     "r4": "Gunakan lisensi sumber terbuka bila memungkinkan untuk mendorong kolaborasi.",
-    "r5": "Hormati pedoman privasi, keamanan, dan komunitas baik dalam kode maupun konten."
+    "r5": "Hormati pedoman privasi, keamanan, dan komunitas baik dalam kode maupun konten.",
+    "archive2025": "Arsip 2025",
+    "archive2024": "Arsip 2024",
+    "yearProjects": "proyek"
   }
 }

@@ -3014,5 +3014,70 @@
     "words": 128,
     "order": 241,
     "featured": true
+  },
+  {
+    "path": "zcash-use-cases/donate-zec-and-claim-a-us-tax-deduction",
+    "url": "https://zechub.wiki/zcash-use-cases/donate-zec-and-claim-a-us-tax-deduction",
+    "file": "zcash-use-cases__donate-zec-and-claim-a-us-tax-deduction.md",
+    "title": "Donate ZEC and claim a US tax deduction",
+    "description": "This page is general information, not legal or tax advice. US tax rules change, so check your situation with a tax adviser. Every rule below links to its IRS…",
+    "section": "Use Cases",
+    "app": "use",
+    "readingMinutes": 5,
+    "words": 1042,
+    "order": 242,
+    "featured": false
+  },
+  {
+    "path": "zcash-use-cases/run-a-zec-fundraising-campaign",
+    "url": "https://zechub.wiki/zcash-use-cases/run-a-zec-fundraising-campaign",
+    "file": "zcash-use-cases__run-a-zec-fundraising-campaign.md",
+    "title": "Run a ZEC fundraising campaign",
+    "description": "If you're a US nonprofit, read Accept Private Donations as a US Nonprofit first for receipts and IRS forms.",
+    "section": "Use Cases",
+    "app": "use",
+    "readingMinutes": 5,
+    "words": 951,
+    "order": 243,
+    "featured": false
+  },
+  {
+    "path": "guides/akash-network-zakura",
+    "url": "https://zechub.wiki/guides/akash-network-zakura",
+    "file": "guides__akash-network-zakura.md",
+    "title": "How to run Zakura on Akash Network",
+    "description": "Step-by-step path for a Zakura Zcash full node using the awesome-akash zcash-zakura template.",
+    "section": "Guides",
+    "app": "build",
+    "readingMinutes": 3,
+    "words": 491,
+    "order": 244,
+    "featured": false
+  },
+  {
+    "path": "guides/thus-spoke-zakura-akash",
+    "url": "https://zechub.wiki/guides/thus-spoke-zakura-akash",
+    "file": "guides__thus-spoke-zakura-akash.md",
+    "title": "Thus Spoke Zakura on Akash (Regtest)",
+    "description": "Run the Thus Spoke Zakura v0.4.1 stack on Akash: Zakura Regtest, lightwalletd, and the wallet dashboard / HTTP API. Test coins have no value. Do not send…",
+    "section": "Guides",
+    "app": "build",
+    "readingMinutes": 2,
+    "words": 419,
+    "order": 245,
+    "featured": false
+  },
+  {
+    "path": "guides/zcash-js",
+    "url": "https://zechub.wiki/guides/zcash-js",
+    "file": "guides__zcash-js.md",
+    "title": "Zcash JS Developer Guide",
+    "description": "zcash.js (@zcashlabs/zcash.js) is an experimental TypeScript/JavaScript SDK released by Zcash Labs on 26 October 2026. It lets developers build wallets, light…",
+    "section": "Guides",
+    "app": "build",
+    "readingMinutes": 3,
+    "words": 504,
+    "order": 246,
+    "featured": false
   }
 ]

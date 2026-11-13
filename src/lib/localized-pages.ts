@@ -6,6 +6,7 @@ import esIndex from "@/content/i18n/es.json";
 import deIndex from "@/content/i18n/de.json";
 import ptIndex from "@/content/i18n/pt.json";
 import arIndex from "@/content/i18n/ar.json";
+import faIndex from "@/content/i18n/fa.json";
 import zhIndex from "@/content/i18n/zh.json";
 import hiIndex from "@/content/i18n/hi.json";
 import ruIndex from "@/content/i18n/ru.json";
@@ -42,6 +43,7 @@ const indexes: Record<Exclude<Locale, "en">, readonly LocalizedPage[]> = {
   de: deIndex as LocalizedPage[],
   pt: ptIndex as LocalizedPage[],
   ar: arIndex as LocalizedPage[],
+  fa: faIndex as LocalizedPage[],
   zh: zhIndex as LocalizedPage[],
   hi: hiIndex as LocalizedPage[],
   ru: ruIndex as LocalizedPage[],

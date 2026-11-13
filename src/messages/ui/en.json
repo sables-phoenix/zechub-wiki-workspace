@@ -255,7 +255,9 @@
     "watch": "Watch on YouTube",
     "clear": "Clear",
     "noMatches": "No tutorials match that search.",
-    "noMatchesCopy": "Try a broader search or a different category."
+    "noMatchesCopy": "Try a broader search or a different category.",
+    "sortRecent": "Recently added",
+    "sortTitle": "Title A to Z"
   },
   "settings": {
     "description": "Theme, language, and data settings for the workspace.",
@@ -265,11 +267,11 @@
     "languageCopy": "Choose a language and the workspace stays here. Content and navigation switch inside this site.",
     "data": "Data & source",
     "content": "Content",
-    "contentCopy": "232 English pages mirrored from zechub.wiki",
+    "contentCopy": "237 English pages mirrored from zechub.wiki",
     "walletCopy": "wallets from the ZecHub wallet matrix",
     "networkCopy": "Live ZEC price and chain data from the ZecHub API",
     "previewCopy": "This is a redesign preview. It reads the public ZecHub content and APIs. It does not change the live wiki.",
-    "pages": "232 pages",
+    "pages": "237 pages",
     "languageCount": "21 languages"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Hackathon submissions",
     "projects": "projects",
     "github": "View on GitHub",
-    "note": "The original archive lists 36 projects. This page captures the public GitHub links. The original page has the full list.",
+    "note": "The current 2026 archive lists 34 public projects. The original page has the full list.",
     "t1": "Infrastructure",
     "t1c": "Nodes, indexers, RPC tooling, and reliability for builders and operators.",
     "t2": "Games",
@@ -458,6 +460,9 @@
     "r2": "Teams can submit only one final project per team.",
     "r3": "All submissions must include clear setup and usage documentation.",
     "r4": "Use open-source licensing whenever possible to encourage collaboration.",
-    "r5": "Respect privacy, security, and community guidelines in both code and content."
+    "r5": "Respect privacy, security, and community guidelines in both code and content.",
+    "archive2025": "2025 archive",
+    "archive2024": "2024 archive",
+    "yearProjects": "projects"
   }
 }

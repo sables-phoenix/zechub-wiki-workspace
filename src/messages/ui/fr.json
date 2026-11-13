@@ -255,7 +255,9 @@
     "watch": "Regarder sur YouTube",
     "clear": "Effacer",
     "noMatches": "Aucun tutoriel ne correspond à cette recherche.",
-    "noMatchesCopy": "Essayez une recherche plus large ou une catégorie différente."
+    "noMatchesCopy": "Essayez une recherche plus large ou une catégorie différente.",
+    "sortRecent": "Récemment ajouté",
+    "sortTitle": "Titre A à Z"
   },
   "settings": {
     "description": "Paramètres de thème, de langue et de données pour l’espace de travail.",
@@ -265,11 +267,11 @@
     "languageCopy": "Choisissez une langue et l'espace de travail reste ici. Changement de contenu et de navigation à l'intérieur de ce site.",
     "data": "Données et sources",
     "content": "Contenu",
-    "contentCopy": "232 pages en anglais provenant de zechub.wiki",
+    "contentCopy": "237 pages en anglais provenant de zechub.wiki",
     "walletCopy": "portefeuilles de la matrice de portefeuille ZecHub",
     "networkCopy": "Données de prix et de chaîne ZEC en direct à partir de l'API ZecHub",
     "previewCopy": "Ceci est un aperçu de la refonte. Il lit le contenu public et les API de ZecHub. Cela ne change pas le wiki en direct.",
-    "pages": "232 pages",
+    "pages": "237 pages",
     "languageCount": "21 langues"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Soumissions au hackathon",
     "projects": "projets",
     "github": "Voir sur GitHub",
-    "note": "Les archives originales répertorient 36 projets. Cette page capture les liens publics GitHub. La page originale contient la liste complète.",
+    "note": "Les archives actuelles de 2026 répertorient 34 projets publics. La page originale contient la liste complète.",
     "t1": "Infrastructures",
     "t1c": "Nœuds, indexeurs, outils RPC et fiabilité pour les constructeurs et les opérateurs.",
     "t2": "Jeux",
@@ -458,6 +460,9 @@
     "r2": "Les équipes ne peuvent soumettre qu'un seul projet final par équipe.",
     "r3": "Toutes les soumissions doivent inclure une documentation claire sur la configuration et l’utilisation.",
     "r4": "Utilisez des licences open source autant que possible pour encourager la collaboration.",
-    "r5": "Respectez la confidentialité, la sécurité et les directives de la communauté dans le code et le contenu."
+    "r5": "Respectez la confidentialité, la sécurité et les directives de la communauté dans le code et le contenu.",
+    "archive2025": "Archives 2025",
+    "archive2024": "Archives 2024",
+    "yearProjects": "projets"
   }
 }

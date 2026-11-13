@@ -255,7 +255,9 @@
     "watch": "YouTube'da izle",
     "clear": "Temizle",
     "noMatches": "Bu aramayla eşleşen eğitim yok.",
-    "noMatchesCopy": "Daha geniş bir arama yapmayı veya farklı bir kategoriyi deneyin."
+    "noMatchesCopy": "Daha geniş bir arama yapmayı veya farklı bir kategoriyi deneyin.",
+    "sortRecent": "Son eklenen",
+    "sortTitle": "A'dan Z'ye Başlık"
   },
   "settings": {
     "description": "Çalışma alanına ilişkin tema, dil ve veri ayarları.",
@@ -265,11 +267,11 @@
     "languageCopy": "Bir dil seçtiğinizde çalışma alanı burada kalır. Bu sitenin içindeki içerik ve gezinme geçişi.",
     "data": "Veri ve kaynak",
     "content": "İçerik",
-    "contentCopy": "zechub.wiki'den yansıtılmış 232 İngilizce sayfa",
+    "contentCopy": "zechub.wiki'den yansıtılmış 237 İngilizce sayfa",
     "walletCopy": "ZecHub cüzdan matrisinden cüzdanlar",
     "networkCopy": "ZecHub API'sinden canlı ZEC fiyatı ve zincir verileri",
     "previewCopy": "Bu bir yeniden tasarım önizlemesidir. Herkese açık ZecHub içeriğini ve API'lerini okur. Canlı wiki'yi değiştirmez.",
-    "pages": "232 sayfa",
+    "pages": "237 sayfa",
     "languageCount": "21 dil"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Hackathon başvuruları",
     "projects": "projeler",
     "github": "GitHub'da görüntüle",
-    "note": "Orijinal arşivde 36 proje listeleniyor. Bu sayfa genel GitHub bağlantılarını yakalar. Orijinal sayfada tam liste bulunmaktadır.",
+    "note": "Mevcut 2026 arşivi 34 kamu projesini listeliyor. Orijinal sayfada tam liste bulunmaktadır.",
     "t1": "Altyapı",
     "t1c": "Derleyiciler ve operatörler için düğümler, dizin oluşturucular, RPC araçları ve güvenilirlik.",
     "t2": "Oyunlar",
@@ -458,6 +460,9 @@
     "r2": "Takımlar her takım yalnızca bir final projesi sunabilir.",
     "r3": "Tüm gönderimler anlaşılır kurulum ve kullanım belgelerini içermelidir.",
     "r4": "İşbirliğini teşvik etmek için mümkün olduğunca açık kaynak lisanslamayı kullanın.",
-    "r5": "Hem kodda hem de içerikte gizlilik, güvenlik ve topluluk kurallarına saygı gösterin."
+    "r5": "Hem kodda hem de içerikte gizlilik, güvenlik ve topluluk kurallarına saygı gösterin.",
+    "archive2025": "2025 arşivi",
+    "archive2024": "2024 arşivi",
+    "yearProjects": "projeler"
   }
 }

@@ -255,7 +255,9 @@
     "watch": "Auf YouTube ansehen",
     "clear": "Klar",
     "noMatches": "Zu dieser Suche passen keine Tutorials.",
-    "noMatchesCopy": "Versuchen Sie es mit einer umfassenderen Suche oder einer anderen Kategorie."
+    "noMatchesCopy": "Versuchen Sie es mit einer umfassenderen Suche oder einer anderen Kategorie.",
+    "sortRecent": "Kürzlich hinzugefügt",
+    "sortTitle": "Titel A bis Z"
   },
   "settings": {
     "description": "Design-, Sprach- und Dateneinstellungen für den Arbeitsbereich.",
@@ -265,11 +267,11 @@
     "languageCopy": "Wählen Sie eine Sprache und der Arbeitsbereich bleibt hier. Inhalt und Navigation wechseln innerhalb dieser Website.",
     "data": "Daten & Quelle",
     "content": "Inhalt",
-    "contentCopy": "232 englische Seiten gespiegelt von zechub.wiki",
+    "contentCopy": "237 englische Seiten gespiegelt von zechub.wiki",
     "walletCopy": "Wallets aus der ZecHub-Wallet-Matrix",
     "networkCopy": "Live-ZEC-Preis- und Kettendaten von der ZecHub-API",
     "previewCopy": "Dies ist eine Neugestaltungsvorschau. Es liest die öffentlichen ZecHub-Inhalte und APIs. Das Live-Wiki wird dadurch nicht verändert.",
-    "pages": "232 Seiten",
+    "pages": "237 Seiten",
     "languageCount": "21 Sprachen"
   },
   "subtitles": {
@@ -443,7 +445,7 @@
     "submissions": "Hackathon-Einreichungen",
     "projects": "Projekte",
     "github": "Auf GitHub ansehen",
-    "note": "Das Originalarchiv listet 36 Projekte auf. Diese Seite erfasst die öffentlichen GitHub-Links. Die Originalseite enthält die vollständige Liste.",
+    "note": "Das aktuelle Archiv 2026 listet 34 öffentliche Projekte auf. Die Originalseite enthält die vollständige Liste.",
     "t1": "Infrastruktur",
     "t1c": "Knoten, Indexer, RPC-Tools und Zuverlässigkeit für Entwickler und Betreiber.",
     "t2": "Spiele",
@@ -458,6 +460,9 @@
     "r2": "Teams können nur ein Abschlussprojekt pro Team einreichen.",
     "r3": "Alle Einreichungen müssen eine klare Einrichtungs- und Nutzungsdokumentation enthalten.",
     "r4": "Nutzen Sie nach Möglichkeit Open-Source-Lizenzen, um die Zusammenarbeit zu fördern.",
-    "r5": "Respektieren Sie Datenschutz-, Sicherheits- und Community-Richtlinien sowohl im Code als auch im Inhalt."
+    "r5": "Respektieren Sie Datenschutz-, Sicherheits- und Community-Richtlinien sowohl im Code als auch im Inhalt.",
+    "archive2025": "Archiv 2025",
+    "archive2024": "Archiv 2024",
+    "yearProjects": "Projekte"
   }
 }

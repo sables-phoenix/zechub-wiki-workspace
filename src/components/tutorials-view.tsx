@@ -12,15 +12,19 @@ export function TutorialsView() {
   const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
+  const [sort, setSort] = useState<"recent" | "title">("recent");
 
   const results = useMemo(() => {
     const value = query.trim().toLowerCase();
-    return tutorials.filter((tutorial) => {
+    const filtered = tutorials.filter((tutorial) => {
       if (category !== "All" && tutorial.category !== category) return false;
       if (!value) return true;
       return `${tutorial.title} ${tutorial.category}`.toLowerCase().includes(value);
     });
-  }, [query, category]);
+    return sort === "title"
+      ? [...filtered].sort((a, b) => a.title.localeCompare(b.title))
+      : filtered;
+  }, [query, category, sort]);
 
   return (
     <div className="container-page py-8 md:py-10">
@@ -54,6 +58,17 @@ export function TutorialsView() {
               {item}
             </button>
           ))}
+        </div>
+        <div className="mt-3 flex justify-end">
+          <select
+            value={sort}
+            onChange={(event) => setSort(event.target.value as "recent" | "title")}
+            aria-label={t("tutorials.sortRecent", "Recently added")}
+            className="h-8 rounded-pill border border-line bg-paper px-3 text-[10px] text-ink outline-none focus:border-gold"
+          >
+            <option value="recent">{t("tutorials.sortRecent", "Recently added")}</option>
+            <option value="title">{t("tutorials.sortTitle", "Title A to Z")}</option>
+          </select>
         </div>
       </div>
 

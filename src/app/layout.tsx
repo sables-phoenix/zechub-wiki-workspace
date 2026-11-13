@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
+import { siteUrl } from "@/lib/site";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -25,13 +26,29 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const description =
+  "The Zcash wiki, in one workspace. Learn Zcash, compare wallets, and read the ZecHub library.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "ZecHub Wiki",
     template: "%s | ZecHub Wiki",
   },
-  description:
-    "The Zcash wiki, in one workspace. Learn Zcash, compare wallets, and read the ZecHub library.",
+  description,
+  applicationName: "ZecHub Wiki",
+  openGraph: {
+    type: "website",
+    siteName: "ZecHub Wiki",
+    title: "ZecHub Wiki",
+    description,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZecHub Wiki",
+    description,
+  },
 };
 
 export default function RootLayout({

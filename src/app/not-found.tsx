@@ -24,6 +24,26 @@ export default function NotFound() {
             <Link href="/library">Browse all pages</Link>
           </Button>
         </div>
+        <div className="mt-8 grid w-full max-w-2xl gap-2 text-left sm:grid-cols-2">
+          {[
+            { label: "Start Here", href: "/start-here", note: "The first pages to read." },
+            { label: "Wallet matrix", href: "/wallets", note: "38 active wallets, 41 entries." },
+            { label: "Tutorials", href: "/zechub-tutorial", note: "88 video guides." },
+            { label: "Dashboard", href: "/network", note: "Live network metrics." },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg border border-line bg-paper px-4 py-3 transition-colors hover:border-ink/25 hover:bg-paper-2"
+            >
+              <span className="block text-sm text-ink">{item.label}</span>
+              <span className="mt-0.5 block text-[11px] text-muted">{item.note}</span>
+            </Link>
+          ))}
+        </div>
+        <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
+          Press ⌘K to search every page
+        </p>
       </div>
     </DesktopShell>
   );

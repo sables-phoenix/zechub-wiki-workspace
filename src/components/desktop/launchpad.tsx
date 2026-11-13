@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Search, X } from "lucide-react";
 import { AppIcon } from "@/components/desktop/app-icon";
 import { desktopApps } from "@/lib/apps";
+import { externalResources, specialPages, type ResourceLink } from "@/data/resources";
 
 type LaunchpadProps = {
   open: boolean;
@@ -28,9 +29,10 @@ const pages = [
 ] as const;
 
 export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadProps) {
-  const navigate = (href: string) => {
+  const navigate = (href: string, external = false) => {
     onClose();
-    onNavigate(href);
+    if (external) window.open(href, "_blank", "noreferrer");
+    else onNavigate(href);
   };
 
   return (
@@ -115,9 +117,43 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
                 ))}
               </div>
             </div>
+
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <ResourceButtons title="ZecHub pages" items={specialPages} onNavigate={navigate} />
+              <ResourceButtons title="Elsewhere" items={externalResources} onNavigate={navigate} />
+            </div>
           </motion.div>
         </motion.div>
       ) : null}
     </AnimatePresence>
+  );
+}
+
+function ResourceButtons({
+  title,
+  items,
+  onNavigate,
+}: {
+  title: string;
+  items: readonly ResourceLink[];
+  onNavigate: (href: string, external?: boolean) => void;
+}) {
+  return (
+    <div className="rounded-card border border-vault-line bg-vault-2/70 p-4">
+      <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">{title}</p>
+      <div className="mt-2">
+        {items.map((item) => (
+          <button
+            key={item.href}
+            type="button"
+            onClick={() => onNavigate(item.href, item.external)}
+            className="flex w-full items-center justify-between gap-3 border-b border-vault-line/70 py-2 text-left text-sm text-vault-muted transition-colors last:border-0 hover:text-vault-text"
+          >
+            <span className="min-w-0 truncate">{item.label}</span>
+            <span className="shrink-0 font-mono text-[9px] text-vault-muted">↗</span>
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

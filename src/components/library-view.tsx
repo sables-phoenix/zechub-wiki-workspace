@@ -9,6 +9,7 @@ import { SectionHero } from "@/components/section-hero";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { pages, sections, type PageMeta } from "@/lib/pages";
+import { externalResources, specialPages, type ResourceLink } from "@/data/resources";
 
 const totalWords = pages.reduce((sum, page) => sum + page.words, 0);
 
@@ -173,8 +174,67 @@ export function LibraryView() {
             ))}
           </div>
         )}
+
+        <section className="mt-12 border-t border-line pt-8">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="eyebrow">More from ZecHub</p>
+              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Pages and places.</h2>
+            </div>
+            <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
+              {specialPages.length + externalResources.length} links
+            </span>
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <ResourceGroup title="ZecHub pages" items={specialPages} />
+            <ResourceGroup title="Elsewhere" items={externalResources} />
+          </div>
+        </section>
       </div>
     </>
+  );
+}
+
+function ResourceGroup({ title, items }: { title: string; items: readonly ResourceLink[] }) {
+  return (
+    <div className="rounded-card border border-line bg-paper p-5 shadow-stamp">
+      <p className="eyebrow">{title}</p>
+      <div className="mt-3">
+        {items.map((item) =>
+          item.external ? (
+            <a
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-start justify-between gap-3 border-b border-line py-2.5 last:border-0"
+            >
+              <span className="min-w-0">
+                <span className="block text-sm text-ink transition-colors group-hover:text-gold-deep">
+                  {item.label}
+                </span>
+                <span className="mt-0.5 block text-[11px] leading-relaxed text-muted">{item.note}</span>
+              </span>
+              <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
+            </a>
+          ) : (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group flex items-start justify-between gap-3 border-b border-line py-2.5 last:border-0"
+            >
+              <span className="min-w-0">
+                <span className="block text-sm text-ink transition-colors group-hover:text-gold-deep">
+                  {item.label}
+                </span>
+                <span className="mt-0.5 block text-[11px] leading-relaxed text-muted">{item.note}</span>
+              </span>
+              <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
+            </Link>
+          ),
+        )}
+      </div>
+    </div>
   );
 }
 

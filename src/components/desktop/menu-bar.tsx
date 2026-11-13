@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Check, Globe2, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -87,15 +88,30 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
         { label: "Launchpad", action: onLaunchpad },
         { label: "Network", href: "/network" },
         { label: "Donate", href: "/donate" },
+        { label: "Tutorials", href: "/zechub-tutorial" },
+        { label: "Visualizers", href: "/visualizer" },
+        { label: "Hackathon", href: "/hackathon" },
+        { label: "Ambassadors", href: "/zcash-global-ambassadors" },
+        { label: "Developers", href: "/developers" },
+        { label: "Merchant map", href: "/map" },
+        { label: "Brand", href: "/zcash-organizations/brand" },
+        { label: "Privacy", href: "/privacy" },
       ],
     },
     {
       label: "Help",
       items: [
         { label: "Open zechub.wiki", href: "https://zechub.wiki", external: true },
+        { label: "Bounties", href: "https://bounties.zechub.wiki/", external: true },
+        { label: "Shop", href: "https://zechub.store", external: true },
+        { label: "ZKAV Club", href: "https://zkav.club", external: true },
+        { label: "Free2Z", href: "https://free2z.cash", external: true },
+        { label: "Pay with Zcash", href: "https://paywithz.cash", external: true },
+        { label: "ZecMap", href: "https://zecmap.com", external: true },
+        { label: "YouTube", href: "https://www.youtube.com/channel/UC3-KM00kjCUheRzO5cq3PAA", external: true },
+        { label: "X", href: "https://x.com/zechub", external: true },
         { label: "Contribute", href: "/contribute" },
         { label: "GitHub", href: "https://github.com/ZecHub/zechub", external: true },
-        { label: "Report a correction", href: "https://github.com/ZecHub/zechub", external: true },
       ],
     },
   ];
@@ -230,7 +246,32 @@ function MenuButton({
   );
 }
 
+function sourcePathFor(pathname: string): string {
+  if (!pathname || pathname === "/") return "/";
+  if (pathname === "/learn") return "/zcash-tech";
+  if (pathname === "/build") return "/guides";
+  if (pathname === "/ecosystem") return "/zcash-community";
+  if (pathname === "/library") return "/sitemap";
+  if (pathname === "/network" || pathname === "/dashboard") return "/dashboard";
+  if (pathname === "/donate" || pathname === "/donation") return "/donation";
+  if (pathname === "/contribute") return "/contribute/help-build-zechub";
+  if (pathname === "/settings") return "/";
+  if (pathname === "/developers") return "/developers";
+  if (pathname === "/visualizer") return "/visualizer";
+  if (pathname === "/hackathon") return "/hackathon";
+  if (pathname === "/zechub-tutorial") return "/zechub-tutorial";
+  if (pathname === "/zcash-global-ambassadors") return "/zcash-global-ambassadors";
+  if (pathname === "/map") return "/map";
+  if (pathname === "/privacy") return "/privacy";
+  if (pathname === "/zcash-organizations/brand") return "/zcash-organizations/brand";
+  return pathname;
+}
+
 function LanguageMenu() {
+  const pathname = usePathname();
+  const sourcePath = sourcePathFor(pathname);
+  const suffix = sourcePath === "/" ? "" : sourcePath;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -243,13 +284,17 @@ function LanguageMenu() {
           <span className="font-mono text-[8px] uppercase tracking-[0.08em]">EN</span>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="max-h-[70vh] w-52 overflow-y-auto">
-        <DropdownMenuLabel>Read in another language</DropdownMenuLabel>
+      <DropdownMenuContent align="end" className="max-h-[70vh] w-56 overflow-y-auto">
+        <DropdownMenuLabel>Read this page in another language</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {languages.map((language) => (
           <DropdownMenuItem key={language.code || "en"} asChild className="text-xs">
             <a
-              href={language.code ? `https://zechub.wiki/${language.code}` : "https://zechub.wiki"}
+              href={
+                language.code
+                  ? `https://zechub.wiki/${language.code}${suffix}`
+                  : `https://zechub.wiki${suffix}`
+              }
               target="_blank"
               rel="noreferrer"
             >
@@ -257,6 +302,10 @@ function LanguageMenu() {
             </a>
           </DropdownMenuItem>
         ))}
+        <DropdownMenuSeparator />
+        <p className="px-2 py-1.5 text-[10px] leading-relaxed text-muted">
+          English is the canonical edition. Language pages open on zechub.wiki.
+        </p>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -6,6 +6,8 @@ import { QrCode as QrIcon, ShieldCheck } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { toast } from "sonner";
 import { CopyIcon } from "@/components/animated-icons/copy-icon";
+import { useI18n } from "@/components/i18n-provider";
+import { localePath } from "@/lib/i18n";
 import { SectionHero } from "@/components/section-hero";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -19,6 +21,7 @@ import {
 } from "@/data/donations";
 
 export function DonateView() {
+  const { t, locale } = useI18n();
   const [version, setVersion] = useState<DonationVersion>("v1");
   const [active, setActive] = useState("Zcash");
   const selected =
@@ -38,21 +41,21 @@ export function DonateView() {
   return (
     <>
       <SectionHero
-        eyebrow="Donate to ZecHub"
-        title="Donate to ZecHub"
-        description="Support ZecHub's open-source mission to provide unbiased, global educational materials and tutorials for the Zcash ecosystem."
+        eyebrow={t("donate.eyebrow", "Donate to ZecHub")}
+        title={t("donate.title", "Donate to ZecHub")}
+        description={t("donate.description", "Support ZecHub's open-source mission to provide unbiased, global educational materials and tutorials for the Zcash ecosystem.")}
         actions={
           <Button asChild variant="secondary">
             <a href={donationSourceUrl} target="_blank" rel="noreferrer">
-              Original donation page
+              {t("donate.originalPage", "Original donation page")}
             </a>
           </Button>
         }
         meta={
           <>
-            <span>v0 and v1</span>
+            <span>{t("donate.versions", "v0 and v1")}</span>
             <span>Zcash, Ycash, Namada, Penumbra, Dash</span>
-            <span>Community funded</span>
+            <span>{t("donate.communityFunded", "Community funded")}</span>
           </>
         }
       />
@@ -62,9 +65,9 @@ export function DonateView() {
           <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="eyebrow">Choose a version</p>
+                <p className="eyebrow">{t("donate.chooseVersion", "Choose a version")}</p>
                 <p className="mt-1 text-sm text-muted">
-                  v0 is the original Zcash address. v1 adds the other chains.
+                  {t("donate.chooseVersionCopy", "v0 is the original Zcash address. v1 adds the other chains.")}
                 </p>
               </div>
               <div
@@ -91,7 +94,7 @@ export function DonateView() {
             </div>
 
             <div className="mt-4">
-              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">Choose a chain</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">{t("donate.chooseChain", "Choose a chain")}</p>
               {version === "v1" ? (
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {donationV1Addresses.map((item) => (
@@ -129,7 +132,7 @@ export function DonateView() {
                       </p>
                       <span className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.08em] text-green">
                         <ShieldCheck className="h-3 w-3" />
-                        Verify before sending
+                        {t("donate.verify", "Verify before sending")}
                       </span>
                     </div>
                     <p className="mt-3 break-all font-mono text-[11px] leading-relaxed text-ink">
@@ -138,7 +141,7 @@ export function DonateView() {
                     <div className="mt-4 flex flex-wrap items-center gap-2">
                       <Button onClick={() => copy(selected.address, selected.chain)}>
                         <CopyIcon size={14} className="h-4 w-4" />
-                        Copy address
+                        {t("donate.copyAddress", "Copy address")}
                       </Button>
                       <span className="text-xs text-muted">{selected.note}</span>
                     </div>
@@ -150,13 +153,15 @@ export function DonateView() {
                       title={`${selected.chain} donation address QR code`}
                     />
                     <p className="mt-2 text-center font-mono text-[8px] uppercase tracking-[0.08em] text-muted">
-                      Scan with a compatible wallet
+                      {t("donate.scan", "Scan with a compatible wallet")}
                     </p>
                   </div>
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-muted">
-                  Only send {selected.chain} to this address. Sending another asset can result in permanent
-                  loss. Always confirm the first and last characters before you send.
+                  {t(
+                    "donate.onlySend",
+                    "Only send the selected asset to this address. Sending another asset can result in permanent loss. Always confirm the first and last characters before you send.",
+                  )}
                 </p>
               </>
             ) : null}
@@ -166,19 +171,19 @@ export function DonateView() {
             <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
               <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Contribute</p>
               <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">
-                Help Build ZecHub
+                {t("donate.helpBuild", "Help Build ZecHub")}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-vault-muted">
-                Write · Translate · Design · Develop
+                {t("donate.helpBuildCopy", "Write · Translate · Design · Develop")}
               </p>
               <Button asChild variant="secondary" className="mt-4 w-full">
-                <Link href="/contribute">Contribute to ZecHub</Link>
+                <Link href={localePath(locale, "/contribute")}>{t("donate.contributeCta", "Contribute to ZecHub")}</Link>
               </Button>
             </div>
             <div className="rounded-card border border-line bg-paper-2 p-5 shadow-stamp">
               <div className="flex items-center gap-2">
                 <QrIcon className="h-4 w-4 text-gold-deep" />
-                <p className="eyebrow">QR codes</p>
+                <p className="eyebrow">{t("donate.qrCodes", "QR codes")}</p>
               </div>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 Every address has a QR code below. The code encodes the plain address, so you can scan it with
@@ -191,15 +196,14 @@ export function DonateView() {
         <section>
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="eyebrow">Scan or copy</p>
-              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Every address.</h2>
+              <p className="eyebrow">{t("donate.scanOrCopy", "Scan or copy")}</p>
+              <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{t("donate.everyAddress", "Every address.")}</h2>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-                Six QR codes across v0 and v1. Confirm the chain and the first characters in your wallet before
-                you send.
+                {t("donate.everyAddressCopy", "Six QR codes across v0 and v1. Confirm the chain and the first characters in your wallet before you send.")}
               </p>
             </div>
             <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-              {allDonationAddresses.length} codes
+              {allDonationAddresses.length} {t("donate.codes", "codes")}
             </span>
           </div>
 
@@ -237,6 +241,7 @@ function QrCard({
   address: DonationAddress;
   onCopy: (address: string, chain: string) => void;
 }) {
+  const { t } = useI18n();
   return (
     <article className="flex h-full flex-col rounded-card border border-line bg-paper p-4 shadow-stamp">
       <div className="flex items-start justify-between gap-2">
@@ -262,7 +267,7 @@ function QrCard({
           className="inline-flex h-7 items-center gap-1 rounded-pill border border-line px-3 text-[9px] text-muted transition-colors hover:border-ink/30 hover:text-ink"
         >
           <CopyIcon size={12} className="h-3 w-3" />
-          Copy
+          {t("common.copy", "Copy")}
         </button>
       </div>
     </article>

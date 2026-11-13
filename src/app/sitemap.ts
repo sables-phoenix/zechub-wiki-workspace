@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { localePath, locales, type Locale } from "@/lib/i18n";
 import { pages } from "@/lib/pages";
 import { siteUrl } from "@/lib/site";
 
-const staticRoutes = [
+const appRoutes = [
   "/",
   "/start-here",
   "/wallets",
@@ -26,21 +27,38 @@ const staticRoutes = [
   "/zcash-organizations/zodl",
 ] as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+const languagesFor = (path: string): Record<string, string> =>
+  Object.fromEntries(
+    locales.map((locale) => [locale, `${siteUrl}${localePath(locale as Locale, path)}`]),
+  );
 
-  return [
-    ...staticRoutes.map((path) => ({
-      url: `${siteUrl}${path}`,
-      lastModified,
-      changeFrequency: path === "/network" ? ("daily" as const) : ("weekly" as const),
-      priority: path === "/" ? 1 : 0.7,
-    })),
-    ...pages.map((page) => ({
-      url: `${siteUrl}/${page.path}`,
-      lastModified,
-      changeFrequency: "weekly" as const,
-      priority: page.featured ? 0.8 : 0.6,
-    })),
-  ];
+const entryFor = (
+  locale: Locale,
+  path: string,
+  priority: number,
+  changeFrequency: "daily" | "weekly",
+): MetadataRoute.Sitemap[number] => ({
+  url: `${siteUrl}${localePath(locale, path)}`,
+  lastModified: new Date(),
+  changeFrequency,
+  priority,
+  alternates: { languages: languagesFor(path) },
+});
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const path of appRoutes) {
+    for (const locale of locales) {
+      entries.push(entryFor(locale, path, path === "/" ? 1 : 0.7, path === "/network" ? "daily" : "weekly"));
+    }
+  }
+
+  for (const page of pages) {
+    for (const locale of locales) {
+      entries.push(entryFor(locale, `/${page.path}`, page.featured ? 0.8 : 0.6, "weekly"));
+    }
+  }
+
+  return entries;
 }

@@ -10,7 +10,10 @@
     "typecheck": "tsc --noEmit",
     "search:index": "node scripts/search-index.mjs",
     "sync:wallets": "node scripts/sync-wallets.mjs",
-    "sync:content": "node scripts/sync-content.mjs && node scripts/search-index.mjs"
+    "sync:content": "node scripts/sync-content.mjs && node scripts/search-index.mjs",
+    "sync:locales": "node scripts/sync-locales.mjs",
+    "sync:localized": "node scripts/sync-localized-content.mjs",
+    "translate:ui": "node scripts/translate-ui.mjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.3.1",

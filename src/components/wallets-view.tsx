@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 import { ArrowUpRight, Star } from "lucide-react";
 import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
+import { useI18n } from "@/components/i18n-provider";
 import { SectionHero } from "@/components/section-hero";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -39,6 +40,7 @@ const nu7Tone = (nu7: string): "green" | "gold" | "muted" => {
 const ratingLabel = (rating: number | null): string => (rating === null ? "—" : String(rating));
 
 export function WalletsView() {
+  const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [devices, setDevices] = useState<string[]>([]);
   const [pools, setPools] = useState<string[]>([]);
@@ -106,23 +108,23 @@ export function WalletsView() {
   return (
     <>
       <SectionHero
-        eyebrow="Wallets"
-        title="Wallets"
-        description="Find and compare secure Zcash wallets supporting shielded addresses, unified addresses, and privacy features on mobile, desktop, and hardware devices."
+        eyebrow={t("shell.wallets", "Wallets")}
+        title={t("wallets.title", "Wallets")}
+        description={t("wallets.description", "Find and compare secure Zcash wallets supporting shielded addresses, unified addresses, and privacy features on mobile, desktop, and hardware devices.")}
         actions={
           <Button asChild variant="secondary">
             <a href={walletSourceUrl} target="_blank" rel="noreferrer">
-              Full matrix
+              {t("wallets.fullMatrix", "Full matrix")}
               <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           </Button>
         }
         meta={
           <>
-            <span>{activeWallets.length} active wallets</span>
-            <span>{shieldedCount} shielded-capable</span>
-            <span>{hardwareCount} hardware</span>
-            <span>{deprecatedWallets.length} deprecated</span>
+            <span>{activeWallets.length} {t("wallets.activeWallets", "active wallets")}</span>
+            <span>{shieldedCount} {t("wallets.shieldedCapable", "shielded-capable")}</span>
+            <span>{hardwareCount} {t("wallets.hardware", "hardware")}</span>
+            <span>{deprecatedWallets.length} {t("wallets.deprecated", "deprecated")}</span>
           </>
         }
       />
@@ -139,7 +141,7 @@ export function WalletsView() {
                 <Input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search wallets, platforms, features..."
+                  placeholder={t("wallets.searchPlaceholder", "Search wallets, platforms, features...")}
                   className="h-10 pl-9"
                   aria-label="Search wallets"
                 />
@@ -150,30 +152,30 @@ export function WalletsView() {
                 aria-label="Sort wallets"
                 className="h-10 rounded-pill border border-line bg-paper px-4 text-xs text-ink outline-none focus:border-gold"
               >
-                <option value="rating">Top rated</option>
-                <option value="name">A to Z</option>
+                <option value="rating">{t("wallets.topRated", "Top rated")}</option>
+                <option value="name">{t("wallets.aToZ", "A to Z")}</option>
               </select>
             </div>
 
             <FilterRow
-              label="Devices"
+              label={t("wallets.devices", "Devices")}
               options={deviceOptions}
               selected={devices}
               onToggle={toggle(setDevices)}
             />
-            <FilterRow label="Pools" options={poolOptions} selected={pools} onToggle={toggle(setPools)} />
+            <FilterRow label={t("wallets.pools", "Pools")} options={poolOptions} selected={pools} onToggle={toggle(setPools)} />
             <FilterRow
-              label="System"
+              label={t("wallets.system", "System")}
               options={operatingSystemOptions}
               selected={systems}
               onToggle={toggle(setSystems)}
             />
-            <FilterRow label="NU7" options={nu7Options} selected={nu7s} onToggle={toggle(setNu7s)} />
+            <FilterRow label={t("wallets.nu7", "NU7")} options={nu7Options} selected={nu7s} onToggle={toggle(setNu7s)} />
 
             <details className="border-t border-line pt-3">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-2">
                 <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-                  Wallet support
+                  {t("wallets.walletSupport", "Wallet support")}
                 </span>
                 <span className="font-mono text-[9px] text-muted">
                   {supports.length ? `${supports.length} selected` : "Any"}
@@ -196,7 +198,7 @@ export function WalletsView() {
 
             <details className="border-t border-line pt-3">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-2">
-                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">Features</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">{t("wallets.features", "Features")}</span>
                 <span className="font-mono text-[9px] text-muted">
                   {features.length ? `${features.length} selected` : "Any"}
                 </span>
@@ -220,15 +222,15 @@ export function WalletsView() {
 
         <div className="mt-5 flex items-center justify-between gap-3">
           <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-            {results.length} {results.length === 1 ? "wallet" : "wallets"}
-            {activeFilterCount ? ` / ${activeFilterCount} filters` : ""}
+            {results.length} {results.length === 1 ? t("wallets.wallet", "wallet") : t("wallets.wallets", "wallets")}
+            {activeFilterCount ? ` / ${activeFilterCount} ${t("wallets.filters", "filters")}` : ""}
           </p>
           <button
             type="button"
             onClick={reset}
             className="text-xs text-muted underline underline-offset-4 transition-colors hover:text-ink"
           >
-            Reset filters
+            {t("common.resetFilters", "Reset filters")}
           </button>
         </div>
 
@@ -240,22 +242,22 @@ export function WalletsView() {
           </div>
         ) : (
           <div className="mt-3 rounded-card border border-dashed border-line p-10 text-center">
-            <p className="font-display text-2xl tracking-[-0.03em]">No wallets match those filters.</p>
-            <p className="mt-2 text-sm text-muted">Try a different device, pool, or feature.</p>
+            <p className="font-display text-2xl tracking-[-0.03em]">{t("wallets.noMatches", "No wallets match those filters.")}</p>
+            <p className="mt-2 text-sm text-muted">{t("wallets.noMatchesCopy", "Try a different device, pool, or feature.")}</p>
           </div>
         )}
 
         <section className="mt-10 rounded-card border border-rust/40 bg-rust/5 p-5 shadow-stamp">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-rust">Do not use</p>
-              <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">Deprecated wallets</h2>
+              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-rust">{t("wallets.doNotUse", "Do not use")}</p>
+              <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">{t("wallets.deprecatedTitle", "Deprecated wallets")}</h2>
               <p className="mt-2 max-w-2xl text-sm text-muted">
-                Kept for reference only. Do not send new funds to these wallets.
+                {t("wallets.deprecatedCopy", "Kept for reference only. Do not send new funds to these wallets.")}
               </p>
             </div>
             <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-              {deprecatedWallets.length} entries
+              {deprecatedWallets.length} {t("wallets.deprecatedEntries", "entries")}
             </span>
           </div>
           <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -266,7 +268,10 @@ export function WalletsView() {
         </section>
 
         <p className="mt-6 text-xs leading-relaxed text-muted">
-          Device, pool, operating system, wallet support, feature, NU7, and rating data from{" "}
+          {t(
+            "wallets.sourceNote",
+            "Ratings are a snapshot. Feature chips open the wallet details in each card. Always verify a wallet before sending funds.",
+          )}{" "}
           <a
             href={walletSourceUrl}
             target="_blank"
@@ -275,8 +280,6 @@ export function WalletsView() {
           >
             zechub.wiki/wallets
           </a>
-          . Ratings are a snapshot. Feature chips open the wallet details in each card. Always verify a wallet
-          before sending funds.
         </p>
       </div>
     </>
@@ -340,6 +343,7 @@ function FilterChip({
 }
 
 function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated?: boolean }) {
+  const { t } = useI18n();
   const [expanded, setExpanded] = useState(false);
   const nu7 = wallet.nu7.replace("NU7: ", "");
   const detailCount = wallet.features.length + wallet.walletSupport.length + wallet.operatingSystem.length;
@@ -376,7 +380,7 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
 
         <div className="mt-2 flex flex-wrap gap-1.5">
           {deprecated ? (
-            <Badge tone="rust">Deprecated</Badge>
+            <Badge tone="rust">{t("wallets.deprecated", "Deprecated")}</Badge>
           ) : nu7 ? (
             <Badge tone={nu7Tone(wallet.nu7)}>{nu7}</Badge>
           ) : null}
@@ -415,16 +419,16 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
           className="mt-3 flex items-center justify-between border-t border-line pt-3 text-left text-[10px] text-muted transition-colors hover:text-ink"
         >
           <span className="font-mono uppercase tracking-[0.08em]">
-            {expanded ? "Hide details" : "Feature details"}
+            {expanded ? t("wallets.hideDetails", "Hide details") : t("wallets.featureDetails", "Feature details")}
           </span>
           <span className="font-mono">{detailCount}</span>
         </button>
 
         {expanded ? (
           <div className="mt-3 space-y-3 border-t border-line pt-3">
-            <DetailGroup label="Wallet support" values={wallet.walletSupport} />
-            <DetailGroup label="Operating system" values={wallet.operatingSystem} />
-            <DetailGroup label="Features" values={wallet.features} />
+            <DetailGroup label={t("wallets.walletSupport", "Wallet support")} values={wallet.walletSupport} />
+            <DetailGroup label={t("wallets.system", "System")} values={wallet.operatingSystem} />
+            <DetailGroup label={t("wallets.features", "Features")} values={wallet.features} />
           </div>
         ) : null}
 
@@ -435,7 +439,7 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
             rel="noreferrer"
             className="text-[10px] text-muted underline underline-offset-4 transition-colors hover:text-ink"
           >
-            Source
+            {t("common.source", "Source")}
           </a>
           {wallet.href ? (
             <a
@@ -444,7 +448,7 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
               rel="noreferrer"
               className="inline-flex h-8 items-center gap-1.5 rounded-pill border border-line px-3 text-[10px] text-ink transition-colors hover:border-ink/30 hover:bg-paper-2"
             >
-              Open
+              {t("common.open", "Open")}
               <ArrowUpRight className="h-3 w-3" />
             </a>
           ) : null}

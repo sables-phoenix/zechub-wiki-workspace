@@ -2,8 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import { AppIcon } from "@/components/desktop/app-icon";
+import { useI18n } from "@/components/i18n-provider";
 import { cn } from "@/lib/utils";
 import { dockApps, getActiveApp } from "@/lib/apps";
+import { localePath, stripLocale } from "@/lib/i18n";
 
 type DockProps = {
   pathname: string;
@@ -13,14 +15,27 @@ type DockProps = {
 
 const mobileAppIds = new Set(["home", "start", "wallets", "library"]);
 
+const appKey: Record<string, string> = {
+  home: "common.home",
+  start: "shell.startHere",
+  wallets: "shell.wallets",
+  use: "shell.usingZcash",
+  learn: "shell.learn",
+  build: "shell.build",
+  ecosystem: "shell.ecosystem",
+  library: "shell.library",
+};
+
 export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
   const router = useRouter();
-  const activeId = getActiveApp(pathname)?.id;
+  const { locale, t } = useI18n();
+  const { path } = stripLocale(pathname);
+  const activeId = getActiveApp(path)?.id;
   const mobileApps = dockApps.filter((app) => mobileAppIds.has(app.id));
 
   const openApp = (href: string) => {
     onOpen();
-    router.push(href);
+    router.push(localePath(locale, href));
   };
 
   return (
@@ -36,13 +51,13 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
               type="button"
               onClick={() => openApp(app.href)}
               className="group flex w-12 flex-col items-center gap-1"
-              aria-label={`Open ${app.label}`}
+              aria-label={`${t("common.open", "Open")} ${t(appKey[app.id] ?? "common.home", app.label)}`}
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/15 bg-[#fffdf7] text-[#14130f] transition-transform duration-150 group-hover:-translate-y-1 group-hover:shadow-[0_8px_18px_rgba(0,0,0,.35)]">
                 <AppIcon kind={app.id} className="h-4 w-4" />
               </span>
-              <span className="text-[7px] text-vault-muted transition-colors group-hover:text-vault-text">
-                {app.dockLabel}
+              <span className="text-[7px] capitalize text-vault-muted transition-colors group-hover:text-vault-text">
+                {t(appKey[app.id] ?? "common.home", app.dockLabel)}
               </span>
               <span
                 className={cn(
@@ -57,13 +72,13 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             type="button"
             onClick={onLaunchpad}
             className="group flex w-12 flex-col items-center gap-1"
-            aria-label="Open Launchpad"
+            aria-label={`${t("common.open", "Open")} ${t("shell.launchpad", "Launchpad")}`}
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/15 bg-[#fffdf7] text-[#14130f] transition-transform duration-150 group-hover:-translate-y-1 group-hover:shadow-[0_8px_18px_rgba(0,0,0,.35)]">
               <AppIcon kind="launchpad" className="h-4 w-4" />
             </span>
-            <span className="text-[7px] text-vault-muted transition-colors group-hover:text-vault-text">
-              Launchpad
+            <span className="text-[7px] capitalize text-vault-muted transition-colors group-hover:text-vault-text">
+              {t("shell.launchpad", "Launchpad")}
             </span>
             <span className="h-1 w-1 rounded-full bg-transparent" />
           </button>
@@ -80,13 +95,13 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             type="button"
             onClick={() => openApp(app.href)}
             className="flex w-14 flex-col items-center gap-1"
-            aria-label={`Open ${app.label}`}
+            aria-label={`${t("common.open", "Open")} ${t(appKey[app.id] ?? "common.home", app.label)}`}
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 bg-[#fffdf7] text-[#14130f]">
               <AppIcon kind={app.id} className="h-4 w-4" />
             </span>
-            <span className={cn("text-[9px]", activeId === app.id ? "text-vault-text" : "text-vault-muted")}>
-              {app.dockLabel}
+            <span className={cn("text-[9px] capitalize", activeId === app.id ? "text-vault-text" : "text-vault-muted")}>
+              {t(appKey[app.id] ?? "common.home", app.dockLabel)}
             </span>
             <span className={cn("h-1 w-1 rounded-full", activeId === app.id ? "bg-gold" : "bg-transparent")} />
           </button>
@@ -95,12 +110,12 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
           type="button"
           onClick={onLaunchpad}
           className="flex w-14 flex-col items-center gap-1"
-          aria-label="Open Launchpad"
+          aria-label={`${t("common.open", "Open")} ${t("shell.launchpad", "Launchpad")}`}
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 bg-[#fffdf7] text-[#14130f]">
             <AppIcon kind="launchpad" className="h-4 w-4" />
           </span>
-          <span className="text-[9px] text-vault-muted">More</span>
+          <span className="text-[9px] text-vault-muted">{t("shell.more", "More")}</span>
           <span className="h-1 w-1 rounded-full bg-transparent" />
         </button>
       </nav>

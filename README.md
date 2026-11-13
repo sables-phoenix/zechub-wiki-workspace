@@ -14,6 +14,7 @@ ZecHub Wiki is a large, community-maintained Zcash education site. This project 
 - Eight primary apps: Home, Start Here, Wallets, Using Zcash, Learn, Build, Ecosystem, Library.
 - Network, Donate, Contribute, and Settings as supporting apps.
 - 232 English wiki pages mirrored from the site's public markdown endpoints.
+- 20 internal language editions (Italian through Greek) with localized routes, content indexes, UI catalogs, search, and RTL Arabic.
 - 41 wallet entries from the ZecHub wallet matrix, 38 active and 3 deprecated, with device, pool, operating system, wallet support, feature, NU7, rating, beta, and deprecated state.
 - Full-text search over the mirrored pages.
 - Live ZEC price and chain metrics from the ZecHub APIs, plus the dashboard tabs.
@@ -61,11 +62,22 @@ npm run lint
 
 Section roots such as `/zcash-tech`, `/guides`, `/zcash-community`, and `/privacy-tools` redirect to the matching app landing page. Article URLs stay close to the original zechub.wiki paths.
 
+## Languages
+
+- The selector switches the current page inside the workspace. It never sends the reader to zechub.wiki.
+- English stays at `/`. Every other locale uses `/{locale}/...`, for example `/es/wallets` and `/fr/zcash-tech/zk-snarks`.
+- `src/messages/source/{locale}.json` contains the source site's own UI dictionary. `src/messages/ui/{locale}.json` contains the workspace shell catalog.
+- `src/content/i18n/{locale}.json` contains localized page metadata and search text. Article bodies are fetched from the source markdown and cached for an hour.
+- A page without a localized source falls back to the English mirror with a visible notice.
+- Arabic sets `dir="rtl"` and script-specific font fallbacks are in `globals.css`.
+
 ## Content pipeline
 
 - `src/content/pages/*.md` contains the mirrored English markdown.
+- `src/content/i18n/*.json` contains the localized page indexes used by localized article routes, cards, and search.
 - `src/content/index.json` contains the page metadata used by the library, search, and article navigation.
-- `src/content/search-index.json` contains the full-text index used by `/api/search`.
+- `src/content/search-index.json` contains the English full-text index used by `/api/search`.
+- The localized search API uses the localized indexes and returns localized snippets.
 - `src/lib/content.ts` reads a page, removes the GitHub edit badge, strips the duplicate H1, prefixes relative content images with `https://zechub.wiki`, builds the table of contents, and extracts a clean lead.
 - `src/components/markdown.tsx` renders GFM tables and raw HTML, rewrites known zechub.wiki links to internal routes, and styles embeds.
 - Pages that do not expose markdown are handled as custom app pages: Privacy, Developers, Brand, Visualizer, Hackathon, Tutorials, Ambassadors, and the Merchant Map.
@@ -86,6 +98,9 @@ Refresh the local data:
 npm run sync:wallets
 npm run sync:content
 npm run search:index
+npm run sync:locales
+npm run sync:localized
+npm run translate:ui
 ```
 
 ## Validation
@@ -98,16 +113,17 @@ npm run search:index
 - Spotlight performs full-text search through `/api/search`, including body-only terms such as `3417100`.
 - Launchpad, Library, menus, language links, Control Center, window controls, and the local clock are driven in the browser.
 - Donation QR codes render for all v0 and v1 addresses.
-- Sitemap, robots, and the Open Graph image are generated.
+- Sitemap, robots, hreflang alternates, and the Open Graph image are generated.
 - Typecheck, lint, and production build pass.
 
 ## What is local only
 
-- The content is a mirrored snapshot. It does not write back to zechub.wiki.
-- The language menu links the current page to the matching zechub.wiki language URL. Only English is mirrored here.
+- The English content is a mirrored snapshot. Localized article bodies are fetched from the source markdown and cached; they do not write back to zechub.wiki.
+- The language menu is internal. It keeps the current page and changes the route locale; zechub.wiki is only used as a content source and for explicit source links.
 - The wallet feature matrix is captured from the live `allWallets` payload. Ratings are preserved as a snapshot and new entries can show no rating until they are updated.
 - The dashboard's full historical chart data, year filters, testnet switch, and PNG export stay on zechub.wiki. The workspace shows the live headline metrics, the supply split, the shielded pool snapshot, and tabs that open the source dashboards.
 - The visualizer, merchant map, and full hackathon archive include launch links to the interactive source. Their workspace pages are directories, not reimplementations.
+- A few source pages do not have a localized markdown file. Those pages show the English mirror with a notice.
 - The donation page uses the v0 and v1 addresses captured from the source page, with QR codes that encode the plain address. Always verify an address before sending funds.
 
 ## Credits

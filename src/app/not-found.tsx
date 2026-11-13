@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { DesktopShell } from "@/components/desktop/desktop-shell";
+import { I18nProvider } from "@/components/i18n-provider";
+import { defaultLocale } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages.server";
 import { ZcashMark } from "@/components/zcash-mark";
 import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
+  const english = getMessages(defaultLocale);
   return (
-    <DesktopShell>
+    <I18nProvider locale={defaultLocale} messages={english} english={english}>
+      <DesktopShell>
       <div className="container-page flex min-h-[60vh] flex-col items-center justify-center py-16 text-center">
         <ZcashMark className="h-12 w-12 text-gold" />
         <p className="eyebrow mt-6">404</p>
@@ -45,6 +50,7 @@ export default function NotFound() {
           Press ⌘K to search every page
         </p>
       </div>
-    </DesktopShell>
+      </DesktopShell>
+    </I18nProvider>
   );
 }

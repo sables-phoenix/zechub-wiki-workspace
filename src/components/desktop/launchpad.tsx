@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Search, X } from "lucide-react";
 import { AppIcon } from "@/components/desktop/app-icon";
+import { useI18n } from "@/components/i18n-provider";
 import { desktopApps } from "@/lib/apps";
 import { externalResources, specialPages, type ResourceLink } from "@/data/resources";
 
@@ -29,6 +30,7 @@ const pages = [
 ] as const;
 
 export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadProps) {
+  const { t } = useI18n();
   const navigate = (href: string, external = false) => {
     onClose();
     if (external) window.open(href, "_blank", "noreferrer");
@@ -59,7 +61,7 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
             <div className="flex items-center justify-between gap-4">
               <div>
                 <h2 className="font-display text-4xl leading-none tracking-[-0.05em] text-vault-text">
-                  Launchpad
+                  {t("shell.launchpad", "Launchpad")}
                 </h2>
               </div>
               <div className="flex items-center gap-2">
@@ -69,7 +71,7 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
                   className="inline-flex h-9 items-center gap-2 rounded-full border border-vault-line px-3 text-xs text-vault-muted transition-colors hover:border-vault-text hover:text-vault-text"
                 >
                   <Search className="h-3.5 w-3.5" />
-                  Search
+                  {t("shell.search", "Search")}
                 </button>
                 <button
                   type="button"
@@ -102,7 +104,7 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
             </div>
 
             <div className="mt-12 rounded-card border border-vault-line bg-vault-2/70 p-5 md:p-6">
-              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Pages</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">{t("shell.pages", "Pages")}</p>
               <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3 lg:grid-cols-4">
                 {pages.map((page) => (
                   <button
@@ -111,7 +113,7 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
                     onClick={() => navigate(page.href)}
                     className="flex items-center justify-between border-b border-vault-line/70 py-2 text-left text-sm text-vault-muted transition-colors hover:text-vault-text"
                   >
-                    {page.label}
+                    {t(`menuLabels.${page.label}`, page.label)}
                     <span className="font-mono text-[9px] text-vault-muted">↗</span>
                   </button>
                 ))}
@@ -119,8 +121,8 @@ export function Launchpad({ open, onClose, onNavigate, onSpotlight }: LaunchpadP
             </div>
 
             <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <ResourceButtons title="ZecHub pages" items={specialPages} onNavigate={navigate} />
-              <ResourceButtons title="Elsewhere" items={externalResources} onNavigate={navigate} />
+              <ResourceButtons title={t("library.zecHubPages", "ZecHub pages")} items={specialPages} onNavigate={navigate} />
+              <ResourceButtons title={t("library.elsewhere", "Elsewhere")} items={externalResources} onNavigate={navigate} />
             </div>
           </motion.div>
         </motion.div>

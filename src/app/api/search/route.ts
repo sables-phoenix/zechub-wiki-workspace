@@ -1,4 +1,6 @@
 import searchIndex from "@/content/search-index.json";
+import { isLocale } from "@/lib/i18n";
+import { localizedSnippet, searchLocalizedPages } from "@/lib/localized-pages";
 
 type SearchDocument = {
   path: string;
@@ -31,8 +33,24 @@ const snippetFor = (text: string, terms: readonly string[]): string => {
 };
 
 export function GET(request: Request) {
-  const query = new URL(request.url).searchParams.get("q")?.trim() ?? "";
+  const url = new URL(request.url);
+  const query = url.searchParams.get("q")?.trim() ?? "";
+  const locale = url.searchParams.get("locale") ?? "en";
   if (!query) return Response.json({ results: [] satisfies SearchHit[] });
+
+  if (isLocale(locale) && locale !== "en") {
+    const results = searchLocalizedPages(locale, query, 24).map((page) => ({
+      path: page.path,
+      title: page.title,
+      description: page.description,
+      section: page.section,
+      app: page.app,
+      readingMinutes: page.readingMinutes,
+      order: page.order,
+      snippet: localizedSnippet(page, query),
+    }));
+    return Response.json({ results });
+  }
 
   const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
   const results = documents

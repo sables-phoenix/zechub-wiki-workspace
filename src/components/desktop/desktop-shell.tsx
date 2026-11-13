@@ -6,21 +6,25 @@ import { usePathname, useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import { DesktopWallpaper } from "@/components/desktop/desktop-wallpaper";
 import { Dock } from "@/components/desktop/dock";
+import { useI18n } from "@/components/i18n-provider";
 import { Launchpad } from "@/components/desktop/launchpad";
 import { MenuBar } from "@/components/desktop/menu-bar";
 import { Spotlight } from "@/components/desktop/spotlight";
 import { WindowFrame } from "@/components/desktop/window-frame";
 import { getWindowMeta } from "@/lib/apps";
 import { cn } from "@/lib/utils";
+import { localePath, stripLocale } from "@/lib/i18n";
 import type { WindowMode } from "@/lib/window";
 
 export function DesktopShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
+  const { locale } = useI18n();
   const [windowMode, setWindowMode] = useState<WindowMode>("open");
   const [spotlightOpen, setSpotlightOpen] = useState(false);
   const [launchpadOpen, setLaunchpadOpen] = useState(false);
-  const meta = getWindowMeta(pathname);
+  const { path } = stripLocale(pathname);
+  const meta = getWindowMeta(path);
   const hidden = windowMode === "minimized" || windowMode === "closed";
 
   const openWindow = useCallback(() => setWindowMode("open"), []);
@@ -45,9 +49,9 @@ export function DesktopShell({ children }: { children: ReactNode }) {
       setWindowMode("open");
       setSpotlightOpen(false);
       setLaunchpadOpen(false);
-      router.push(href);
+      router.push(localePath(locale, href));
     },
-    [closePopovers, router],
+    [closePopovers, locale, router],
   );
 
   const toggleMaximize = useCallback(() => {

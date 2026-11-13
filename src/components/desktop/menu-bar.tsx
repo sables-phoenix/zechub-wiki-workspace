@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Check, Globe2, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useI18n } from "@/components/i18n-provider";
+import { localeMeta, localePath, stripLocale } from "@/lib/i18n";
+import { rememberLocale } from "@/lib/locale-cookie";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -62,56 +65,72 @@ const languages = [
 ] as const;
 
 export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarProps) {
+  const { t } = useI18n();
+  const appKey: Record<string, string> = {
+    home: "common.home",
+    start: "shell.startHere",
+    wallets: "shell.wallets",
+    use: "shell.usingZcash",
+    learn: "shell.learn",
+    build: "shell.build",
+    ecosystem: "shell.ecosystem",
+    library: "shell.library",
+    network: "shell.network",
+    donate: "shell.donate",
+    contribute: "shell.contribute",
+    settings: "shell.settings",
+  };
+
   const menus: readonly { label: string; items: readonly MenuItem[] }[] = [
     {
-      label: "Wiki",
+      label: t("shell.wiki", "Wiki"),
       items: [
-        { label: "Home", href: "/" },
-        { label: "Start Here", href: "/start-here" },
-        { label: "Wallets", href: "/wallets" },
-        { label: "Library", href: "/library" },
+        { label: t("common.home", "Home"), href: "/" },
+        { label: t("shell.startHere", "Start Here"), href: "/start-here" },
+        { label: t("shell.wallets", "Wallets"), href: "/wallets" },
+        { label: t("shell.library", "Library"), href: "/library" },
       ],
     },
     {
-      label: "Sections",
+      label: t("shell.sections", "Sections"),
       items: [
-        { label: "Using Zcash", href: "/using-zcash" },
-        { label: "Learn", href: "/learn" },
-        { label: "Build", href: "/build" },
-        { label: "Ecosystem", href: "/ecosystem" },
+        { label: t("shell.usingZcash", "Using Zcash"), href: "/using-zcash" },
+        { label: t("shell.learn", "Learn"), href: "/learn" },
+        { label: t("shell.build", "Build"), href: "/build" },
+        { label: t("shell.ecosystem", "Ecosystem"), href: "/ecosystem" },
       ],
     },
     {
-      label: "Go",
+      label: t("shell.go", "Go"),
       items: [
-        { label: "Spotlight", action: onSpotlight },
-        { label: "Launchpad", action: onLaunchpad },
-        { label: "Network", href: "/network" },
-        { label: "Donate", href: "/donate" },
-        { label: "Tutorials", href: "/zechub-tutorial" },
-        { label: "Visualizers", href: "/visualizer" },
-        { label: "Hackathon", href: "/hackathon" },
-        { label: "Ambassadors", href: "/zcash-global-ambassadors" },
-        { label: "Developers", href: "/developers" },
-        { label: "Merchant map", href: "/map" },
-        { label: "Brand", href: "/zcash-organizations/brand" },
-        { label: "Privacy", href: "/privacy" },
+        { label: t("shell.search", "Spotlight"), action: onSpotlight },
+        { label: t("shell.launchpad", "Launchpad"), action: onLaunchpad },
+        { label: t("shell.network", "Network"), href: "/network" },
+        { label: t("shell.donate", "Donate"), href: "/donate" },
+        { label: t("shell.tutorials", "Tutorials"), href: "/zechub-tutorial" },
+        { label: t("shell.visualizers", "Visualizers"), href: "/visualizer" },
+        { label: t("shell.hackathon", "Hackathon"), href: "/hackathon" },
+        { label: t("shell.ambassadors", "Ambassadors"), href: "/zcash-global-ambassadors" },
+        { label: t("shell.developers", "Developers"), href: "/developers" },
+        { label: t("shell.merchantMap", "Merchant map"), href: "/map" },
+        { label: t("shell.brand", "Brand"), href: "/zcash-organizations/brand" },
+        { label: t("shell.privacy", "Privacy"), href: "/privacy" },
       ],
     },
     {
-      label: "Help",
+      label: t("shell.help", "Help"),
       items: [
-        { label: "Open zechub.wiki", href: "https://zechub.wiki", external: true },
-        { label: "Bounties", href: "https://bounties.zechub.wiki/", external: true },
-        { label: "Shop", href: "https://zechub.store", external: true },
-        { label: "ZKAV Club", href: "https://zkav.club", external: true },
-        { label: "Free2Z", href: "https://free2z.cash", external: true },
-        { label: "Pay with Zcash", href: "https://paywithz.cash", external: true },
-        { label: "ZecMap", href: "https://zecmap.com", external: true },
-        { label: "YouTube", href: "https://www.youtube.com/channel/UC3-KM00kjCUheRzO5cq3PAA", external: true },
-        { label: "X", href: "https://x.com/zechub", external: true },
-        { label: "Contribute", href: "/contribute" },
-        { label: "GitHub", href: "https://github.com/ZecHub/zechub", external: true },
+        { label: t("shell.openZechub", "Open zechub.wiki"), href: "https://zechub.wiki", external: true },
+        { label: t("shell.bounties", "Bounties"), href: "https://bounties.zechub.wiki/", external: true },
+        { label: t("shell.shop", "Shop"), href: "https://zechub.store", external: true },
+        { label: t("shell.zkavClub", "ZKAV Club"), href: "https://zkav.club", external: true },
+        { label: t("shell.free2z", "Free2Z"), href: "https://free2z.cash", external: true },
+        { label: t("shell.payWithZcash", "Pay with Zcash"), href: "https://paywithz.cash", external: true },
+        { label: t("shell.zecMap", "ZecMap"), href: "https://zecmap.com", external: true },
+        { label: t("shell.youtube", "YouTube"), href: "https://www.youtube.com/channel/UC3-KM00kjCUheRzO5cq3PAA", external: true },
+        { label: t("shell.x", "X"), href: "https://x.com/zechub", external: true },
+        { label: t("shell.contribute", "Contribute"), href: "/contribute" },
+        { label: t("shell.github", "GitHub"), href: "https://github.com/ZecHub/zechub", external: true },
       ],
     },
   ];
@@ -141,7 +160,7 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
 
       <span className="hidden text-vault-muted lg:inline">/</span>
       <span className="hidden font-mono text-[9px] uppercase tracking-[0.1em] text-vault-muted lg:inline">
-        {meta.app.label}
+        {t(appKey[meta.app.id] ?? "common.home", meta.app.label)}
       </span>
 
       <div className="ml-auto flex items-center gap-1">
@@ -151,7 +170,7 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
           className="flex h-6 items-center gap-1.5 rounded-md px-2 text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text"
         >
           <MagnifierIcon size={12} />
-          <span className="hidden sm:inline">Search</span>
+          <span className="hidden sm:inline">{t("shell.search", "Search")}</span>
           <kbd className="hidden rounded border border-vault-line px-1 py-0.5 font-mono text-[8px] sm:inline">⌘K</kbd>
         </button>
         <PriceTicker variant="compact" className="hidden xl:flex" />
@@ -162,7 +181,7 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
           onClick={() => onNavigate("/donate")}
           className="hidden h-6 items-center rounded-full bg-gold px-2.5 text-[9px] font-medium text-gold-ink transition-opacity hover:opacity-90 sm:flex"
         >
-          Donate
+          {t("shell.donate", "Donate")}
         </button>
         <MenuBarClock />
       </div>
@@ -172,9 +191,10 @@ export function MenuBar({ meta, onSpotlight, onLaunchpad, onNavigate }: MenuBarP
 
 function MenuBarClock() {
   const now = useLocalNow();
+  const { locale } = useI18n();
 
   const date = now
-    ? new Intl.DateTimeFormat("en-US", {
+    ? new Intl.DateTimeFormat(locale, {
         weekday: "short",
         month: "short",
         day: "numeric",
@@ -182,7 +202,7 @@ function MenuBarClock() {
     : "--";
 
   const time = now
-    ? new Intl.DateTimeFormat("en-US", {
+    ? new Intl.DateTimeFormat(locale, {
         hour: "2-digit",
         minute: "2-digit",
         hour12: false,
@@ -190,7 +210,7 @@ function MenuBarClock() {
     : "--:--";
 
   const zone = now
-    ? new Intl.DateTimeFormat("en-US", { timeZoneName: "short" })
+    ? new Intl.DateTimeFormat(locale, { timeZoneName: "short" })
         .formatToParts(now)
         .find((part) => part.type === "timeZoneName")?.value
     : undefined;
@@ -222,7 +242,7 @@ function MenuButton({
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="rounded px-1.5 py-1 text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-black/5 dark:data-[state=open]:bg-white/10 data-[state=open]:text-vault-text"
+          className="rounded px-1.5 py-1 capitalize text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-black/5 dark:data-[state=open]:bg-white/10 data-[state=open]:text-vault-text"
         >
           {label}
         </button>
@@ -236,7 +256,7 @@ function MenuButton({
               else if (item.href && item.external) window.open(item.href, "_blank", "noreferrer");
               else if (item.href) onNavigate(item.href);
             }}
-            className="text-xs"
+            className="text-xs capitalize"
           >
             {item.label}
           </DropdownMenuItem>
@@ -246,65 +266,48 @@ function MenuButton({
   );
 }
 
-function sourcePathFor(pathname: string): string {
-  if (!pathname || pathname === "/") return "/";
-  if (pathname === "/learn") return "/zcash-tech";
-  if (pathname === "/build") return "/guides";
-  if (pathname === "/ecosystem") return "/zcash-community";
-  if (pathname === "/library") return "/sitemap";
-  if (pathname === "/network" || pathname === "/dashboard") return "/dashboard";
-  if (pathname === "/donate" || pathname === "/donation") return "/donation";
-  if (pathname === "/contribute") return "/contribute/help-build-zechub";
-  if (pathname === "/settings") return "/";
-  if (pathname === "/developers") return "/developers";
-  if (pathname === "/visualizer") return "/visualizer";
-  if (pathname === "/hackathon") return "/hackathon";
-  if (pathname === "/zechub-tutorial") return "/zechub-tutorial";
-  if (pathname === "/zcash-global-ambassadors") return "/zcash-global-ambassadors";
-  if (pathname === "/map") return "/map";
-  if (pathname === "/privacy") return "/privacy";
-  if (pathname === "/zcash-organizations/brand") return "/zcash-organizations/brand";
-  return pathname;
-}
-
 function LanguageMenu() {
   const pathname = usePathname();
-  const sourcePath = sourcePathFor(pathname);
-  const suffix = sourcePath === "/" ? "" : sourcePath;
+  const router = useRouter();
+  const { locale, t } = useI18n();
+  const { path } = stripLocale(pathname);
+  const current = locale.toUpperCase();
+
+  const choose = (code: string) => {
+    const next = (code || "en") as typeof locale;
+    rememberLocale(next);
+    router.push(localePath(next, path));
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          aria-label="Language"
+          aria-label={t("common.language", "Language")}
           className="hidden h-6 items-center gap-1.5 rounded-md px-1.5 text-vault-muted transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-vault-text data-[state=open]:bg-black/5 dark:data-[state=open]:bg-white/10 data-[state=open]:text-vault-text sm:flex"
         >
           <Globe2 className="h-3.5 w-3.5" />
-          <span className="font-mono text-[8px] uppercase tracking-[0.08em]">EN</span>
+          <span className="font-mono text-[8px] uppercase tracking-[0.08em]">{current}</span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="max-h-[70vh] w-56 overflow-y-auto">
-        <DropdownMenuLabel>Read this page in another language</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("common.language", "Language")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {languages.map((language) => (
-          <DropdownMenuItem key={language.code || "en"} asChild className="text-xs">
-            <a
-              href={
-                language.code
-                  ? `https://zechub.wiki/${language.code}${suffix}`
-                  : `https://zechub.wiki${suffix}`
-              }
-              target="_blank"
-              rel="noreferrer"
-            >
+          <DropdownMenuItem
+            key={language.code || "en"}
+            onSelect={() => choose(language.code)}
+            className="text-xs capitalize"
+          >
+            <span className={language.code === locale || (!language.code && locale === "en") ? "font-medium text-ink" : ""}>
               {language.label}
-            </a>
+            </span>
           </DropdownMenuItem>
         ))}
         <DropdownMenuSeparator />
         <p className="px-2 py-1.5 text-[10px] leading-relaxed text-muted">
-          English is the canonical edition. Language pages open on zechub.wiki.
+          {t("common.languageNote", "The language changes inside this workspace.")}
         </p>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -313,6 +316,7 @@ function LanguageMenu() {
 
 function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
   const { theme, setTheme } = useTheme();
+  const { t, locale } = useI18n();
   const mounted = useMounted();
   const [open, setOpen] = useState(false);
 
@@ -323,9 +327,9 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
   }, []);
 
   const options = [
-    { value: "light", label: "Paper", icon: SunIcon },
-    { value: "dark", label: "Vault", icon: MoonIcon },
-    { value: "system", label: "System", icon: Monitor },
+    { value: "light", label: t("shell.paper", "Paper"), icon: SunIcon },
+    { value: "dark", label: t("shell.vault", "Vault"), icon: MoonIcon },
+    { value: "system", label: t("shell.system", "System"), icon: Monitor },
   ] as const;
 
   return (
@@ -340,8 +344,12 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-72 p-3">
-        <DropdownMenuLabel className="px-0 pt-0">Control Center</DropdownMenuLabel>
-        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">Theme</p>
+        <DropdownMenuLabel className="px-0 pt-0">
+          {t("shell.controlCenter", "Control Center")}
+        </DropdownMenuLabel>
+        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
+          {t("shell.theme", "Theme")}
+        </p>
         <div className="mt-2 grid grid-cols-3 gap-1 rounded-lg border border-line bg-paper-2 p-1">
           {options.map((option) => {
             const Icon = option.icon;
@@ -365,11 +373,15 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
         </div>
         <div className="mt-3 space-y-2">
           <div className="rounded-lg border border-line bg-paper-2 p-2.5">
-            <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">Reading</p>
-            <p className="mt-1 text-xs font-medium">English, canonical</p>
+            <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">
+              {t("shell.reading", "Reading")}
+            </p>
+            <p className="mt-1 text-xs font-medium">{localeMeta[locale].label}</p>
           </div>
           <div className="rounded-lg border border-line bg-paper-2 p-2.5">
-            <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">Live data</p>
+            <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">
+              {t("shell.liveData", "Live data")}
+            </p>
             <p className="mt-1 text-xs font-medium">ZecHub network API</p>
           </div>
           <button
@@ -380,7 +392,7 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
             }}
             className="block w-full rounded-lg border border-line bg-paper-2 p-2.5 text-left text-xs text-ink transition-colors hover:border-ink/30"
           >
-            Open settings
+            {t("shell.openSettings", "Open settings")}
           </button>
         </div>
       </DropdownMenuContent>

@@ -3,11 +3,13 @@
 import { useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
+import { useI18n } from "@/components/i18n-provider";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { tutorialCategories, tutorials } from "@/data/tutorials";
 
 export function TutorialsView() {
+  const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
 
@@ -31,9 +33,9 @@ export function TutorialsView() {
           <Input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search tutorials"
+            placeholder={t("tutorials.search", "Search tutorials")}
             className="h-11 pl-9"
-            aria-label="Search tutorials"
+            aria-label={t("tutorials.search", "Search tutorials")}
           />
         </div>
         <div className="mt-3 flex flex-wrap gap-1.5">
@@ -57,7 +59,7 @@ export function TutorialsView() {
 
       <div className="mt-5 flex items-center justify-between gap-3">
         <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-          {results.length} {results.length === 1 ? "tutorial" : "tutorials"}
+          {results.length} {results.length === 1 ? t("tutorials.tutorial", "tutorial") : t("tutorials.tutorials", "tutorials")}
         </p>
         {query || category !== "All" ? (
           <button
@@ -68,7 +70,7 @@ export function TutorialsView() {
             }}
             className="text-xs text-muted underline underline-offset-4 transition-colors hover:text-ink"
           >
-            Clear
+            {t("tutorials.clear", "Clear")}
           </button>
         ) : null}
       </div>
@@ -91,7 +93,7 @@ export function TutorialsView() {
               </h2>
               <div className="mt-auto flex items-center justify-between pt-5">
                 <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-                  Watch on YouTube
+                  {t("tutorials.watch", "Watch on YouTube")}
                 </span>
                 <ArrowUpRight className="h-4 w-4 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
               </div>
@@ -100,8 +102,8 @@ export function TutorialsView() {
         </div>
       ) : (
         <div className="mt-3 rounded-card border border-dashed border-line p-10 text-center">
-          <p className="font-display text-2xl tracking-[-0.03em]">No tutorials match that search.</p>
-          <p className="mt-2 text-sm text-muted">Try a broader search or a different category.</p>
+          <p className="font-display text-2xl tracking-[-0.03em]">{t("tutorials.noMatches", "No tutorials match that search.")}</p>
+          <p className="mt-2 text-sm text-muted">{t("tutorials.noMatchesCopy", "Try a broader search or a different category.")}</p>
         </div>
       )}
     </div>

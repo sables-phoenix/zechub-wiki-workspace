@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LocaleBoot } from "@/components/locale-boot";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
@@ -58,6 +59,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <LocaleBoot />
+      </head>
       <body className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} font-sans antialiased`}>
         <ThemeProvider>
           <TooltipProvider delayDuration={180}>

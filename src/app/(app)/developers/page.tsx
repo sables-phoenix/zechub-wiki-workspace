@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHero } from "@/components/section-hero";
 import { Button } from "@/components/ui/button";
+import { defaultLocale, type Locale } from "@/lib/i18n";
+import { getTranslator } from "@/lib/messages.server";
 
 export const metadata: Metadata = {
   title: "Developer Resources",
@@ -10,25 +12,25 @@ export const metadata: Metadata = {
     "Comprehensive developer documentation, SDKs, light client libraries, node software, and API resources for building on Zcash.",
 };
 
-const starts = [
+const startKeys = [
   {
-    title: "Learn Zcash Development",
-    body: "Explore the official documentation and learn the basics of Zcash technology.",
-    label: "Read the Docs",
+    titleKey: "developers.learn",
+    bodyKey: "developers.learnCopy",
+    labelKey: "developers.readDocs",
     href: "https://zcash.readthedocs.io/",
     external: true,
   },
   {
-    title: "Learn Through Tutorials",
-    body: "Follow step-by-step tutorials to build on Zcash, from creating wallets to integrating Zcash into your applications.",
-    label: "View Tutorials",
+    titleKey: "developers.tutorials",
+    bodyKey: "developers.tutorialsCopy",
+    labelKey: "developers.viewTutorials",
     href: "/zechub-tutorial",
     external: false,
   },
   {
-    title: "Quick Start Guide",
-    body: "Get up and running with Zcash development quickly. Learn installation, configuration, and basic operations.",
-    label: "Quick Start Guide",
+    titleKey: "developers.quick",
+    bodyKey: "developers.quickCopy",
+    labelKey: "developers.quickCta",
     href: "https://zechub.wiki/developers/quick-start",
     external: true,
   },
@@ -94,40 +96,57 @@ const groups: readonly { title: string; resources: readonly Resource[] }[] = [
   },
 ];
 
-export default function DevelopersPage() {
+const groupKeys: Record<string, string> = {
+  Introductions: "developers.introductions",
+  "SDKs and libraries": "developers.sdks",
+  "Infrastructure and guidance": "developers.infra",
+};
+
+export function DevelopersPageContent({ locale = defaultLocale }: { locale?: Locale }) {
+  const t = getTranslator(locale);
+
   return (
     <>
       <SectionHero
-        eyebrow="Developers"
-        title="Developer Resources"
-        description="Comprehensive developer documentation, SDKs, light client libraries, node software, and API resources for building on Zcash."
+        eyebrow={t("developers.eyebrow", "Developers")}
+        title={t("developers.title", "Developer Resources")}
+        description={t(
+          "developers.description",
+          "Comprehensive developer documentation, SDKs, light client libraries, node software, and API resources for building on Zcash.",
+        )}
         actions={
           <Button asChild variant="secondary">
             <a href="https://zechub.wiki/developers" target="_blank" rel="noreferrer">
-              Original page
+              {t("shell.originalPage", "Original page")}
             </a>
           </Button>
         }
-        meta={<span>Source: zechub.wiki/developers</span>}
+        meta={<span>{t("common.source", "Source")}: zechub.wiki/developers</span>}
       />
 
       <div className="container-page space-y-10 py-8 md:py-10">
         <section>
-          <p className="eyebrow">Start</p>
-          <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">How would you like to get started?</h2>
+          <p className="eyebrow">{t("developers.start", "Start")}</p>
+          <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">
+            {t("developers.howStart", "How would you like to get started?")}
+          </h2>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
-            {starts.map((item) => (
-              <div key={item.title} className="flex flex-col rounded-card border border-line bg-paper p-5 shadow-stamp">
-                <h3 className="font-display text-2xl leading-tight tracking-[-0.04em]">{item.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{item.body}</p>
+            {startKeys.map((item) => (
+              <div key={item.titleKey} className="flex flex-col rounded-card border border-line bg-paper p-5 shadow-stamp">
+                <h3 className="font-display text-2xl leading-tight tracking-[-0.04em]">
+                  {t(item.titleKey, item.titleKey)}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                  {t(item.bodyKey, item.bodyKey)}
+                </p>
                 <Button asChild variant={item.external ? "secondary" : "primary"} className="mt-5 w-full">
                   {item.external ? (
                     <a href={item.href} target="_blank" rel="noreferrer">
-                      {item.label}
+                      {t(item.labelKey, item.labelKey)}
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </a>
                   ) : (
-                    <Link href={item.href}>{item.label}</Link>
+                    <Link href={item.href}>{t(item.labelKey, item.labelKey)}</Link>
                   )}
                 </Button>
               </div>
@@ -137,8 +156,10 @@ export default function DevelopersPage() {
 
         {groups.map((group) => (
           <section key={group.title}>
-            <p className="eyebrow">Documentation</p>
-            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{group.title}</h2>
+            <p className="eyebrow">{t("developers.documentation", "Documentation")}</p>
+            <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">
+              {t(groupKeys[group.title] ?? "", group.title)}
+            </h2>
             <div className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3">
               {group.resources.map((resource) =>
                 resource.external ? (
@@ -169,4 +190,8 @@ export default function DevelopersPage() {
       </div>
     </>
   );
+}
+
+export default function DevelopersPage() {
+  return <DevelopersPageContent locale={defaultLocale} />;
 }

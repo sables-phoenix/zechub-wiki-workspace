@@ -1,6 +1,10 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
 import { Check, Monitor } from "lucide-react";
+import { useI18n } from "@/components/i18n-provider";
+import { localePath, stripLocale, type Locale } from "@/lib/i18n";
+import { rememberLocale } from "@/lib/locale-cookie";
 import { GithubMark } from "@/components/github-mark";
 import { useTheme } from "next-themes";
 import { MoonIcon } from "@/components/animated-icons/moon-icon";
@@ -37,20 +41,24 @@ const languages = [
 
 export function SettingsView() {
   const { theme, setTheme } = useTheme();
+  const { t } = useI18n();
+  const router = useRouter();
+  const pathname = usePathname();
+  const { path } = stripLocale(pathname);
   const mounted = useMounted();
 
   const options = [
-    { value: "light", label: "Paper", icon: SunIcon },
-    { value: "dark", label: "Vault", icon: MoonIcon },
-    { value: "system", label: "System", icon: Monitor },
+    { value: "light", label: t("shell.paper", "Paper"), icon: SunIcon },
+    { value: "dark", label: t("shell.vault", "Vault"), icon: MoonIcon },
+    { value: "system", label: t("shell.system", "System"), icon: Monitor },
   ] as const;
 
   return (
     <>
       <SectionHero
-        eyebrow="Settings"
-        title="Settings"
-        description="Theme, language, and data settings for the workspace."
+        eyebrow={t("shell.settings", "Settings")}
+        title={t("shell.settings", "Settings")}
+        description={t("settings.description", "Theme, language, and data settings for the workspace.")}
         actions={
           <Button asChild variant="secondary">
             <a href="https://github.com/ZecHub/zechub" target="_blank" rel="noreferrer">
@@ -61,17 +69,17 @@ export function SettingsView() {
         }
         meta={
           <>
-            <span>232 pages</span>
-            <span>{activeWallets.length} active wallets</span>
-            <span>19 languages</span>
+            <span>{t("settings.pages", "232 pages")}</span>
+            <span>{activeWallets.length} {t("wallets.activeWallets", "active wallets")}</span>
+            <span>{t("settings.languageCount", "21 languages")}</span>
           </>
         }
       />
 
       <div className="container-page grid gap-6 py-8 md:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
-          <p className="eyebrow">Appearance</p>
-          <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">Theme</h2>
+          <p className="eyebrow">{t("settings.appearance", "Appearance")}</p>
+          <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">{t("shell.theme", "Theme")}</h2>
           <div className="mt-4 grid gap-2">
             {options.map((option) => {
               const Icon = option.icon;
@@ -98,59 +106,62 @@ export function SettingsView() {
             })}
           </div>
           <p className="mt-4 text-xs leading-relaxed text-muted">
-            Paper gives you paper windows. Vault keeps the whole desk dark. System follows your device.
+            {t("settings.themeCopy", "Paper gives you paper windows. Vault keeps the whole desk dark. System follows your device.")}
           </p>
         </section>
 
         <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
           <div className="flex items-end justify-between gap-3">
             <div>
-              <p className="eyebrow">Languages</p>
-              <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">Languages</h2>
+              <p className="eyebrow">{t("settings.languages", "Languages")}</p>
+              <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">{t("settings.languages", "Languages")}</h2>
             </div>
             <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">zechub.wiki</span>
           </div>
           <p className="mt-2 text-sm leading-relaxed text-muted">
-            This workspace mirrors the English edition. Every language link opens the full edition on zechub.wiki.
+            {t("settings.languageCopy", "Choose a language and the workspace stays here. Content and navigation switch inside this site.")}
           </p>
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
             {languages.map((language) => (
-              <a
+              <button
                 key={language.code || "en"}
-                href={language.code ? `https://zechub.wiki/${language.code}` : "https://zechub.wiki"}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg border border-line bg-paper px-3 py-2 transition-colors hover:border-ink/30 hover:bg-paper-2"
+                type="button"
+                onClick={() => {
+                  const next = language.code || "en";
+                  rememberLocale(next);
+                  router.push(localePath(next as Locale, path));
+                }}
+                className="rounded-lg border border-line bg-paper px-3 py-2 text-left transition-colors hover:border-ink/30 hover:bg-paper-2"
               >
                 <span className="block text-sm">{language.native}</span>
                 <span className="block font-mono text-[8px] uppercase tracking-[0.08em] text-muted">
                   {language.label}
                 </span>
-              </a>
+              </button>
             ))}
           </div>
         </section>
 
         <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6 lg:col-span-2">
-          <p className="eyebrow">Data & source</p>
+          <p className="eyebrow">{t("settings.data", "Data & source")}</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             <div className="rounded-card border border-line bg-paper-2 p-4">
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">Content</p>
-              <p className="mt-2 text-sm">232 English pages mirrored from zechub.wiki</p>
+              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{t("settings.content", "Content")}</p>
+              <p className="mt-2 text-sm">{t("settings.contentCopy", "232 English pages mirrored from zechub.wiki")}</p>
             </div>
             <div className="rounded-card border border-line bg-paper-2 p-4">
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">Wallets</p>
-              <p className="mt-2 text-sm">38 wallets from the ZecHub wallet matrix</p>
+              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{t("shell.wallets", "Wallets")}</p>
+              <p className="mt-2 text-sm">{activeWallets.length} {t("settings.walletCopy", "wallets from the ZecHub wallet matrix")}</p>
             </div>
             <div className="rounded-card border border-line bg-paper-2 p-4">
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">Network</p>
-              <p className="mt-2 text-sm">Live ZEC price and chain data from the ZecHub API</p>
+              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{t("shell.network", "Network")}</p>
+              <p className="mt-2 text-sm">{t("settings.networkCopy", "Live ZEC price and chain data from the ZecHub API")}</p>
             </div>
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
             <Button asChild variant="secondary">
               <a href="https://zechub.wiki" target="_blank" rel="noreferrer">
-                Open zechub.wiki
+                {t("shell.openZechub", "Open zechub.wiki")}
               </a>
             </Button>
             <Button asChild variant="ghost">
@@ -161,12 +172,12 @@ export function SettingsView() {
             </Button>
             <Button asChild variant="ghost">
               <a href="https://zechub.wiki/privacy" target="_blank" rel="noreferrer">
-                Privacy
+                {t("shell.privacy", "Privacy")}
               </a>
             </Button>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-muted">
-            This is a redesign preview. It reads the public ZecHub content and APIs. It does not change the live wiki.
+            {t("settings.previewCopy", "This is a redesign preview. It reads the public ZecHub content and APIs. It does not change the live wiki.")}
           </p>
         </section>
       </div>

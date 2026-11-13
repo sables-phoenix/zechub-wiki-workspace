@@ -4,29 +4,38 @@ import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { knownPaths } from "@/lib/pages";
+import { isLocale } from "@/lib/i18n";
 
 type MarkdownProps = {
   markdown: string;
   pagePath: string;
+  basePath?: string;
 };
 
-const resolveInternal = (href: string, pagePath: string): string | null => {
+const resolveInternal = (
+  href: string,
+  pagePath: string,
+  basePath: string,
+): string | null => {
   try {
     if (href.startsWith("#")) return href;
-    if (href.startsWith("/")) {
-      const url = new URL(href, "https://zechub.wiki");
-      return knownPaths.has(url.pathname) ? `${url.pathname}${url.search}${url.hash}` : null;
-    }
-    const url = new URL(href, `https://zechub.wiki/${pagePath}`);
+    const url = href.startsWith("/")
+      ? new URL(href, "https://zechub.wiki")
+      : new URL(href, `https://zechub.wiki/${pagePath}`);
     if (url.hostname !== "zechub.wiki") return null;
-    if (!knownPaths.has(url.pathname)) return null;
-    return `${url.pathname}${url.search}${url.hash}`;
+    const segments = url.pathname.split("/").filter(Boolean);
+    const first = segments[0];
+    const pathname =
+      first && isLocale(first) ? `/${segments.slice(1).join("/")}` : url.pathname;
+    if (pathname === "/") return `${basePath}/`;
+    if (!knownPaths.has(pathname)) return null;
+    return `${basePath}${pathname}${url.search}${url.hash}`;
   } catch {
     return null;
   }
 };
 
-export function Markdown({ markdown, pagePath }: MarkdownProps) {
+export function Markdown({ markdown, pagePath, basePath = "" }: MarkdownProps) {
   return (
     <div className="article-content">
       <ReactMarkdown
@@ -35,7 +44,7 @@ export function Markdown({ markdown, pagePath }: MarkdownProps) {
         components={{
           a: ({ node: _node, href, children, ...props }) => {
             if (!href) return <span>{children}</span>;
-            const internal = resolveInternal(href, pagePath);
+            const internal = resolveInternal(href, pagePath, basePath);
             if (internal) {
               return (
                 <Link href={internal} {...props}>

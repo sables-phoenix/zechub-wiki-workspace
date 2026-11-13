@@ -3,8 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useI18n } from "@/components/i18n-provider";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { localePath } from "@/lib/i18n";
 import { formatCompactUsd, formatNumber, formatPercent, formatUsd, formatZec } from "@/lib/format";
 import type { NetworkSnapshot } from "@/lib/network";
 
@@ -12,37 +14,12 @@ type NetworkTabsProps = {
   network: NetworkSnapshot;
 };
 
-const dashboards = [
-  {
-    id: "zechub",
-    label: "ZecHub Dashboard",
-    copy: "Analyze Zcash network metrics and trends.",
-    href: null,
-  },
-  {
-    id: "governance",
-    label: "Governance Dashboard",
-    copy: "ZecHub DAO proposals, members, and voting.",
-    href: "https://zechub.wiki/dashboard?tab=proposals",
-  },
-  {
-    id: "zcg",
-    label: "ZCG Dashboard",
-    copy: "Zcash Community Grants tracking and grant activity.",
-    href: "https://zechub.wiki/dashboard",
-  },
-  {
-    id: "youtube",
-    label: "YouTube Dashboard",
-    copy: "Current channel, total videos, and total views.",
-    href: "https://zechub.wiki/dashboard",
-  },
-  {
-    id: "code",
-    label: "Code Pulse",
-    copy: "Code activity across the Zcash ecosystem.",
-    href: "https://zechub.wiki/dashboard",
-  },
+const dashboardMeta = [
+  { id: "zechub", labelKey: "network.tabs", copyKey: "network.copyZechub", fallback: "ZecHub Dashboard", copyFallback: "Analyze Zcash network metrics and trends.", href: null },
+  { id: "governance", labelKey: "network.tabGovernance", copyKey: "network.copyGovernance", fallback: "Governance Dashboard", copyFallback: "ZecHub DAO proposals, members, and voting.", href: "https://zechub.wiki/dashboard?tab=proposals" },
+  { id: "zcg", labelKey: "network.tabZcg", copyKey: "network.copyZcg", fallback: "ZCG Dashboard", copyFallback: "Zcash Community Grants tracking and grant activity.", href: "https://zechub.wiki/dashboard" },
+  { id: "youtube", labelKey: "network.tabYoutube", copyKey: "network.copyYoutube", fallback: "YouTube Dashboard", copyFallback: "Current channel, total videos, and total views.", href: "https://zechub.wiki/dashboard" },
+  { id: "code", labelKey: "network.tabCode", copyKey: "network.copyCode", fallback: "Code Pulse", copyFallback: "Code activity across the Zcash ecosystem.", href: "https://zechub.wiki/dashboard" },
 ] as const;
 
 const shieldedTransactions = [
@@ -53,8 +30,14 @@ const shieldedTransactions = [
 ] as const;
 
 export function NetworkTabs({ network }: NetworkTabsProps) {
+  const { t, locale } = useI18n();
   const [active, setActive] = useState<string>("zechub");
-  const current = dashboards.find((dashboard) => dashboard.id === active) ?? dashboards[0];
+  const dashboards = dashboardMeta.map((dashboard) => ({
+    ...dashboard,
+    label: t(dashboard.labelKey, dashboard.fallback),
+    copy: t(dashboard.copyKey, dashboard.copyFallback),
+  }));
+  const current = dashboards.find((dashboard) => dashboard.id === active) ?? dashboards[0]!;
   const shieldedPercent = Math.max(0, Math.min(100, network.shieldedShare * 100));
   const transparentPercent = 100 - shieldedPercent;
   const poolTotal = shieldedTransactions.reduce((total, pool) => total + pool.count, 0);
@@ -63,7 +46,7 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
     <div className="container-page py-8 md:py-10">
       <div
         role="tablist"
-        aria-label="ZecHub dashboards"
+        aria-label={t("network.title", "ZecHub dashboards")}
         className="flex gap-1 overflow-x-auto rounded-pill border border-line bg-paper p-1 window-scroll"
       >
         {dashboards.map((dashboard) => (
@@ -90,12 +73,12 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
           <div className="space-y-4">
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {[
-                { label: "ZEC price", value: formatUsd(network.priceUsd), detail: `${network.priceBtc.toFixed(8)} BTC` },
-                { label: "Market cap", value: formatCompactUsd(network.marketCapUsd), detail: "USD" },
-                { label: "Circulating supply", value: formatNumber(network.circulation), detail: "ZEC" },
-                { label: "Shielded value", value: formatNumber(network.shieldedZec), detail: "ZEC" },
-                { label: "Block height", value: formatNumber(network.blocks), detail: "mainnet" },
-                { label: "Transactions (24h)", value: formatNumber(network.transactions24h), detail: "all pools" },
+                { label: t("network.zecPrice", "ZEC price"), value: formatUsd(network.priceUsd), detail: `${network.priceBtc.toFixed(8)} BTC` },
+                { label: t("network.marketCap", "Market cap"), value: formatCompactUsd(network.marketCapUsd), detail: "USD" },
+                { label: t("network.circulatingSupply", "Circulating supply"), value: formatNumber(network.circulation), detail: "ZEC" },
+                { label: t("network.shieldedValue", "Shielded value"), value: formatNumber(network.shieldedZec), detail: "ZEC" },
+                { label: t("network.blockHeight", "Block height"), value: formatNumber(network.blocks), detail: t("network.mainnet", "mainnet") },
+                { label: t("network.transactions", "Transactions (24h)"), value: formatNumber(network.transactions24h), detail: t("network.allPools", "all pools") },
               ].map((item) => (
                 <div key={item.label} className="rounded-card border border-line bg-paper p-5 shadow-stamp">
                   <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">{item.label}</p>
@@ -111,11 +94,11 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                   <div>
                     <p className="eyebrow">Supply</p>
                     <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">
-                      Shielded and transparent ZEC.
+                      {t("network.shieldedAndTransparent", "Shielded and transparent ZEC.")}
                     </h2>
                   </div>
                   <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-                    {formatPercent(network.shieldedShare)} shielded
+                    {formatPercent(network.shieldedShare)} {t("network.shieldedShare", "shielded")}
                   </span>
                 </div>
                 <div className="mt-5 flex h-4 overflow-hidden rounded-full border border-line bg-paper-2">
@@ -125,22 +108,21 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                 <div className="mt-3 flex flex-wrap justify-between gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-muted">
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                    Shielded {formatZec(network.shieldedZec)}
+                    {t("network.shielded", "Shielded")} {formatZec(network.shieldedZec)}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-slate/40" />
-                    Transparent {formatZec(network.circulation - network.shieldedZec)}
+                    {t("network.transparentZec", "Transparent")} {formatZec(network.circulation - network.shieldedZec)}
                   </span>
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-muted">
-                  The headline values are live. The historical supply chart, year filters, testnet switch, and
-                  PNG export live on the original dashboard.
+                  {t("network.sourceNote", "The historical supply chart, year filters, testnet switch, and PNG export live on the original dashboard.")}
                 </p>
               </section>
 
               <section className="rounded-card border border-line bg-paper p-6 shadow-stamp md:p-8">
                 <p className="eyebrow">Shielded TX (24h)</p>
-                <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Pool activity.</h2>
+                <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{t("network.poolActivity", "Pool activity.")}</h2>
                 <div className="mt-5 space-y-3">
                   {shieldedTransactions.map((pool) => {
                     const share = poolTotal > 0 ? (pool.count / poolTotal) * 100 : 0;
@@ -158,14 +140,14 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                   })}
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-muted">
-                  A snapshot of the shielded transaction split. The live source is the ZecHub dashboard.
+                  {t("network.snapshot", "A snapshot of the shielded transaction split. The live source is the ZecHub dashboard.")}
                 </p>
               </section>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
-                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">Dashboard</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">{t("network.title", "Dashboard")}</p>
                 <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">ZecHub Dashboard</h2>
                 <p className="mt-3 text-sm leading-relaxed text-vault-muted">
                   Live analytics, metrics, shielded pool statistics, DAO treasury status, YouTube stats, and
@@ -174,22 +156,22 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                 <div className="mt-4 flex flex-wrap gap-2">
                   <Button asChild>
                     <a href="https://zechub.wiki/dashboard" target="_blank" rel="noreferrer">
-                      Open full dashboard
+                      {t("network.openDashboard", "Open full dashboard")}
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </a>
                   </Button>
                   <Button asChild variant="secondary">
-                    <Link href="/library">Read the wiki</Link>
+                    <Link href={localePath(locale, "/library")}>{t("network.readWiki", "Read the wiki")}</Link>
                   </Button>
                 </div>
               </div>
               <div className="rounded-card border border-line bg-paper-2 p-6 shadow-stamp">
                 <p className="eyebrow">Data notes</p>
                 <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-                  <li>Price and market cap come from the ZecHub price API.</li>
-                  <li>Circulation, shielded value, blocks, and 24h transactions come from the ZecHub chain API.</li>
-                  <li>The shielded share and supply split are computed from the latest values.</li>
-                  <li>The pool split is a snapshot. The page revalidates every five minutes.</li>
+                  <li>{t("network.dataNote1", "Price and market cap come from the ZecHub price API.")}</li>
+                  <li>{t("network.dataNote2", "Circulation, shielded value, blocks, and 24h transactions come from the ZecHub chain API.")}</li>
+                  <li>{t("network.dataNote3", "The shielded share and supply split are computed from the latest values.")}</li>
+                  <li>{t("network.dataNote4", "The pool split is a snapshot. The page revalidates every five minutes.")}</li>
                 </ul>
               </div>
             </div>
@@ -200,13 +182,12 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
             <h2 className="mt-2 font-display text-4xl leading-none tracking-[-0.04em]">{current.label}</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{current.copy}</p>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-              This dashboard lives on zechub.wiki and includes the full interactive data. Open it there and
-              choose this tab.
+              {t("network.livesOnSource", "This dashboard lives on zechub.wiki and includes the full interactive data. Open it there and choose this tab.")}
             </p>
             {current.href ? (
               <Button asChild className="mt-5">
                 <a href={current.href} target="_blank" rel="noreferrer">
-                  Open {current.label}
+                  {t("network.openLabel", "Open")} {current.label}
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </Button>

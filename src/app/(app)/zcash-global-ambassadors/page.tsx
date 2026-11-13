@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHero } from "@/components/section-hero";
 import { Button } from "@/components/ui/button";
+import { defaultLocale, type Locale } from "@/lib/i18n";
+import { getTranslator } from "@/lib/messages.server";
 import { ambassadors } from "@/data/ambassadors";
 
 export const metadata: Metadata = {
@@ -10,24 +12,26 @@ export const metadata: Metadata = {
     "Meet the global ambassadors promoting Zcash adoption, organizing local meetups, and translating educational resources worldwide.",
 };
 
-export default function AmbassadorsPage() {
+export function AmbassadorsPageContent({ locale = defaultLocale }: { locale?: Locale }) {
+  const t = getTranslator(locale);
+
   return (
     <>
       <SectionHero
-        eyebrow="Global network"
-        title="Zcash Ambassador Globe"
-        description="Meet the global ambassadors promoting Zcash adoption, organizing local meetups, and translating educational resources worldwide."
+        eyebrow={t("ambassadors.eyebrow", "Global network")}
+        title={t("ambassadors.title", "Zcash Ambassador Globe")}
+        description={t("ambassadors.description", "Meet the global ambassadors promoting Zcash adoption, organizing local meetups, and translating educational resources worldwide.")}
         actions={
           <Button asChild variant="secondary">
             <a href="https://zechub.wiki/zcash-global-ambassadors" target="_blank" rel="noreferrer">
-              Original page
+              {t("shell.originalPage", "Original page")}
             </a>
           </Button>
         }
         meta={
           <>
-            <span>{ambassadors.length} public cards</span>
-            <span>15 active communities</span>
+            <span>{ambassadors.length} {t("ambassadors.publicCards", "public cards")}</span>
+            <span>15 {t("ambassadors.activeCommunities", "active communities")}</span>
             <span>Source: zechub.wiki/zcash-global-ambassadors</span>
           </>
         }
@@ -46,24 +50,29 @@ export default function AmbassadorsPage() {
                 </span>
                 <h2 className="font-display text-xl leading-tight tracking-[-0.03em]">{ambassador.name}</h2>
               </div>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{ambassador.description}</p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                {t(ambassador.descriptionKey ?? "", ambassador.description)}
+              </p>
               <a
                 href={ambassador.href}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-5 inline-flex items-center gap-1.5 text-xs text-gold-deep underline decoration-line underline-offset-4 hover:decoration-gold-deep"
               >
-                Follow on X/BS
+                {t("ambassadors.follow", "Follow on X/BS")}
                 <ArrowUpRight className="h-3 w-3" />
               </a>
             </article>
           ))}
         </div>
         <p className="mt-6 text-xs leading-relaxed text-muted">
-          The original page adds a globe view and regional filters for all 15 communities. The cards here
-          cover the public ambassador links.
+          {t("ambassadors.note", "The original page adds a globe view and regional filters for all 15 communities. The cards here cover the public ambassador links.")}
         </p>
       </div>
     </>
   );
+}
+
+export default function AmbassadorsPage() {
+  return <AmbassadorsPageContent locale={defaultLocale} />;
 }

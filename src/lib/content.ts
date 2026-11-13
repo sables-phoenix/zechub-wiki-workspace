@@ -90,13 +90,19 @@ const extractLead = (markdown: string): string | null => {
   return null;
 };
 
+export const processMarkdown = (
+  raw: string,
+): { markdown: string; toc: readonly TocEntry[]; lead: string | null } => {
+  const { body } = parseFrontmatter(raw);
+  const markdown = absoluteContentImages(removeFirstHeading(removeEditBadge(body)));
+  return { markdown, toc: buildToc(markdown), lead: extractLead(markdown) };
+};
+
 export const readPage = (
   page: PageMeta,
 ): { markdown: string; toc: readonly TocEntry[]; lead: string | null } => {
   const raw = fs.readFileSync(path.join(contentDir, page.file), "utf8");
-  const { body } = parseFrontmatter(raw);
-  const markdown = absoluteContentImages(removeFirstHeading(removeEditBadge(body)));
-  return { markdown, toc: buildToc(markdown), lead: extractLead(markdown) };
+  return processMarkdown(raw);
 };
 
 export const pageSourceUrl = (page: PageMeta): string => `https://zechub.wiki/${page.path}`;

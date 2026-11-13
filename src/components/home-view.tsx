@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { DesktopClock } from "@/components/desktop/clock";
 import { Button } from "@/components/ui/button";
+import { getTranslator } from "@/lib/messages.server";
+import { localePath, type Locale } from "@/lib/i18n";
 
-export function HomeView() {
+export function HomeView({ locale = "en" }: { locale?: Locale }) {
+  const t = getTranslator(locale);
+
   return (
     <div className="container-page flex min-h-full items-center py-6 md:py-10">
       <section className="relative w-full overflow-hidden rounded-card border border-vault-line bg-vault p-5 text-vault-text shadow-stamp-lg md:p-9">
@@ -22,26 +26,26 @@ export function HomeView() {
                 className="h-[38px] w-[38px] invert dark:invert-0"
               />
               <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-vault-muted">
-                An open source education hub for Zcash
+                {t("home.heroSubtitle", "An open source education hub for Zcash")}
               </p>
             </div>
 
             <h1 className="mt-4 font-display text-3xl leading-[0.96] tracking-[-0.06em] md:text-5xl">
-              Welcome to <span className="text-gold-deep">ZecHub</span>
+              {t("home.welcome", "Welcome to")} <span className="text-gold-deep">ZecHub</span>
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-vault-muted md:text-base">
-              ZecHub is the community-driven education hub for Zcash (ZEC), a decentralized digital currency
-              built for censorship-resistant, secure and private payments. Zcash uses advanced zero-knowledge
-              cryptography to enable transactions whose validity can be verified without revealing sensitive
-              financial information.
+              {t(
+                "home.description",
+                "ZecHub is the community-driven education hub for Zcash (ZEC), a decentralized digital currency built for censorship-resistant, secure and private payments.",
+              )}
             </p>
 
             <div className="mt-5 flex flex-wrap justify-center gap-3">
               <Button asChild>
-                <Link href="/start-here">Start here</Link>
+                <Link href={localePath(locale, "/start-here")}>{t("home.startHere", "Start here")}</Link>
               </Button>
               <Button asChild variant="secondary">
-                <Link href="/library">All pages</Link>
+                <Link href={localePath(locale, "/library")}>{t("home.allPages", "All pages")}</Link>
               </Button>
             </div>
           </div>

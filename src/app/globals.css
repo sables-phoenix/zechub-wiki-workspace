@@ -452,3 +452,53 @@
     overflow: hidden;
   }
 }
+
+html[data-locale="ar"] body {
+  font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", "Geeza Pro", sans-serif;
+}
+html[data-locale="ar"] .font-display,
+html[data-locale="ar"] h1,
+html[data-locale="ar"] h2,
+html[data-locale="ar"] h3,
+html[data-locale="ar"] h4 {
+  font-family: "Noto Naskh Arabic", "Amiri", "Geeza Pro", serif;
+}
+html[data-locale="hi"] body,
+html[data-locale="hi"] .font-display,
+html[data-locale="hi"] h1,
+html[data-locale="hi"] h2,
+html[data-locale="hi"] h3,
+html[data-locale="hi"] h4 {
+  font-family: "Noto Sans Devanagari", "Nirmala UI", Mangal, sans-serif;
+}
+html[data-locale="zh"] body,
+html[data-locale="zh"] .font-display,
+html[data-locale="zh"] h1,
+html[data-locale="zh"] h2,
+html[data-locale="zh"] h3,
+html[data-locale="zh"] h4 {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+html[data-locale="ja"] body,
+html[data-locale="ja"] .font-display,
+html[data-locale="ja"] h1,
+html[data-locale="ja"] h2,
+html[data-locale="ja"] h3,
+html[data-locale="ja"] h4 {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+html[data-locale="ko"] body,
+html[data-locale="ko"] .font-display,
+html[data-locale="ko"] h1,
+html[data-locale="ko"] h2,
+html[data-locale="ko"] h3,
+html[data-locale="ko"] h4 {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+html[data-locale="el"] body {
+  font-family: "Noto Sans", "Segoe UI", Arial, sans-serif;
+}
+html[data-locale="ru"] body,
+html[data-locale="uk"] body {
+  font-family: "Noto Sans", "Segoe UI", Arial, sans-serif;
+}

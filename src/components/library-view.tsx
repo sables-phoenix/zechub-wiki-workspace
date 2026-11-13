@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
 import { SectionHero } from "@/components/section-hero";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { pages, sections, type PageMeta } from "@/lib/pages";
@@ -55,18 +56,12 @@ export function LibraryView() {
         description="Browse the complete hierarchy of guides, tutorials, research, developer documentation, and ecosystem resources on ZecHub."
         actions={
           <>
-            <Link
-              href="/start-here"
-              className="inline-flex h-11 items-center rounded-pill border border-line bg-paper px-5 text-sm text-ink transition-colors hover:bg-paper-2"
-            >
-              Start Here
-            </Link>
-            <Link
-              href="/network"
-              className="inline-flex h-11 items-center rounded-pill border border-line bg-paper px-5 text-sm text-ink transition-colors hover:bg-paper-2"
-            >
-              Dashboard
-            </Link>
+            <Button asChild>
+              <Link href="/start-here">Start Here</Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href="/network">Dashboard</Link>
+            </Button>
           </>
         }
         meta={

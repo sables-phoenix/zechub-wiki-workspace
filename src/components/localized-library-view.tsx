@@ -8,6 +8,7 @@ import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
 import { useI18n } from "@/components/i18n-provider";
 import { PageCard } from "@/components/page-card";
 import { SectionHero } from "@/components/section-hero";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { localePath } from "@/lib/i18n";
@@ -67,18 +68,12 @@ export function LocalizedLibraryView({ pages }: { pages: readonly LibraryPage[] 
         )}
         actions={
           <>
-            <Link
-              href={localePath(locale, "/start-here")}
-              className="inline-flex h-11 items-center rounded-pill border border-line bg-paper px-5 text-sm text-ink transition-colors hover:bg-paper-2"
-            >
-              {t("common.startHere", "Start Here")}
-            </Link>
-            <Link
-              href={localePath(locale, "/network")}
-              className="inline-flex h-11 items-center rounded-pill border border-line bg-paper px-5 text-sm text-ink transition-colors hover:bg-paper-2"
-            >
-              {t("shell.network", "Dashboard")}
-            </Link>
+            <Button asChild>
+              <Link href={localePath(locale, "/start-here")}>{t("common.startHere", "Start Here")}</Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href={localePath(locale, "/network")}>{t("shell.network", "Dashboard")}</Link>
+            </Button>
           </>
         }
         meta={

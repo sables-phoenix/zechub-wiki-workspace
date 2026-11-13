@@ -17,6 +17,7 @@ export function VisualizerPageContent({ locale = defaultLocale }: { locale?: Loc
   const t = getTranslator(locale);
   const basic = visualizerTools.filter((tool) => tool.category === "basic");
   const advanced = visualizerTools.filter((tool) => tool.category === "advanced");
+  const contributors = visualizerTools.filter((tool) => tool.category === "contributors");
 
   return (
     <>
@@ -66,6 +67,30 @@ export function VisualizerPageContent({ locale = defaultLocale }: { locale?: Loc
           <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{t("visualizer.deep", "Deep technical dives")}</h2>
           <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             {advanced.map((tool) => (
+              <Link
+                key={tool.slug}
+                href={localePath(locale, `/visualizer/${tool.slug}`)}
+                className="group rounded-card border border-line bg-paper p-4 shadow-stamp transition-[border-color,background-color,transform] duration-150 hover:-translate-y-0.5 hover:border-ink/25 hover:bg-paper-2"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold-deep">{t("visualizer.visualizer", "Visualizer")}</p>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+                <h3 className="mt-3 font-display text-xl leading-tight tracking-[-0.03em]">{t(tool.titleKey, tool.title)}</h3>
+                <p className="mt-2 text-[11px] leading-relaxed text-muted">{tool.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <p className="eyebrow">{t("visualizer.contributors", "Contributors")}</p>
+          <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{t("visualizer.contributors", "Contributors")}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+            {t("visualizer.contributorsCopy", "Ways to contribute to the Zcash ecosystem and earn rewards.")}
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {contributors.map((tool) => (
               <Link
                 key={tool.slug}
                 href={localePath(locale, `/visualizer/${tool.slug}`)}

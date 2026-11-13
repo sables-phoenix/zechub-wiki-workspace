@@ -425,7 +425,19 @@
     "t13": "Zcash Keys",
     "t14": "Zcash Infrastructure",
     "t15": "Consensus",
-    "t16": "Zcash Mining"
+    "t16": "Zcash Mining",
+    "t17": "Privacy Use Cases",
+    "t18": "Governance & Dev Fund",
+    "t19": "FROST & Private Multi Signatures",
+    "t20": "Intermediate Quiz",
+    "t21": "ZecHub Bounties",
+    "t22": "DAO Proposals",
+    "contributors": "Contributors",
+    "contributorsCopy": "Ways to contribute to the Zcash ecosystem and earn rewards.",
+    "previous": "Back",
+    "next": "Next",
+    "restart": "Restart",
+    "slide": "Slide"
   },
   "hackathon": {
     "eyebrow": "2026 event",

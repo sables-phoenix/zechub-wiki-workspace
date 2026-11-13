@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { CopyLinkButton } from "@/components/copy-link";
 import { Markdown } from "@/components/markdown";
 import { PageCard } from "@/components/page-card";
 import { desktopApps } from "@/lib/apps";
-import { pageSourceUrl, readPage } from "@/lib/content";
+import { readPage } from "@/lib/content";
 import {
   getAdjacentPages,
   getRelatedPages,
@@ -82,15 +82,6 @@ export function ArticleReader({ page }: ArticleReaderProps) {
             <span className="font-mono text-[10px]">/{page.path}</span>
             <div className="ml-auto flex items-center gap-1">
               <CopyLinkButton path={`/${page.path}`} />
-              <a
-                href={pageSourceUrl(page)}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-9 items-center gap-1.5 rounded-pill px-3 text-[11px] text-muted transition-colors hover:bg-paper-2 hover:text-ink"
-              >
-                Source
-                <ArrowUpRight className="h-3 w-3" />
-              </a>
             </div>
           </div>
 
@@ -155,17 +146,6 @@ export function ArticleReader({ page }: ArticleReaderProps) {
             ) : (
               <p className="mt-3 text-xs text-muted">No section headings.</p>
             )}
-            <div className="mt-6 rounded-card border border-line bg-paper-2 p-3">
-              <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">Source</p>
-              <a
-                href={pageSourceUrl(page)}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 block text-xs text-ink underline decoration-line underline-offset-4 hover:decoration-ink"
-              >
-                zechub.wiki/{page.path}
-              </a>
-            </div>
           </div>
         </aside>
       </div>

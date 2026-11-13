@@ -64,7 +64,7 @@ export function SettingsView() {
           <Button asChild variant="secondary">
             <a href="https://github.com/ZecHub/zechub" target="_blank" rel="noreferrer">
               <GithubMark className="h-4 w-4" />
-              Source
+              GitHub
             </a>
           </Button>
         }
@@ -117,11 +117,7 @@ export function SettingsView() {
               <p className="eyebrow">{t("settings.languages", "Languages")}</p>
               <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">{t("settings.languages", "Languages")}</h2>
             </div>
-            <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">zechub.wiki</span>
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
-            {t("settings.languageCopy", "Choose a language and the workspace stays here. Content and navigation switch inside this site.")}
-          </p>
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
             {languages.map((language) => (
               <button
@@ -148,8 +144,7 @@ export function SettingsView() {
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             <div className="rounded-card border border-line bg-paper-2 p-4">
               <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{t("settings.content", "Content")}</p>
-              <p className="mt-2 text-sm">{t("settings.contentCopy", "232 English pages mirrored from zechub.wiki")}</p>
-            </div>
+              </div>
             <div className="rounded-card border border-line bg-paper-2 p-4">
               <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted">{t("shell.wallets", "Wallets")}</p>
               <p className="mt-2 text-sm">{activeWallets.length} {t("settings.walletCopy", "wallets from the ZecHub wallet matrix")}</p>
@@ -177,9 +172,6 @@ export function SettingsView() {
               </a>
             </Button>
           </div>
-          <p className="mt-4 text-xs leading-relaxed text-muted">
-            {t("settings.previewCopy", "This is a redesign preview. It reads the public ZecHub content and APIs. It does not change the live wiki.")}
-          </p>
         </section>
       </div>
     </>

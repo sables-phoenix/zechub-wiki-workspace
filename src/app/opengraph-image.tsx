@@ -51,7 +51,7 @@ export default function OpenGraphImage() {
               maxWidth: "920px",
             }}
           >
-            The Zcash wiki, in one workspace.
+            The Zcash wiki, in one desktop workspace.
           </div>
           <div
             style={{
@@ -76,7 +76,7 @@ export default function OpenGraphImage() {
             color: "#6c5b45",
           }}
         >
-          <span>zechub.wiki content, rebuilt as a desktop workspace</span>
+          <span>The Zcash wiki, in one desktop workspace</span>
           <span style={{ color: "#9a6a00" }}>zechub-wiki-workspace.vercel.app</span>
         </div>
       </div>

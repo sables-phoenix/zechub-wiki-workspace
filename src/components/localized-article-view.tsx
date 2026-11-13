@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { CopyLinkButton } from "@/components/copy-link";
 import { Markdown } from "@/components/markdown";
 import { PageCard } from "@/components/page-card";
@@ -58,7 +58,6 @@ export function LocalizedArticleView({
   const related = localizedRelated(locale, page);
   const sectionHref = section ? localePath(locale, section.href) : localePath(locale, "/library");
   const sectionLabel = t(`menuLabels.${page.section}`, page.section);
-  const sourceLabel = page.sourceUrl.replace("https://", "");
 
   return (
     <div className="container-page py-7 md:py-9">
@@ -123,15 +122,6 @@ export function LocalizedArticleView({
             <span className="font-mono text-[10px]">/{locale === "en" ? "" : `${locale}/`}{page.path}</span>
             <div className="ml-auto flex items-center gap-1">
               <CopyLinkButton path={`${basePath}/${page.path}`} />
-              <a
-                href={page.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-9 items-center gap-1.5 rounded-pill px-3 text-[11px] text-muted transition-colors hover:bg-paper-2 hover:text-ink"
-              >
-                {t("common.source", "Source")}
-                <ArrowUpRight className="h-3 w-3" />
-              </a>
             </div>
           </div>
 
@@ -197,19 +187,6 @@ export function LocalizedArticleView({
             ) : (
               <p className="mt-3 text-xs text-muted">{t("common.noHeadings", "No section headings.")}</p>
             )}
-            <div className="mt-6 rounded-card border border-line bg-paper-2 p-3">
-              <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-                {t("common.source", "Source")}
-              </p>
-              <a
-                href={page.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 block break-all text-xs text-ink underline decoration-line underline-offset-4 hover:decoration-ink"
-              >
-                {sourceLabel}
-              </a>
-            </div>
           </div>
         </aside>
       </div>

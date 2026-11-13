@@ -7,7 +7,6 @@ import { MagnifierIcon } from "@/components/animated-icons/magnifier-icon";
 import { useI18n } from "@/components/i18n-provider";
 import { SectionHero } from "@/components/section-hero";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import {
@@ -25,7 +24,6 @@ import {
   operatingSystemOptions,
   poolOptions,
   supportOptions,
-  walletSourceUrl,
   type Wallet,
 } from "@/lib/wallets";
 
@@ -138,14 +136,6 @@ export function WalletsView() {
         eyebrow={t("shell.wallets", "Wallets")}
         title={t("wallets.title", "Wallets")}
         description={t("wallets.description", "Find and compare secure Zcash wallets supporting shielded addresses, unified addresses, and privacy features on mobile, desktop, and hardware devices.")}
-        actions={
-          <Button asChild variant="secondary">
-            <a href={walletSourceUrl} target="_blank" rel="noreferrer">
-              {t("wallets.fullMatrix", "Full matrix")}
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          </Button>
-        }
         meta={
           <>
             <span>{ratedActive.length} {t("wallets.activeWallets", "active wallets")}</span>
@@ -294,20 +284,6 @@ export function WalletsView() {
           </div>
         </section>
 
-        <p className="mt-6 text-xs leading-relaxed text-muted">
-          {t(
-            "wallets.sourceNote",
-            "Ratings are a snapshot. Feature chips open the wallet details in each card. Always verify a wallet before sending funds.",
-          )}{" "}
-          <a
-            href={walletSourceUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="text-gold-deep underline underline-offset-4"
-          >
-            zechub.wiki/wallets
-          </a>
-        </p>
       </div>
     </>
   );
@@ -459,15 +435,7 @@ function WalletCard({ wallet, deprecated = false }: { wallet: Wallet; deprecated
           </div>
         ) : null}
 
-        <div className="mt-auto flex items-center justify-between gap-2 pt-4">
-          <a
-            href={walletSourceUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="text-[10px] text-muted underline underline-offset-4 transition-colors hover:text-ink"
-          >
-            {t("common.source", "Source")}
-          </a>
+        <div className="mt-auto flex items-center justify-end gap-2 pt-4">
           {wallet.href ? (
             <a
               href={wallet.href}

@@ -114,14 +114,7 @@ export function DevelopersPageContent({ locale = defaultLocale }: { locale?: Loc
           "developers.description",
           "Comprehensive developer documentation, SDKs, light client libraries, node software, and API resources for building on Zcash.",
         )}
-        actions={
-          <Button asChild variant="secondary">
-            <a href="https://zechub.wiki/developers" target="_blank" rel="noreferrer">
-              {t("shell.originalPage", "Original page")}
-            </a>
-          </Button>
-        }
-        meta={<span>{t("common.source", "Source")}: zechub.wiki/developers</span>}
+        meta={<span>{t("developers.title", "Developer Resources")}</span>}
       />
 
       <div className="container-page space-y-10 py-8 md:py-10">

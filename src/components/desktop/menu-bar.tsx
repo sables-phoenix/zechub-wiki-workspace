@@ -308,7 +308,6 @@ function LanguageMenu() {
         ))}
         <DropdownMenuSeparator />
         <p className="px-2 py-1.5 text-[10px] leading-relaxed text-muted">
-          {t("common.languageNote", "The language changes inside this workspace.")}
         </p>
       </DropdownMenuContent>
     </DropdownMenu>

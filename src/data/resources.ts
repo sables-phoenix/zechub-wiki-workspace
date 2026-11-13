@@ -159,7 +159,7 @@ export const externalResources: readonly ResourceLink[] = [
   {
     label: "zechub.wiki",
     href: "https://zechub.wiki",
-    note: "The original site.",
+    note: "The zechub.wiki website.",
     external: true,
   },
 ];

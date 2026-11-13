@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { GithubMark } from "@/components/github-mark";
 import { PageCard } from "@/components/page-card";
 import { SectionHero } from "@/components/section-hero";
@@ -59,15 +58,6 @@ export default function ContributePage() {
               <p className="eyebrow">Ways to help</p>
               <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">Help Build ZecHub</h2>
             </div>
-            <a
-              href="https://zechub.wiki/contribute/help-build-zechub"
-              target="_blank"
-              rel="noreferrer"
-              className="hidden text-xs text-muted underline underline-offset-4 hover:text-ink sm:flex sm:items-center sm:gap-1"
-            >
-              Open the source page
-              <ArrowUpRight className="h-3 w-3" />
-            </a>
           </div>
           <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {ways.map((way, index) => (

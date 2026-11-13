@@ -29,7 +29,6 @@ export default function StartHerePage() {
         meta={
           <>
             <span>{startPages.length} pages</span>
-            <span>Source: zechub.wiki/start-here</span>
           </>
         }
       />

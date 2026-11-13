@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHero } from "@/components/section-hero";
-import { Button } from "@/components/ui/button";
 import { defaultLocale, type Locale } from "@/lib/i18n";
 import { getTranslator } from "@/lib/messages.server";
 import { ambassadors } from "@/data/ambassadors";
@@ -21,18 +20,10 @@ export function AmbassadorsPageContent({ locale = defaultLocale }: { locale?: Lo
         eyebrow={t("ambassadors.eyebrow", "Global network")}
         title={t("ambassadors.title", "Zcash Ambassador Globe")}
         description={t("ambassadors.description", "Meet the global ambassadors promoting Zcash adoption, organizing local meetups, and translating educational resources worldwide.")}
-        actions={
-          <Button asChild variant="secondary">
-            <a href="https://zechub.wiki/zcash-global-ambassadors" target="_blank" rel="noreferrer">
-              {t("shell.originalPage", "Original page")}
-            </a>
-          </Button>
-        }
         meta={
           <>
             <span>{ambassadors.length} {t("ambassadors.publicCards", "public cards")}</span>
             <span>15 {t("ambassadors.activeCommunities", "active communities")}</span>
-            <span>Source: zechub.wiki/zcash-global-ambassadors</span>
           </>
         }
       />
@@ -65,9 +56,6 @@ export function AmbassadorsPageContent({ locale = defaultLocale }: { locale?: Lo
             </article>
           ))}
         </div>
-        <p className="mt-6 text-xs leading-relaxed text-muted">
-          {t("ambassadors.note", "The original page adds a globe view and regional filters for all 15 communities. The cards here cover the public ambassador links.")}
-        </p>
       </div>
     </>
   );

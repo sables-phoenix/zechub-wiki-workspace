@@ -74,7 +74,6 @@ export function BrandPageContent({ locale = defaultLocale }: { locale?: Locale }
             </a>
           </Button>
         }
-        meta={<span>{t("common.source", "Source")}: zechub.wiki/zcash-organizations/brand</span>}
       />
 
       <div className="container-page py-8 md:py-10">
@@ -108,9 +107,6 @@ export function BrandPageContent({ locale = defaultLocale }: { locale?: Locale }
             </article>
           ))}
         </div>
-        <p className="mt-6 text-xs leading-relaxed text-muted">
-          {t("brand.footer", "Downloads open on zechub.wiki. The ZecHub mark used in this workspace comes from the public brand folder.")}
-        </p>
       </div>
     </>
   );

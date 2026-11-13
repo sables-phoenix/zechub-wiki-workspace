@@ -35,7 +35,6 @@ export function VisualizerPageContent({ locale = defaultLocale }: { locale?: Loc
         meta={
           <>
             <span>{basic.length + advanced.length} {t("visualizer.tools", "tools")}</span>
-            <span>{t("visualizer.note", "Interactive tools open on zechub.wiki")}</span>
           </>
         }
       />
@@ -67,9 +66,6 @@ export function VisualizerPageContent({ locale = defaultLocale }: { locale?: Loc
           </div>
         </section>
 
-        <p className="text-xs leading-relaxed text-muted">
-          {t("visualizer.note", "The original visualizers are interactive. Open them on zechub.wiki. The original page also includes quizzes and additional advanced tools.")}
-        </p>
       </div>
     </>
   );

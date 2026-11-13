@@ -116,7 +116,6 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                   </span>
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-muted">
-                  {t("network.sourceNote", "The historical supply chart, year filters, testnet switch, and PNG export live on the original dashboard.")}
                 </p>
               </section>
 
@@ -140,7 +139,6 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                   })}
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-muted">
-                  {t("network.snapshot", "A snapshot of the shielded transaction split. The live source is the ZecHub dashboard.")}
                 </p>
               </section>
             </div>
@@ -171,7 +169,6 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
                   <li>{t("network.dataNote1", "Price and market cap come from the ZecHub price API.")}</li>
                   <li>{t("network.dataNote2", "Circulation, shielded value, blocks, and 24h transactions come from the ZecHub chain API.")}</li>
                   <li>{t("network.dataNote3", "The shielded share and supply split are computed from the latest values.")}</li>
-                  <li>{t("network.dataNote4", "The pool split is a snapshot. The page revalidates every five minutes.")}</li>
                 </ul>
               </div>
             </div>
@@ -182,7 +179,7 @@ export function NetworkTabs({ network }: NetworkTabsProps) {
             <h2 className="mt-2 font-display text-4xl leading-none tracking-[-0.04em]">{current.label}</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{current.copy}</p>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-              {t("network.livesOnSource", "This dashboard lives on zechub.wiki and includes the full interactive data. Open it there and choose this tab.")}
+              {t("network.livesOnSource", "Open this dashboard for the full interactive view.")}
             </p>
             {current.href ? (
               <Button asChild className="mt-5">

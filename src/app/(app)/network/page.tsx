@@ -45,7 +45,6 @@ export async function NetworkPageContent({ locale = defaultLocale }: { locale?: 
                 : t("network.cached", "Cached snapshot")}
             </span>
             <span>{t("network.updated", "Updated every 5 minutes")}</span>
-            <span>{t("network.source", "Source: zechub.wiki/api")}</span>
           </>
         }
       />

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHero } from "@/components/section-hero";
-import { Button } from "@/components/ui/button";
 import { hackathonProjects } from "@/data/hackathon";
 import { defaultLocale, type Locale } from "@/lib/i18n";
 import { getTranslator } from "@/lib/messages.server";
@@ -38,18 +37,10 @@ export function HackathonPageContent({ locale = defaultLocale }: { locale?: Loca
         eyebrow={t("hackathon.eyebrow", "2026 event")}
         title={t("hackathon.title", "ZecHub Hackathon")}
         description={t("hackathon.description", "The 2026 ZecHub Hackathon has ended. Explore the submitted projects and see what the community built.")}
-        actions={
-          <Button asChild variant="secondary">
-            <a href="https://zechub.wiki/hackathon" target="_blank" rel="noreferrer">
-              {t("hackathon.original", "Original archive")}
-            </a>
-          </Button>
-        }
         meta={
           <>
             <span>{hackathonProjects.length} {t("hackathon.publicLinks", "public project links")}</span>
             <span>{t("hackathon.prizePool", "25 ZEC prize pool")}</span>
-            <span>{t("hackathon.source", "Source: zechub.wiki/hackathon")}</span>
           </>
         }
       />
@@ -124,9 +115,6 @@ export function HackathonPageContent({ locale = defaultLocale }: { locale?: Loca
               <ProjectGrid projects={projects2024} githubLabel={t("hackathon.github", "View on GitHub")} compact />
             </div>
           </div>
-          <p className="mt-4 text-xs leading-relaxed text-muted">
-            {t("hackathon.note", "The current 2026 archive lists 34 public projects. The original page has the full list.")}
-          </p>
         </section>
       </div>
     </>

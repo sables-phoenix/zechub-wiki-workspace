@@ -48,18 +48,12 @@ export function MapPageContent({ locale = defaultLocale }: { locale?: Locale }) 
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </Button>
-            <Button asChild variant="secondary">
-              <a href="https://zechub.wiki/map" target="_blank" rel="noreferrer">
-                {t("map.original", "Original page")}
-              </a>
-            </Button>
           </>
         }
         meta={
           <>
             <span>{t("map.locations", "287 locations")}</span>
             <span>{t("map.regions", "Dominican Republic, Mexico, United States")}</span>
-            <span>{t("map.source", "Source: zechub.wiki/map")}</span>
           </>
         }
       />
@@ -68,9 +62,6 @@ export function MapPageContent({ locale = defaultLocale }: { locale?: Locale }) 
         <section className="rounded-card border border-line bg-paper p-6 shadow-stamp">
           <p className="eyebrow">{t("map.inStore", "In-store")}</p>
           <h2 className="mt-2 font-display text-3xl leading-none tracking-[-0.04em]">{t("map.locations", "287 locations")}</h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-            {t("map.summary", "Locations across the Dominican Republic, Mexico, and the United States accept ZEC via Flexa. The full map is interactive and lives on zechub.wiki and zecmap.com.")}
-          </p>
           <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {brands.map((brand) => (
               <span
@@ -86,9 +77,6 @@ export function MapPageContent({ locale = defaultLocale }: { locale?: Locale }) 
         <aside className="rounded-card border border-vault-line bg-vault p-6 text-vault-text shadow-stamp">
           <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-vault-muted">{t("map.map", "Map")}</p>
           <h2 className="mt-2 font-display text-2xl leading-none tracking-[-0.04em]">{t("map.find", "Find a store")}</h2>
-          <p className="mt-3 text-sm leading-relaxed text-vault-muted">
-            {t("map.mapCopy", "The interactive map, filters, and current location list are on Zec Map. This workspace keeps the summary and the launch link.")}
-          </p>
           <Button asChild className="mt-4 w-full">
             <a href="https://zecmap.com" target="_blank" rel="noreferrer">
               {t("map.open", "Open Zec Map")}

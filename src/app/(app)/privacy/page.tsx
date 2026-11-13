@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHero } from "@/components/section-hero";
-import { Button } from "@/components/ui/button";
 import { defaultLocale, localePath, type Locale } from "@/lib/i18n";
 import { getTranslator } from "@/lib/messages.server";
 
@@ -28,14 +27,6 @@ export function PrivacyPageContent({ locale = defaultLocale }: { locale?: Locale
         eyebrow={t("privacy.title", "Privacy")}
         title={t("privacy.title", "Privacy")}
         description={t("privacy.description", "No analytics, no ad networks, no tracking cookies, no fingerprinting.")}
-        actions={
-          <Button asChild variant="secondary">
-            <a href="https://zechub.wiki/privacy" target="_blank" rel="noreferrer">
-              {t("privacy.original", "Original statement")}
-            </a>
-          </Button>
-        }
-        meta={<span>{t("privacy.source", "Source: zechub.wiki/privacy")}</span>}
       />
 
       <div className="container-page py-8 md:py-10">
@@ -57,16 +48,6 @@ export function PrivacyPageContent({ locale = defaultLocale }: { locale?: Locale
             </section>
           ))}
           <p className="border-t border-line pt-4 text-xs leading-relaxed text-muted">
-            Read the source statement at{" "}
-            <a
-              href="https://zechub.wiki/privacy"
-              target="_blank"
-              rel="noreferrer"
-              className="text-gold-deep underline underline-offset-4"
-            >
-              zechub.wiki/privacy
-            </a>
-            .{" "}
             <Link href={localePath(locale, "/settings")} className="text-gold-deep underline underline-offset-4">
               {t("privacy.back", "Back to settings")}
             </Link>

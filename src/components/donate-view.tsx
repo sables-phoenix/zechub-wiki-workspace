@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
   allDonationAddresses,
-  donationSourceUrl,
   donationV0Address,
   donationV1Addresses,
   type DonationAddress,
@@ -44,13 +43,6 @@ export function DonateView() {
         eyebrow={t("donate.eyebrow", "Donate to ZecHub")}
         title={t("donate.title", "Donate to ZecHub")}
         description={t("donate.description", "Support ZecHub's open-source mission to provide unbiased, global educational materials and tutorials for the Zcash ecosystem.")}
-        actions={
-          <Button asChild variant="secondary">
-            <a href={donationSourceUrl} target="_blank" rel="noreferrer">
-              {t("donate.originalPage", "Original donation page")}
-            </a>
-          </Button>
-        }
         meta={
           <>
             <span>{t("donate.versions", "v0 and v1")}</span>

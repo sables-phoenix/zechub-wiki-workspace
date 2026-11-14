@@ -9,14 +9,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "border-ink bg-gold text-gold-ink shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
+          "border-ink bg-gold text-gold-ink shadow-[var(--shadow-button)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-button-hover)] active:translate-y-0 active:shadow-[var(--shadow-button-active)]",
         secondary:
-          "border-ink bg-paper text-ink shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
+          "border-ink bg-paper text-ink shadow-[var(--shadow-button)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-button-hover)] active:translate-y-0 active:shadow-[var(--shadow-button-active)]",
         dark:
-          "border-vault bg-vault text-vault-text shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
+          "border-vault bg-vault text-vault-text shadow-[var(--shadow-button)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-button-hover)] active:translate-y-0 active:shadow-[var(--shadow-button-active)]",
         ghost: "border-transparent bg-transparent text-ink hover:bg-paper-2",
         danger:
-          "border-rust bg-rust text-white shadow-stamp hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_var(--shadow-color)]",
+          "border-rust bg-rust text-white shadow-[var(--shadow-button)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-button-hover)] active:translate-y-0 active:shadow-[var(--shadow-button-active)]",
         link: "h-auto border-transparent bg-transparent p-0 text-ink underline-offset-4 hover:underline",
       },
       size: {

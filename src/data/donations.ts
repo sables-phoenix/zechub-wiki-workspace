@@ -58,9 +58,6 @@ export const donationV1Addresses: readonly DonationAddress[] = [
   },
 ];
 
-export const allDonationAddresses: readonly DonationAddress[] = [
-  donationV0Address,
-  ...donationV1Addresses,
-];
+export const allDonationAddresses: readonly DonationAddress[] = donationV1Addresses;
 
 export const donationSourceUrl = "https://zechub.wiki/donation";

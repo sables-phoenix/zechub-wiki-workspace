@@ -116,7 +116,7 @@ export function DonateView() {
 
             {selected ? (
               <>
-                <div className="mt-5 grid gap-4 md:grid-cols-[minmax(0,1fr)_auto]">
+                <div className="mt-5">
                   <div className="rounded-card border border-line bg-paper-2 p-4 md:p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
@@ -137,16 +137,6 @@ export function DonateView() {
                       </Button>
                       <span className="text-xs text-muted">{selected.note}</span>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-center justify-center rounded-card border border-line bg-paper-2 p-4">
-                    <AddressQr
-                      value={selected.address}
-                      size={176}
-                      title={`${selected.chain} donation address QR code`}
-                    />
-                    <p className="mt-2 text-center font-mono text-[8px] uppercase tracking-[0.08em] text-muted">
-                      {t("donate.scan", "Scan with a compatible wallet")}
-                    </p>
                   </div>
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-muted">
@@ -190,9 +180,6 @@ export function DonateView() {
             <div>
               <p className="eyebrow">{t("donate.scanOrCopy", "Scan or copy")}</p>
               <h2 className="mt-1 text-3xl leading-none tracking-[-0.04em]">{t("donate.everyAddress", "Every address.")}</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-                {t("donate.everyAddressCopy", "Six QR codes across v0 and v1. Confirm the chain and the first characters in your wallet before you send.")}
-              </p>
             </div>
             <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
               {allDonationAddresses.length} {t("donate.codes", "codes")}

@@ -83,7 +83,7 @@ export function LibraryView() {
             <Input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search all 232 pages..."
+              placeholder={`Search all ${pages.length} pages...`}
               className="h-11 pl-9"
               aria-label="Search all pages"
             />

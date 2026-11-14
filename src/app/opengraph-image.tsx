@@ -61,7 +61,7 @@ export default function OpenGraphImage() {
               fontFamily: "Arial, sans-serif",
             }}
           >
-            232 pages · 38 active wallets · live network data
+            237 pages · 38 active wallets · live network data
           </div>
         </div>
         <div

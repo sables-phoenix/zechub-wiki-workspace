@@ -42,7 +42,7 @@ export function DesktopWallpaper({ onOpen, showWidgets }: DesktopWallpaperProps)
 
         <div className="mt-6 grid grid-cols-3 gap-2">
           {[
-            { value: "232", label: "Pages" },
+            { value: "237", label: "Pages" },
             { value: String(activeWallets.length), label: "Wallets" },
             { value: "19", label: "Languages" },
           ].map((item) => (

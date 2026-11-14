@@ -70,7 +70,7 @@ export function SettingsView() {
         }
         meta={
           <>
-            <span>{t("settings.pages", "232 pages")}</span>
+            <span>{t("settings.pages", "237 pages")}</span>
             <span>{activeWallets.length} {t("wallets.activeWallets", "active wallets")}</span>
             <span>{t("settings.languageCount", "21 languages")}</span>
           </>

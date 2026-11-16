@@ -43,7 +43,7 @@ const tones: Record<IconKind, string> = {
   donate: "text-[#b6402e]",
   contribute: "text-[#8a5c00]",
   settings: "text-[#4a463e]",
-  launchpad: "text-ink",
+  launchpad: "text-[#14130f]",
 };
 
 const icons: Record<IconKind, AnimatedIcon> = {

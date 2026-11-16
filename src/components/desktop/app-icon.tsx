@@ -1,17 +1,20 @@
-import type { ComponentType } from "react";
-import BookIcon from "@/components/animated-icons/book-icon";
-import ChartLineIcon from "@/components/animated-icons/chart-line-icon";
-import CodeIcon from "@/components/animated-icons/code-icon";
-import GearIcon from "@/components/animated-icons/gear-icon";
-import GlobeIcon from "@/components/animated-icons/globe-icon";
-import HandHeartIcon from "@/components/animated-icons/hand-heart-icon";
-import HomeIcon from "@/components/animated-icons/home-icon";
-import LayoutDashboardIcon from "@/components/animated-icons/layout-dashboard-icon";
-import Stack3Icon from "@/components/animated-icons/stack-3-icon";
-import PenIcon from "@/components/animated-icons/pen-icon";
-import RocketIcon from "@/components/animated-icons/rocket-icon";
-import { SendIcon } from "@/components/animated-icons/send-icon";
-import { WalletIcon } from "@/components/animated-icons/wallet-icon";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  BookOpen01Icon,
+  ChartLineData01Icon,
+  DashboardSquare01Icon,
+  Globe02Icon,
+  HandHeartIcon,
+  Home01Icon,
+  LibraryBigIcon,
+  PencilEdit02Icon,
+  Rocket01Icon,
+  SentIcon,
+  Settings01Icon,
+  SourceCodeIcon,
+  Wallet01Icon,
+} from "@hugeicons/core-free-icons";
+import type { IconSvgElement } from "@hugeicons/react";
 import type { AppId } from "@/lib/apps";
 import { cn } from "@/lib/utils";
 
@@ -22,13 +25,6 @@ type AppIconProps = {
   className?: string;
   size?: number;
 };
-
-type AnimatedIcon = ComponentType<{
-  size?: number;
-  strokeWidth?: number;
-  className?: string;
-  "aria-hidden"?: boolean;
-}>;
 
 const tones: Record<IconKind, string> = {
   home: "text-[#8a5c00]",
@@ -46,30 +42,31 @@ const tones: Record<IconKind, string> = {
   launchpad: "text-[#14130f]",
 };
 
-const icons: Record<IconKind, AnimatedIcon> = {
-  home: HomeIcon,
-  start: RocketIcon,
-  wallets: WalletIcon,
-  use: SendIcon,
-  learn: BookIcon,
-  build: CodeIcon,
-  ecosystem: GlobeIcon,
-  library: Stack3Icon,
-  network: ChartLineIcon,
+const icons: Record<IconKind, IconSvgElement> = {
+  home: Home01Icon,
+  start: Rocket01Icon,
+  wallets: Wallet01Icon,
+  use: SentIcon,
+  learn: BookOpen01Icon,
+  build: SourceCodeIcon,
+  ecosystem: Globe02Icon,
+  library: LibraryBigIcon,
+  network: ChartLineData01Icon,
   donate: HandHeartIcon,
-  contribute: PenIcon,
-  settings: GearIcon,
-  launchpad: LayoutDashboardIcon,
+  contribute: PencilEdit02Icon,
+  settings: Settings01Icon,
+  launchpad: DashboardSquare01Icon,
 };
 
 export function AppIcon({ kind, className, size = 18 }: AppIconProps) {
-  const Icon = icons[kind];
   return (
-    <Icon
+    <HugeiconsIcon
+      icon={icons[kind]}
       size={size}
-      strokeWidth={1.7}
-      className={cn("h-[18px] w-[18px]", tones[kind], className)}
+      strokeWidth={1.6}
+      color="currentColor"
       aria-hidden={true}
+      className={cn("h-[18px] w-[18px]", tones[kind], className)}
     />
   );
 }

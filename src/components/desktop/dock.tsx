@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
 import { AppIcon } from "@/components/desktop/app-icon";
 import { useI18n } from "@/components/i18n-provider";
 import { cn } from "@/lib/utils";
@@ -59,12 +60,15 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
               <span className="text-[7px] capitalize text-vault-muted transition-colors group-hover:text-vault-text">
                 {t(appKey[app.id] ?? "common.home", app.dockLabel)}
               </span>
-              <span
-                className={cn(
-                  "h-1 w-1 rounded-full",
-                  activeId === app.id ? "bg-gold" : "bg-transparent",
-                )}
-              />
+              {activeId === app.id ? (
+                <motion.span
+                  layoutId="dock-active-underline"
+                  className="h-[2px] w-4 rounded-full bg-gold-deep"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              ) : (
+                <span className="h-[2px] w-4 rounded-full bg-transparent" />
+              )}
             </button>
           ))}
           <div className="mx-1 mb-3 h-8 w-px bg-vault-line" />
@@ -80,7 +84,7 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             <span className="text-[7px] capitalize text-vault-muted transition-colors group-hover:text-vault-text">
               {t("shell.launchpad", "Launchpad")}
             </span>
-            <span className="h-1 w-1 rounded-full bg-transparent" />
+            <span className="h-[2px] w-4 rounded-full bg-transparent" />
           </button>
         </div>
       </nav>
@@ -103,7 +107,15 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             <span className={cn("text-[9px] capitalize", activeId === app.id ? "text-vault-text" : "text-vault-muted")}>
               {t(appKey[app.id] ?? "common.home", app.dockLabel)}
             </span>
-            <span className={cn("h-1 w-1 rounded-full", activeId === app.id ? "bg-gold" : "bg-transparent")} />
+            {activeId === app.id ? (
+              <motion.span
+                layoutId="mobile-dock-active-underline"
+                className="h-[2px] w-4 rounded-full bg-gold-deep"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            ) : (
+              <span className="h-[2px] w-4 rounded-full bg-transparent" />
+            )}
           </button>
         ))}
         <button
@@ -116,7 +128,7 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             <AppIcon kind="launchpad" className="h-4 w-4" />
           </span>
           <span className="text-[9px] text-vault-muted">{t("shell.more", "More")}</span>
-          <span className="h-1 w-1 rounded-full bg-transparent" />
+          <span className="h-[2px] w-4 rounded-full bg-transparent" />
         </button>
       </nav>
     </>

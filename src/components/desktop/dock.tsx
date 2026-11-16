@@ -63,11 +63,11 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
               {activeId === app.id ? (
                 <motion.span
                   layoutId="dock-active-underline"
-                  className="h-[2px] w-4 rounded-full bg-gold-deep"
+                  className="h-[3px] w-5 rounded-full bg-gold-deep"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               ) : (
-                <span className="h-[2px] w-4 rounded-full bg-transparent" />
+                <span className="h-[3px] w-5 rounded-full bg-transparent" />
               )}
             </button>
           ))}
@@ -84,7 +84,7 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             <span className="text-[7px] capitalize text-vault-muted transition-colors group-hover:text-vault-text">
               {t("shell.launchpad", "Launchpad")}
             </span>
-            <span className="h-[2px] w-4 rounded-full bg-transparent" />
+            <span className="h-[3px] w-5 rounded-full bg-transparent" />
           </button>
         </div>
       </nav>
@@ -110,11 +110,11 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             {activeId === app.id ? (
               <motion.span
                 layoutId="mobile-dock-active-underline"
-                className="h-[2px] w-4 rounded-full bg-gold-deep"
+                className="h-[3px] w-5 rounded-full bg-gold-deep"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             ) : (
-              <span className="h-[2px] w-4 rounded-full bg-transparent" />
+              <span className="h-[3px] w-5 rounded-full bg-transparent" />
             )}
           </button>
         ))}
@@ -128,7 +128,7 @@ export function Dock({ pathname, onOpen, onLaunchpad }: DockProps) {
             <AppIcon kind="launchpad" className="h-4 w-4" />
           </span>
           <span className="text-[9px] text-vault-muted">{t("shell.more", "More")}</span>
-          <span className="h-[2px] w-4 rounded-full bg-transparent" />
+          <span className="h-[3px] w-5 rounded-full bg-transparent" />
         </button>
       </nav>
     </>

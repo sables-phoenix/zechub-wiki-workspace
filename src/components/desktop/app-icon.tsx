@@ -1,19 +1,17 @@
-import {
-  Activity,
-  ArrowLeftRight,
-  BookOpen,
-  Flag,
-  Globe2,
-  Heart,
-  Home,
-  LayoutGrid,
-  Library,
-  PenLine,
-  Settings,
-  Terminal,
-  Wallet,
-  type LucideIcon,
-} from "lucide-react";
+import type { ComponentType } from "react";
+import BookIcon from "@/components/animated-icons/book-icon";
+import ChartLineIcon from "@/components/animated-icons/chart-line-icon";
+import CodeIcon from "@/components/animated-icons/code-icon";
+import GearIcon from "@/components/animated-icons/gear-icon";
+import GlobeIcon from "@/components/animated-icons/globe-icon";
+import HandHeartIcon from "@/components/animated-icons/hand-heart-icon";
+import HomeIcon from "@/components/animated-icons/home-icon";
+import LayoutDashboardIcon from "@/components/animated-icons/layout-dashboard-icon";
+import LibraryIcon from "@/components/animated-icons/library-icon";
+import PenIcon from "@/components/animated-icons/pen-icon";
+import RocketIcon from "@/components/animated-icons/rocket-icon";
+import { SendIcon } from "@/components/animated-icons/send-icon";
+import { WalletIcon } from "@/components/animated-icons/wallet-icon";
 import type { AppId } from "@/lib/apps";
 import { cn } from "@/lib/utils";
 
@@ -22,25 +20,40 @@ type IconKind = AppId | "launchpad";
 type AppIconProps = {
   kind: IconKind;
   className?: string;
+  size?: number;
 };
 
-const icons: Record<IconKind, LucideIcon> = {
-  home: Home,
-  start: Flag,
-  wallets: Wallet,
-  use: ArrowLeftRight,
-  learn: BookOpen,
-  build: Terminal,
-  ecosystem: Globe2,
-  library: Library,
-  network: Activity,
-  donate: Heart,
-  contribute: PenLine,
-  settings: Settings,
-  launchpad: LayoutGrid,
+type AnimatedIcon = ComponentType<{
+  size?: number;
+  strokeWidth?: number;
+  className?: string;
+  "aria-hidden"?: boolean;
+}>;
+
+const icons: Record<IconKind, AnimatedIcon> = {
+  home: HomeIcon,
+  start: RocketIcon,
+  wallets: WalletIcon,
+  use: SendIcon,
+  learn: BookIcon,
+  build: CodeIcon,
+  ecosystem: GlobeIcon,
+  library: LibraryIcon,
+  network: ChartLineIcon,
+  donate: HandHeartIcon,
+  contribute: PenIcon,
+  settings: GearIcon,
+  launchpad: LayoutDashboardIcon,
 };
 
-export function AppIcon({ kind, className }: AppIconProps) {
+export function AppIcon({ kind, className, size = 18 }: AppIconProps) {
   const Icon = icons[kind];
-  return <Icon strokeWidth={1.7} aria-hidden="true" className={cn("h-4 w-4", className)} />;
+  return (
+    <Icon
+      size={size}
+      strokeWidth={1.7}
+      className={cn("h-[18px] w-[18px]", className)}
+      aria-hidden={true}
+    />
+  );
 }

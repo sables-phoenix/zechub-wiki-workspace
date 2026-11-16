@@ -31,6 +31,14 @@ type AnimatedIcon = ComponentType<{
 }>;
 
 
+const strokeWidths: Partial<Record<IconKind, number>> = {
+  start: 3,
+  learn: 6.8,
+  ecosystem: 6.8,
+  contribute: 3,
+  settings: 3,
+};
+
 const icons: Record<IconKind, AnimatedIcon> = {
   home: HomeIcon,
   start: RocketIcon,
@@ -52,7 +60,7 @@ export function AppIcon({ kind, className, size = 18 }: AppIconProps) {
   return (
     <Icon
       size={size}
-      strokeWidth={1.7}
+      strokeWidth={strokeWidths[kind] ?? 1.7}
       className={cn("h-[18px] w-[18px] text-[#14130f]", className)}
       aria-hidden={true}
     />

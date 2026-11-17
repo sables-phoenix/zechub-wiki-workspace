@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Check, Globe2, Monitor } from "lucide-react";
+import { BookOpen, Check, Globe2, Laptop, LayoutGrid, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useI18n } from "@/components/i18n-provider";
 import { localeMeta, localePath, stripLocale } from "@/lib/i18n";
@@ -21,8 +21,10 @@ import { MoonIcon } from "@/components/animated-icons/moon-icon";
 import { PaintIcon } from "@/components/animated-icons/paint-icon";
 import { SunIcon } from "@/components/animated-icons/sun-icon";
 import { PriceTicker } from "@/components/price-ticker";
+import { useIsEmbedded } from "@/hooks/use-is-embedded";
 import { useLocalNow } from "@/hooks/use-local-now";
 import { useMounted } from "@/hooks/use-mounted";
+import { requestParentInterface } from "@/lib/embedded";
 import { cn } from "@/lib/utils";
 import type { WindowMeta } from "@/lib/apps";
 
@@ -318,6 +320,7 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
   const { theme, setTheme } = useTheme();
   const { t, locale } = useI18n();
   const mounted = useMounted();
+  const embedded = useIsEmbedded();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -330,6 +333,12 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
     { value: "light", label: t("shell.paper", "Paper"), icon: SunIcon },
     { value: "dark", label: t("shell.vault", "Vault"), icon: MoonIcon },
     { value: "system", label: t("shell.system", "System"), icon: Monitor },
+  ] as const;
+
+  const interfaces = [
+    { value: "classic", label: t("shell.classic", "Classic"), icon: LayoutGrid },
+    { value: "reader", label: t("shell.reader", "Reader"), icon: BookOpen },
+    { value: "desktop", label: t("shell.desktop", "Desktop"), icon: Laptop },
   ] as const;
 
   return (
@@ -347,6 +356,40 @@ function ControlCenter({ onNavigate }: { onNavigate: (href: string) => void }) {
         <DropdownMenuLabel className="px-0 pt-0">
           {t("shell.controlCenter", "Control Center")}
         </DropdownMenuLabel>
+        {embedded ? (
+          <>
+            <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
+              {t("shell.interface", "Interface")}
+            </p>
+            <div className="mt-2 grid grid-cols-3 gap-1 rounded-lg border border-line bg-paper-2 p-1">
+              {interfaces.map((option) => {
+                const Icon = option.icon;
+                const selected = option.value === "desktop";
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => {
+                      if (option.value === "desktop") return;
+                      requestParentInterface(option.value);
+                      setOpen(false);
+                    }}
+                    className={cn(
+                      "flex flex-col items-center gap-1 rounded-md px-1 py-2 text-[10px] text-muted transition-colors",
+                      selected ? "bg-gold text-gold-ink" : "hover:bg-paper hover:text-ink",
+                    )}
+                  >
+                    <Icon size={13} className="h-3.5 w-3.5" />
+                    {option.label}
+                    {selected ? <Check className="h-3 w-3" /> : null}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-3" />
+          </>
+        ) : null}
         <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
           {t("shell.theme", "Theme")}
         </p>

@@ -1,16 +1,18 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { Check, Monitor } from "lucide-react";
+import { BookOpen, Check, Laptop, LayoutGrid, Monitor } from "lucide-react";
 import { useI18n } from "@/components/i18n-provider";
 import { localePath, stripLocale, type Locale } from "@/lib/i18n";
 import { rememberLocale } from "@/lib/locale-cookie";
 import { GithubMark } from "@/components/github-mark";
+import { requestParentInterface } from "@/lib/embedded";
 import { useTheme } from "next-themes";
 import { MoonIcon } from "@/components/animated-icons/moon-icon";
 import { SunIcon } from "@/components/animated-icons/sun-icon";
 import { SectionHero } from "@/components/section-hero";
 import { Button } from "@/components/ui/button";
+import { useIsEmbedded } from "@/hooks/use-is-embedded";
 import { useMounted } from "@/hooks/use-mounted";
 import { activeWallets } from "@/lib/wallets";
 import { cn } from "@/lib/utils";
@@ -47,11 +49,18 @@ export function SettingsView() {
   const pathname = usePathname();
   const { path } = stripLocale(pathname);
   const mounted = useMounted();
+  const embedded = useIsEmbedded();
 
   const options = [
     { value: "light", label: t("shell.paper", "Paper"), icon: SunIcon },
     { value: "dark", label: t("shell.vault", "Vault"), icon: MoonIcon },
     { value: "system", label: t("shell.system", "System"), icon: Monitor },
+  ] as const;
+
+  const interfaces = [
+    { value: "classic", label: t("shell.classic", "Classic"), icon: LayoutGrid },
+    { value: "reader", label: t("shell.reader", "Reader"), icon: BookOpen },
+    { value: "desktop", label: t("shell.desktop", "Desktop"), icon: Laptop },
   ] as const;
 
   return (
@@ -79,6 +88,41 @@ export function SettingsView() {
 
       <div className="container-page grid gap-6 py-8 md:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <section className="rounded-card border border-line bg-paper p-5 shadow-stamp md:p-6">
+          {embedded ? (
+            <>
+              <p className="eyebrow">{t("shell.interface", "Interface")}</p>
+              <div className="mt-3 grid gap-2">
+                {interfaces.map((option) => {
+                  const Icon = option.icon;
+                  const selected = option.value === "desktop";
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      aria-pressed={selected}
+                      onClick={() => {
+                        if (option.value === "desktop") return;
+                        requestParentInterface(option.value);
+                      }}
+                      className={cn(
+                        "flex items-center justify-between rounded-card border px-4 py-3 text-left transition-colors",
+                        selected
+                          ? "border-gold bg-gold/10"
+                          : "border-line bg-paper hover:border-ink/30 hover:bg-paper-2",
+                      )}
+                    >
+                      <span className="flex items-center gap-3">
+                        <Icon size={16} className="h-4 w-4 text-muted" />
+                        <span className="text-sm font-medium">{option.label}</span>
+                      </span>
+                      {selected ? <Check className="h-4 w-4 text-gold-deep" /> : null}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="my-5 h-px bg-line" />
+            </>
+          ) : null}
           <p className="eyebrow">{t("settings.appearance", "Appearance")}</p>
           <h2 className="mt-1 text-2xl leading-none tracking-[-0.04em]">{t("shell.theme", "Theme")}</h2>
           <div className="mt-4 grid gap-2">

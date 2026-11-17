@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import { getParentOrigin } from "@/lib/embedded";
 
 type ParentTheme = "paper" | "vault";
 
@@ -19,14 +20,11 @@ export function EmbeddedThemeBridge() {
   }, [setTheme]);
 
   useEffect(() => {
-    if (window.self === window.top) return;
-
-    const params = new URLSearchParams(window.location.search);
-    const origin = params.get("parentOrigin");
+    const origin = getParentOrigin();
     if (!origin) return;
     parentOrigin.current = origin;
 
-    const initial = params.get("theme");
+    const initial = new URLSearchParams(window.location.search).get("theme");
     if (isParentTheme(initial)) {
       setThemeRef.current(initial === "paper" ? "light" : "dark");
     }

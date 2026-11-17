@@ -12,6 +12,11 @@ function isParentTheme(value: unknown): value is ParentTheme {
 export function EmbeddedThemeBridge() {
   const { setTheme, resolvedTheme } = useTheme();
   const parentOrigin = useRef<string | null>(null);
+  const setThemeRef = useRef(setTheme);
+
+  useEffect(() => {
+    setThemeRef.current = setTheme;
+  }, [setTheme]);
 
   useEffect(() => {
     if (window.self === window.top) return;
@@ -23,7 +28,7 @@ export function EmbeddedThemeBridge() {
 
     const initial = params.get("theme");
     if (isParentTheme(initial)) {
-      setTheme(initial === "paper" ? "light" : "dark");
+      setThemeRef.current(initial === "paper" ? "light" : "dark");
     }
 
     const onMessage = (event: MessageEvent) => {
@@ -31,12 +36,12 @@ export function EmbeddedThemeBridge() {
       if (!event.data || event.data.type !== "zechub:theme") return;
       const theme = event.data.theme;
       if (!isParentTheme(theme)) return;
-      setTheme(theme === "paper" ? "light" : "dark");
+      setThemeRef.current(theme === "paper" ? "light" : "dark");
     };
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [setTheme]);
+  }, []);
 
   useEffect(() => {
     const origin = parentOrigin.current;

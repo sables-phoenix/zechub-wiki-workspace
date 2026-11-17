@@ -3,6 +3,7 @@ import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LocaleBoot } from "@/components/locale-boot";
 import { ThemeProvider } from "@/components/theme-provider";
+import { EmbeddedThemeBridge } from "@/components/embedded-theme-bridge";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { siteUrl } from "@/lib/site";
@@ -64,6 +65,7 @@ export default function RootLayout({
       </head>
       <body className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} font-sans antialiased`}>
         <ThemeProvider>
+          <EmbeddedThemeBridge />
           <TooltipProvider delayDuration={180}>
             {children}
             <Toaster />
